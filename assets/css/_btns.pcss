@@ -1,4 +1,4 @@
-.btn {
+/* .btn {
   @apply text-center rounded py-2 px-4 border border-white text-accent;
   &:hover {
     @apply border-gray-200 bg-accent-600 text-white;
@@ -23,5 +23,92 @@
     &:hover {
       @apply border-gray-200 bg-accent-600 text-white;
     }
+  }
+} */
+
+button,
+.button {
+  @apply font-sans pl-8 pr-8 py-3 rounded-btn tracking-wide flex flex-row justify-center items-center font-medium;
+
+  & .unicon {
+    @apply mr-3;
+  }
+
+  &.icon {
+    @apply pl-4 pr-6;
+  }
+
+  &.wide {
+    @apply w-full;
+  }
+
+  &.primary {
+    @apply text-white bg-primary-600;
+    @apply transition-colors duration-200;
+
+    &:hover {
+      @apply bg-primary-500;
+    }
+
+    &:active {
+      @apply bg-primary-700;
+    }
+
+    &.disabled {
+      @apply bg-gray-400;
+    }
+  }
+
+  &.secondary {
+    @apply text-primary-600 border-primary-600 border-2 border-solid bg-white font-bold;
+    @apply transition-colors duration-200;
+
+    &:hover {
+      @apply border-primary-500 text-primary-500;
+    }
+
+    &:active {
+      @apply border-primary-700 text-primary-700;
+    }
+  }
+
+  &.cta {
+    @apply bg-tertiary-600 text-white;
+    @apply transition-colors duration-200;
+
+    &:hover {
+      @apply bg-tertiary-500;
+    }
+
+    &:active {
+      @apply bg-tertiary-700;
+    }
+  }
+
+  &.tertiary,
+  &.dropdown-button {
+    @apply text-black border-2 border-solid border-gray-400 bg-white font-bold pl-5 pt-3 pb-3 tracking-normal text-xl;
+    @apply transition-all duration-200;
+
+    &:hover {
+      @apply border-gray-300 bg-gray-100;
+      @apply tracking-wide;
+    }
+
+    &:active {
+      @apply border-gray-500 bg-gray-200;
+    }
+  }
+
+  &.tertiary {
+    @apply pr-5;
+  }
+
+  &.dropdown-button {
+    @apply pr-0 py-0;
+  }
+
+  &.short {
+    @apply py-2 tracking-normal;
   }
 }

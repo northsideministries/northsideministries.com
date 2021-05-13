@@ -1,22 +1,29 @@
 {
-  "name": "ntn-boilerplate",
+  "name": "northsideministries.com",
   "version": "1.0.0",
-  "description": "Nuxt-Tailwind-NetlifyCMS boilerplate",
-  "author": "Sven Parker <sven@svenparker.com> (https://svenparker.com)",
+  "description": "Northside Baptist Church Website",
+  "author": "Peyton McGinnis <hello@sergix.dev> (https://www.sergix.dev)",
   "scripts": {
-    "dev": "nuxt",
+    "dev": "sh -c \"npx netlify-cms-proxy-server\" & nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/knogobert/ntn-boilerplate#readme"
+    "url": "https://github.com/northsideministries/northsideministries.com"
   },
   "license": "MIT",
   "dependencies": {
+    "@fontsource/dm-mono": "^4.3.0",
+    "@fontsource/libre-baskerville": "^4.3.0",
+    "@nuxt/content": "^1.14.0",
     "@nuxtjs/markdownit": "^1.2.6",
-    "nuxt": "^2.14.12"
+    "mapbox-gl": "^2.2.0",
+    "nuxt": "^2.14.12",
+    "vue-content-placeholders": "^0.2.1",
+    "vue-mapbox": "^0.4.1",
+    "vue-unicons": "^3.2.1"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^1.1.1",
@@ -33,7 +40,6 @@
     "postcss-nesting": "^7.0.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^1.16.4",
-    "tailwindcss": "^1.9.6",
-    "tailwindcss-dark-mode": "^1.1.7"
+    "tailwindcss": "^1.9.6"
   }
 }

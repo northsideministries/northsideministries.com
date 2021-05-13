@@ -1,22 +1,74 @@
 <template>
-  <div class="main text-center flex flex-col items-center justify-center">
-    <!-- <logo /> -->
-    <h1 class="title">Nuxt — Tailwind — Netlify CMS</h1>
-    <h2 class="subtitle">Boilerplate</h2>
-  </div>
+  <main class="mb-24">
+    <div class="content">
+      <section>
+        <img v-if="mobile" class="absolute bottom-0 left-0 hero-bg" src="~/assets/img/home-hero-bg.svg" />
+
+        <h1 class="font-serif font-bold text-2xl pr-6 leading-7">Living to praise of God's glorious grace.</h1>
+        <img class="mt-5" src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Main image" />
+        <p class="mt-6 leading-6">Northside Baptist Church prepares believers to live for Christ and to witness to their community. Come worship with us this Sunday!</p>
+        <NuxtLinkButton class="mt-6 shadow-tall" to="/watch" type="primary" wide>
+          JOIN US
+        </NuxtLinkButton>
+      </section>
+
+      <section class="bg-yellow-500 rounded-btn py-6 px-6">
+        <div class="flex flex-row items-center justify-center -ml-4">
+          <client-only>
+            <unicon name="heart-medical" fill="black" width="26" height="26"></unicon>
+          </client-only>
+          <h3 class="ml-2 font-bold">COVID-19 UPDATES</h3>
+        </div>
+        <p class="text-center mt-6 px-4 leading-6">Our staff is working to provide a safe environment to worship in accordance with guidance from the CDC and other agencies.</p>
+        <NuxtLinkButton class="mt-6 shadow-tall" to="/covid" type="primary">
+          REVIEW OUR GUIDELINES
+        </NuxtLinkButton>
+      </section>
+
+      <section>
+        <h2 class="text-center">Our Location</h2>
+        <Location />
+      </section>
+
+      <section class="px-4">
+        <h2 class="leading-7">Have any questions about us or our ministries?</h2>
+        <NuxtLinkButton class="shadow-regular mt-4" to="/contact" type="cta" wide>
+          CONTACT US
+        </NuxtLinkButton>
+      </section>
+    </div>
+  </main>
 </template>
 
 <script>
-// import Logo from '~/components/Logo.vue'
+import Location from '~/components/Location'
+import NuxtLinkButton from '~/components/NuxtLinkButton'
+import { isMobile } from '~/utils/mobile'
 
 export default {
-  // components: {
-  //   Logo
-  // },
+  components: {
+    Location,
+    NuxtLinkButton
+  },
   head() {
     return {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
     }
+  },
+  data() {
+    return {
+      mobile: (isMobile())
+    }
   }
 }
 </script>
+
+<style lang="postcss" scoped>
+.content > section {
+  @apply mt-16;
+}
+
+.hero-bg {
+  z-index: -1;
+}
+</style>

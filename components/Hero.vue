@@ -1,0 +1,38 @@
+<template>
+  <div class="hero flex flex-col">
+    <div class="h-64">
+      <img :src="img" />
+    </div>
+
+    <div class="mx-auto -mt-16 w-full px-6 hero-content">
+      <div class="bg-white font-serif py-6 px-8 text-2xl text-primary-600">
+        <h1>{{ title }}</h1>
+      </div>
+      <p class="bg-primary-700 text-white pt-6 pb-8 px-8 leading-7">
+        <slot />
+      </p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Hero',
+  props: {
+    img: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    }
+  }
+}
+</script>
+
+<style lang="postcss" scoped>
+.hero-content {
+  margin-top: -78px;
+}
+</style>

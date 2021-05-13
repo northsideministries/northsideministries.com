@@ -1,22 +1,35 @@
-a {
-  color: var(--text-secondary);
-  @apply font-bold transition-colors duration-200 ease-in-out;
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('~assets/fonts/DM_Sans/DMSans-Regular.ttf') format('truetype');
 }
 
-.title {
-  color: var(--color-primary);
-  @apply block font-bold text-5xl tracking-wide transition-colors duration-200 ease-in-out;
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('~assets/fonts/DM_Sans/DMSans-Medium.ttf') format('truetype');
 }
 
-.subtitle {
-  color: var(--text-secondary);
-  word-spacing: 0.15em;
-  @apply block font-light text-3xl tracking-wide pb-4 transition-colors duration-200 ease-in-out;
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('~assets/fonts/DM_Sans/DMSans-Bold.ttf') format('truetype');
 }
 
-.light-mode {
-  .title {
-    color: var(--color-primary-600);
-    @apply block font-bold text-5xl tracking-wide transition-colors duration-200 ease-in-out;
-  }
+h2 {
+  @apply font-serif text-xl;
+}
+
+h3 {
+  @apply text-xl font-medium;
+}
+
+h4 {
+  @apply font-sans text-base font-bold;
 }

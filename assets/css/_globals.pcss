@@ -7,7 +7,23 @@ html {
 }
 
 body {
-  background-color: var(--bg);
-  color: var(--text);
+  /* background-color: var(--bg);
+  color: var(--text); */
   @apply transition-colors duration-200 ease-in-out;
+}
+
+.mapboxgl-map {
+  @apply border border-gray-400 rounded-btn border-solid;
+}
+
+address {
+  @apply not-italic;
+}
+
+p {
+  @apply leading-5;
+}
+
+main {
+  @apply mt-10;
 }
