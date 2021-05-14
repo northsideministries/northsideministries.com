@@ -1,9 +1,19 @@
 .container {
   min-height: 100vh;
   padding-top: 56px; /* header height */
-  @apply my-0 mx-auto flex flex-col;
+  @apply my-0 mx-auto flex flex-col relative;
+
+  @screen md {
+    @apply max-w-full;
+    & > *:not(nav) {
+      @apply px-16;
+    }
+  }
 }
 
 .content {
   @apply px-6;
+  @screen md {
+    @apply mx-auto max-w-screen-md;
+  }
 }

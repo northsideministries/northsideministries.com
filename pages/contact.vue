@@ -24,19 +24,22 @@
       </section>
       <section>
         <h2>Email</h2>
-        <Card v-for="contact in page.contact_list" :key="contact.name" :title="contact.name" :subtitle="contact.occupation">
-          <address>{{ contact.email }}</address>
-          <LinkButton
-            type="secondary"
-            :link="'mailto:' + contact.email"
-            icon="envelope-add"
-            iconColor="#2941A3"
-            wide
-            short
-          >
-            DRAFT EMAIL
-          </LinkButton>
-        </Card>
+
+        <div class="md:grid md:grid-cols-2 md:col-gap-4 md:row-gap-2">
+          <Card v-for="contact in page.contact_list" :key="contact.name" :title="contact.name" :subtitle="contact.occupation">
+            <address>{{ contact.email }}</address>
+            <LinkButton
+              type="secondary"
+              :link="'mailto:' + contact.email"
+              icon="envelope-add"
+              iconColor="#2941A3"
+              wide
+              short
+            >
+              DRAFT EMAIL
+            </LinkButton>
+          </Card>
+        </div>
       </section>
       <Location />
     </div>

@@ -2,5 +2,17 @@
   "youtube": "https://www.youtube.com",
   "facebook": "https://www.facebook.com",
   "vimeo_channel": "https://www.vimeo.com",
-  "vimeo_stream": "https://www.vimeo.com/livestream"
+  "vimeo_stream": "https://www.vimeo.com/livestream",
+  "livestream_list": [
+    {
+      "teacher": "Mr. Greg Rysta",
+      "class": "Challengers Group",
+      "link": "https://www.youtube.com"
+    },
+    {
+      "teacher": "Dr. Cecil Beach",
+      "class": "Families in Christ",
+      "link": "https://www.youtube.com"
+    }
+  ]
 }

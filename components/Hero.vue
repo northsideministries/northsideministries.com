@@ -1,10 +1,10 @@
 <template>
   <div class="hero flex flex-col">
-    <div class="h-64">
-      <img :src="img" />
+    <div class="h-64 w-full">
+      <img class=" h-64 object-cover w-full" :src="img" />
     </div>
 
-    <div class="mx-auto -mt-16 w-full px-6 hero-content">
+    <div class="mx-auto -mt-16 w-full px-6 hero-content md:w-1/2">
       <div class="bg-white font-serif py-6 px-8 text-2xl text-primary-600">
         <h1>{{ title }}</h1>
       </div>
@@ -33,6 +33,8 @@ export default {
 
 <style lang="postcss" scoped>
 .hero-content {
-  margin-top: -78px;
+  @media (max-width: 767px) {
+    margin-top: -78px;
+  }
 }
 </style>

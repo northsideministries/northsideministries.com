@@ -20,7 +20,7 @@
         </ul>
       </DropdownButton>
 
-      <section class="mt-8">
+      <section class="mt-8 md:grid md:grid-cols-2 md:col-gap-4 md:row-gap-2">
         <Card v-for="event in limited_events" :key="event.title"
           :title="event.title"
           :subtitle="event.date"
@@ -30,19 +30,21 @@
           :link="event.link">
             {{ event.desc }}
         </Card>
-        
-        <div v-if="events.length > LIMIT_DEFAULT">
-          <Button v-show="limit !== null" class="ml-auto mr-auto mt-8" icon="angle-down" iconColor="#2941A3" type="secondary" short @click.native="limit = null">SHOW MORE</Button>
-          <Button v-show="limit === null" class="ml-auto mr-auto mt-8" icon="angle-up" iconColor="#2941A3" type="secondary" short @click.native="limit = LIMIT_DEFAULT">SHOW LESS</Button>
-        </div>
       </section>
+
+      <div v-if="events.length > LIMIT_DEFAULT">
+        <Button v-show="limit !== null" class="ml-auto mr-auto mt-8" icon="angle-down" iconColor="#2941A3" type="secondary" short @click.native="limit = null">SHOW MORE</Button>
+        <Button v-show="limit === null" class="ml-auto mr-auto mt-8" icon="angle-up" iconColor="#2941A3" type="secondary" short @click.native="limit = LIMIT_DEFAULT">SHOW LESS</Button>
+      </div>
     </div>
     <aside class="mt-16 bg-gray-100 px-6 pb-16 pt-10">
       <h2 class="text-center">Ladies' Bible Study</h2>
       
       <!-- TODO: pull content from external service? -->
-      <img class="shadow-regular mt-6" src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Ladies' Bible Study"/>
-      <p class="mt-8 leading-6">“Just Open the Door” is a wonderful series involving video discussions, study helps, and practical applications. We will work through this series from January – August 2021. The book is available at Lifeway or Amazon.</p>
+      <div class="md:max-w-md md:mx-auto">
+        <img class="shadow-regular mt-6" src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Ladies' Bible Study"/>
+        <p class="mt-8 leading-6">“Just Open the Door” is a wonderful series involving video discussions, study helps, and practical applications. We will work through this series from January – August 2021. The book is available at Lifeway or Amazon.</p>
+      </div>
     </aside>
   </main>
 </template>

@@ -4,7 +4,7 @@
       {{ content.description }}
     </Hero>
     <div class="content">
-      <section>
+      <section class="max-w-sm mx-auto">
         <h2>Watch Live</h2>
         <p>Sunday School starts at 9:30am and is livestreamed through Zoom.</p>
         <LivestreamClassList />

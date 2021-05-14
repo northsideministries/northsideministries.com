@@ -1,5 +1,5 @@
 <template>
-  <nav class="px-8 py-6 w-full bg-white top-0 overflow-x-hidden fixed max-h-screen z-10" :class="[mobile_menu_enabled ? 'h-screen overflow-y-scroll' : '']">
+  <nav class="px-8 py-6 w-full bg-white top-0 overflow-hidden fixed max-h-screen z-10" :class="[mobile_menu_enabled ? 'h-screen overflow-y-scroll' : '']">
     <div class="flex flex-row items-center">
       <nuxt-link to="/">
         <h1 v-show="!mobile_menu_enabled" class="tracking-tighter font-serif font-bold text-xl">NORTHSIDE</h1>
@@ -11,7 +11,7 @@
       </Button>
     </div>
     <transition name="slide-right">
-      <div v-show="mobile_menu_enabled" class="mobile-menu absolute top-0 right-0 w-full bg-white mt-20 pb-16 pr-8 z-10 md:hidden">
+      <div v-show="mobile_menu_enabled" class="mobile-menu absolute top-0 right-0 w-full bg-white mt-20 pb-16 pr-8 z-10">
         <ul class="flex flex-col items-end">
           <li><NuxtLinkButton type="tertiary" to="/">Home</NuxtLinkButton></li>
           <li>
@@ -31,6 +31,7 @@
           </li>
           <li><NuxtLinkButton type="tertiary" to="/events">Events</NuxtLinkButton></li>
           <li><NuxtLinkButton type="tertiary" to="/watch">Watch</NuxtLinkButton></li>
+          <li><NuxtLinkButton type="tertiary" to="/give">Give</NuxtLinkButton></li>
           <li><NuxtLinkButton type="tertiary" to="/contact">Contact</NuxtLinkButton></li>
         </ul>
       </div>
@@ -121,6 +122,10 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+nav {
+  /* @apply ma */
+}
+
 .mobile-menu > ul > li {
   @apply mt-4;
 }

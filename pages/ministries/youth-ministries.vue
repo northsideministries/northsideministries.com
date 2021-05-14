@@ -4,12 +4,12 @@
     template to all-inclusive "ministries" page?
     would also need to abstract CMS structuring for all 3 pages 
   -->
-  <main class="mb-16">
+  <main class="mb-16 md:mb-32">
     <Hero title="Youth Ministries" :img="content.hero_image">
       {{ content.description }}
     </Hero>
     <div class="content">
-      <section v-for="ministry in content.ministry_list" :key="ministry.name">
+      <section v-for="ministry in content.ministry_list" :key="ministry.name" class="w-11/12 mt-16 md:w-4/5 md:mt-32">
         <h2>{{ ministry.name }}</h2>
         <img :src="ministry.image" :alt="ministry.name" />
         <p>{{ ministry.description }}</p>
@@ -49,8 +49,6 @@ export default {
 
 <style lang="postcss" scoped>
 .content > section {
-  @apply w-11/12 mt-16;
-
   &:nth-child(odd) {
     @apply -mr-6 float-right;
   }
@@ -64,6 +62,12 @@ export default {
 
     & > p, & > div {
       @apply ml-8;
+    }
+
+    @screen md {
+      & > p, & > div {
+        @apply ml-0;
+      }
     }
   }
 
