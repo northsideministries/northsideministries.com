@@ -38,6 +38,16 @@ export default {
 </script>
 
 <style lang="postcss">
+/* webkit */
+details > summary::-webkit-details-marker, details > summary::marker {
+  display: none;
+}
+
+/* firefox */
+details > summary:first-of-type {
+    list-style-type: none;
+}
+
 details[open] summary ~ * {
   animation: sweep .25s ease-in-out;
 }
