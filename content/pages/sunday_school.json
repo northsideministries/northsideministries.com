@@ -1,0 +1,79 @@
+{
+  "description": "Sunday school page",
+  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+  "livestream_list": [
+    {
+      "teacher": "Mr. Greg Rysta",
+      "class": "Challengers Group",
+      "link": "https://www.example.com"
+    },
+    {
+      "teacher": "Dr. Cecil Beach",
+      "class": "Families in Christ",
+      "link": "https://www.example.com"
+    }
+  ],
+  "children_class_list": [
+    {
+      "age_group": "Nursery",
+      "room": "Elementary 208",
+      "name": "Nursery"
+    },
+    {
+      "age_group": "Toddler (2)",
+      "room": "Elementary 209",
+      "name": "Toddler (2)"
+    },
+    {
+      "age_group": "K5 and 1st Grade",
+      "room": "Elementary 212",
+      "name": "K5 and 1st Grade"
+    },
+    {
+      "age_group": "Grades 2-3",
+      "room": "Elementary 203",
+      "name": "Grades 2-3"
+    }
+  ],
+  "teen_class_list": [
+    {
+      "age_group": "Junior High",
+      "room": "Youth Center",
+      "name": "Junior High"
+    },
+    {
+      "room": "Youth Center",
+      "age_group": "Senior High",
+      "name": "Senior High"
+    }
+  ],
+  "adult_class_list": [
+    {
+      "age_group": "Single Adults",
+      "room": "High School 604",
+      "name": "Single Adults"
+    },
+    {
+      "age_group": "Young Married",
+      "room": "High School 609",
+      "name": "Young Married"
+    },
+    {
+      "age_group": "Families",
+      "room": "High School 600",
+      "name": "Families"
+    },
+    {
+      "age_group": "Older Parents",
+      "room": "High School 601",
+      "name": "Older Parents"
+    }
+  ],
+  "senior_citizen_class_list": [
+    {
+      "age_group": "Wisdom Seekers",
+      "room": "Gallery",
+      "name": "Wisdom Seekers"
+    }
+  ]
+}

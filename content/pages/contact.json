@@ -1,0 +1,17 @@
+{
+  "description": "Contact page",
+  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+  "phone": "(843) 797-2693",
+  "contact_list": [
+    {
+      "name": "Jonathan Cresswell",
+      "occupation": "Senior Pastor",
+      "email": "jcresswell@northsideministries.com"
+    },
+    {
+      "name": "Linda McGinnis",
+      "occupation": "Secretary",
+      "email": "lmcginnis@northsideministries.com"
+    }
+  ]
+}

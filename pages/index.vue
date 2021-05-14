@@ -1,18 +1,18 @@
 <template>
   <main class="mb-24">
+    <img class="absolute bottom-0 left-0 hero-bg md:hidden" src="~/assets/img/home-hero-bg.svg" />
+
     <div class="content">
       <section>
-        <img v-if="mobile" class="absolute bottom-0 left-0 hero-bg" src="~/assets/img/home-hero-bg.svg" />
-
-        <h1 class="font-serif font-bold text-2xl pr-6 leading-7">Living to praise of God's glorious grace.</h1>
-        <img class="mt-5" src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Main image" />
-        <p class="mt-6 leading-6">Northside Baptist Church prepares believers to live for Christ and to witness to their community. Come worship with us this Sunday!</p>
+        <h1 class="font-serif font-bold text-2xl pr-6 leading-7">{{ content.title }}</h1>
+        <img class="mt-5" :src="content.hero_image" alt="Main image" />
+        <p class="mt-6 leading-6">{{ content.description }}</p>
         <NuxtLinkButton class="mt-6 shadow-tall" to="/watch" type="primary" wide>
           JOIN US
         </NuxtLinkButton>
       </section>
 
-      <section class="bg-yellow-500 rounded-btn py-6 px-6">
+      <section v-if="content.covid" class="bg-yellow-500 rounded-btn py-6 px-6">
         <div class="flex flex-row items-center justify-center -ml-4">
           <client-only>
             <unicon name="heart-medical" fill="black" width="26" height="26"></unicon>
@@ -43,7 +43,6 @@
 <script>
 import Location from '~/components/Location'
 import NuxtLinkButton from '~/components/NuxtLinkButton'
-import { isMobile } from '~/utils/mobile'
 
 export default {
   components: {
@@ -55,11 +54,13 @@ export default {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
     }
   },
-  data() {
+  async asyncData({ $content }) {
+    const content = await $content('pages', 'index').fetch();
+
     return {
-      mobile: (isMobile())
+      content
     }
-  }
+  },
 }
 </script>
 

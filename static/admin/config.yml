@@ -3,24 +3,78 @@ site_url: https://northsideministries.netlify.app/
 logo_url: https://northsideministries.netlify.app/icon.png
 display_url: https://www.northsideministries.com/
 
-# publish_mode: editorial_workflow
 local_backend: true
+publish_mode: editorial_workflow
 backend:
   name: git-gateway
   branch: master
+  squash_merges: true
 
 media_folder: static/img
 public_folder: /img
 
-# Docs: https://www.netlifycms.org/docs/configuration-options/#collections
+###############
+# ALIASES     #
+###############
+
+ministry: &MINISTRY
+  - { label: Ministry Name, name: name, widget: string, required: true }
+  - { label: Description, name: description, widget: text, required: true }
+  - label: 'Weekday'
+    name: 'day'
+    widget: 'select'
+    options: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    required: false
+  - { label: Image, name: image, widget: image, required: true }
+  - { label: Room, name: room, widget: string, required: false }
+  - { label: Service, name: service, widget: string, required: false }
+  - { label: Time, name: time, widget: string, required: false }
+  - label: 'Link'
+    name: 'link'
+    required: false
+    widget: 'object'
+    hint: 'Add a link to another page'
+    fields:
+      - { label: Label, name: label, widget: string, required: false }
+      - label: 'Link to Page'
+        hint: 'Link to a page on the website'
+        name: 'page_link'
+        widget: 'select'
+        # TODO: ensure these are updated properly before deploying
+        options:
+          - { label: 'About', value: '/about' }
+          - { label: 'Beliefs', value: '/beliefs' }
+          - { label: "Children's Ministries", value: '/childrens-ministries' }
+          - { label: 'Contact', value: '/contact' }
+          - { label: 'COVID-19', value: '/covid' }
+          - { label: 'Events', value: '/events' }
+          - { label: 'Give', value: '/give' }
+          - { label: 'Home', value: '/' }
+          - { label: 'Leadership', value: '/leadership' }
+          - { label: 'Ministries', value: '/ministries' }
+          - { label: 'Missions', value: '/missions' }
+          - { label: 'Sunday School', value: '/sunday-school' }
+          - { label: 'Watch', value: '/watch' }
+          - { label: 'Youth Ministries', value: '/youth-ministries' }
+        required: false
+      - label: 'External Link'
+        hint: 'Link to an external website or webpage'
+        name: 'external_link'
+        widget: 'string'
+        required: false
+
+###############
+# END ALIASES #
+###############
+
 collections:
   - name: 'site'
     label: 'Site settings'
     description: 'General site information.'
     files:
-      - label: 'Info'
+      - label: 'Site Information'
         name: 'info'
-        file: 'assets/content/site/info.json'
+        file: 'content/site/info.json'
         format: 'json'
         editor:
           preview: false
@@ -32,18 +86,235 @@ collections:
               widget: string,
               hint: 'This is used as descriptive text for links that link to this site',
             }
-          # - { label: Site Email, name: siteemail, widget: string, required: false }
-  - name: 'blog'
-    label: 'Blog'
-    # identifier_field: name
-    folder: 'assets/content/blog'
-    create: true
-    format: 'json'
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    # editor:
-    #   preview: true
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - label: 'Pages'
+    name: 'pages'
+    editor:
+      preview: false
+    files:
+      - label: 'About Page'
+        name: 'about'
+        file: 'content/pages/about.json'
+        fields:
+          - label: 'Featured Image'
+            name: 'hero_image'
+            widget: 'image'
+
+      - label: 'Beliefs Page'
+        name: 'beliefs'
+        file: 'content/pages/beliefs.json'
+        fields:
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
+          - label: 'Beliefs'
+            name: 'belief_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields:
+              - { label: Belief Name, name: name, widget: string, required: true }
+              - { label: Description, name: description, widget: string, required: true }
+              - { label: Scripture References, name: references, widget: string }
+
+      - label: "Children's Ministries Page"
+        name: 'childrens_ministries'
+        file: 'content/pages/childrens_ministries.json'
+        fields:
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
+          - label: 'Ministries'
+            name: 'ministry_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields: *MINISTRY
+
+      - label: 'Contact Page'
+        name: 'contact'
+        file: 'content/pages/contact.json'
+        fields:
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
+          - label: 'Phone Number'
+            name: 'phone'
+            widget: 'string'
+            pattern: ['^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$', 'Must be a phone number']
+          - label: 'Contacts'
+            name: 'contact_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields:
+              - { label: Name, name: name, widget: string, required: true }
+              - { label: Occupation, name: occupation, widget: string, required: true }
+              - label: 'Email'
+                name: 'email'
+                widget: 'text'
+                pattern: ['^[^\s@]+@[^\s@]+\.[^\s@]+$', 'Must be an email address']
+                required: true
+
+      - label: 'Home Page'
+        name: 'index'
+        file: 'content/pages/index.json'
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
+          - {
+              label: 'COVID-19 Section',
+              name: covid,
+              widget: boolean,
+              default: true,
+              hint: 'Display a notification about COVID-19 protocols',
+            }
+          - {
+              label: 'Livestream Notification',
+              name: livestream,
+              widget: boolean,
+              default: true,
+              hint: 'Display a notification when the church livestream is currently broadcasting',
+            }
+
+      - label: 'Leadership Page'
+        name: 'leadership'
+        file: 'content/pages/leadership.json'
+        fields:
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
+          - label: 'Leadership'
+            name: 'leadership_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields:
+              - { label: Name, name: name, widget: string, required: true }
+              - { label: Image, name: image, widget: image, required: true }
+              - {
+                  label: Occupation,
+                  name: occupation,
+                  widget: string,
+                  required: true,
+                  hint: 'Position within the church',
+                }
+              - { label: Description, name: description, widget: text, required: true }
+              - label: 'Phone Number'
+                name: 'phone'
+                widget: 'string'
+                pattern: ['^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$', 'Must be a phone number']
+                required: true
+              - label: 'Email'
+                name: 'email'
+                widget: 'text'
+                pattern: ['^[^\s@]+@[^\s@]+\.[^\s@]+$', 'Must be an email address']
+                required: true
+
+      - label: 'Ministries Page'
+        name: 'ministries'
+        file: 'content/pages/ministries.json'
+        fields:
+          - { label: 'Featured Image', name: hero_image, widget: image }
+          - label: 'Ministries'
+            name: 'ministry_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields: *MINISTRY
+
+      - label: 'Missions Page'
+        name: 'missions'
+        file: 'content/pages/missions.json'
+        fields:
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
+          - label: 'Home Missionaries'
+            hint: 'Missionaries directly supported by Northside'
+            name: 'home_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields:
+              - { label: Name, name: name, widget: string, required: true }
+              - { label: Location, name: location, widget: string, required: true }
+          - label: 'Ministries'
+            name: 'ministry_list'
+            hint: 'Other missions-based ministries'
+            minimize_collapsed: true
+            widget: 'list'
+            fields:
+              - { label: Name, name: name, widget: string, required: true }
+              - { label: Description, name: description, widget: string, required: true }
+          - label: 'Missionaries (by Location)'
+            name: 'country_list'
+            minimize_collapsed: true
+            widget: 'list'
+            hint: 'List of supported missionaries, sorted by location/country they are serving in'
+            fields:
+              - { label: Location, name: name, widget: string, required: true }
+              - label: 'Missionaries'
+                name: 'missionary_list'
+                widget: 'list'
+                required: true
+                fields:
+                  - { label: Name, name: name, widget: string, required: true, hint: 'Missionary name' }
+
+      - label: 'Sunday School Page'
+        name: 'sunday_school'
+        file: 'content/pages/sunday_school.json'
+        fields:
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
+          - label: 'Livestreams'
+            summary: 'Zoom livestream link'
+            name: 'livestream_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields:
+              - { label: Teacher, name: teacher, widget: string, required: true }
+              - { label: Class, name: class, widget: string, required: true }
+              - { label: Link, name: link, widget: string, required: true }
+          - label: 'Children Classes'
+            name: 'children_class_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields:
+              - { label: 'Name / Age Group', name: name, widget: string, required: true }
+              - { label: Room, name: room, widget: string, required: true }
+          - label: 'Teen Classes'
+            name: 'teen_class_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields:
+              - { label: 'Name / Age Group', name: name, widget: string, required: true }
+              - { label: Room, name: room, widget: string, required: true }
+          - label: 'Adults Classes'
+            name: 'adult_class_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields:
+              - { label: 'Name / Age Group', name: name, widget: string, required: true }
+              - { label: Room, name: room, widget: string, required: true }
+          - label: 'Senior Citizen Classes'
+            name: 'senior_citizen_class_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields:
+              - { label: 'Name / Age Group', name: name, widget: string, required: true }
+              - { label: Room, name: room, widget: string, required: true }
+
+      - label: 'Watch Page'
+        name: 'watch'
+        file: 'content/pages/watch.json'
+        fields:
+          - {
+              label: 'Vimeo Link',
+              name: vimeo_link,
+              widget: string,
+              required: true,
+              hint: 'Link to Vimeo livestream for services',
+            }
+
+      - label: 'Youth Ministries Page'
+        name: 'youth_ministries'
+        file: 'content/pages/youth_ministries.json'
+        fields:
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
+          - label: 'Ministries'
+            name: 'ministry_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields: *MINISTRY

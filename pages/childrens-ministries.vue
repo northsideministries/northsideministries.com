@@ -1,43 +1,23 @@
 <template>
   <main class="mb-16">
-    <Hero title="Children's Ministries" :img="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')">
-      Hello World
+    <Hero title="Children's Ministries" :img="content.hero_image">
+      {{ content.description }}
     </Hero>
     <div class="content">
       <!-- TODO: content and images from CMS -->
 
-      <section>
-        <h2>Nursery</h2>
-        <img src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Youth Group" />
-        <p>Nursery is provided for infants and toddlers during all services. Our nursery leaders provide a warm, clean and loving environment for infants and toddlers. Instruction sheets are provided and kept on each child so that parents can see the excellent care our leaders provide for their children. Beepers are available to mothers for the services. Please come visit and feel at ease leaving your child at our nursery!</p>
-        <div class="mt-6">
-          <h3>Sunday</h3>
-          <p>Elementary Room 208</p>
-          <p>Provided during all services</p>
+      <section v-for="ministry in content.ministry_list" :key="ministry.name">
+        <h2>{{ ministry.name }}</h2>
+        <img :src="ministry.image" :alt="ministry.name" />
+        <p>{{ ministry.description }}</p>
+        <div v-if="ministry.day || ministry.room || ministry.service" class="mt-6">
+          <h3>{{ ministry.day }}</h3>
+          <p>{{ ministry.room }}</p>
+          <p>{{ ministry.service }} <span v-if="ministry.time">— {{ ministry.time }}</span></p>
         </div>
-      </section>
-
-      <section>
-        <h2>Children's Church</h2>
-        <img src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Youth Group" />
-        <p>We offer children’s church on Sunday morning for those out of the nursery through 2nd grade. For K5-2nd graders, we use an AWANA lesson book to supplement Bible stories the children learn in their AWANA handbooks.</p>
-        <p>Children will be dismissed from the main auditorium during the service before the sermon begins. Children may be picked up on the first floor of our elementary building after the morning service.</p>
-        <div class="mt-6">
-          <h3>Sunday</h3>
-          <p>First floor elementary building</p>
-          <p>Children’s Church — 10:30am</p>
-        </div>
-      </section>
-
-      <section>
-        <h2>AWANA Clubs</h2>
-        <img src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Youth Group" />
-        <p>AWANA is an exciting club for kids ages two years old through sixth grade. We help kids know, love, and serve God. AWANA also encourages your child to grow in character by learning obedience, courtesy, and building friendships.</p>
-        <p>AWANA clubs are <span class="italic">Puggles</span> (ages 2 – 3), <span class="italic">Cubbies</span> (ages K3 – K4), <span class="italic">Sparks</span> (K5 – 2nd grade) and <span class="italic">Truth & Training</span> (3rd – 6th grade). Your children will enjoy learning scripture, hearing stories and participating in games. Bring your children to our gym for check-in at 6:30pm!</p>
-        <div class="mt-6">
-          <h3>Wednesday</h3>
-          <p>Gym</p>
-          <p>AWANA — 6:30pm</p>
+        <div v-if="ministry.link" class="mt-4 inline-block">
+          <NuxtLinkButton v-if="ministry.link.page_link" :to="ministry.link.page_link" type="secondary" short>{{ ministry.link.label }}</NuxtLinkButton>
+          <LinkButton v-if="ministry.link.external_link" :link="ministry.link.external_link" type="secondary" short>{{ ministry.link.label }}</LinkButton>
         </div>
       </section>
     </div>
@@ -51,7 +31,14 @@ export default {
   name: 'ChildrensMinistriesPage',
   components: {
     Hero
-  }
+  },
+  async asyncData({ $content }) {
+    const content = await $content('pages', 'childrens_ministries').fetch();
+
+    return {
+      content
+    }
+  },
 }
 </script>
 

@@ -1,9 +1,8 @@
-import glob from 'glob'
 import path from 'path'
 import postcssImport from 'postcss-import'
 import postcssNesting from 'postcss-nesting'
 import postcssPresetEnv from 'postcss-preset-env'
-import * as SITE_INFO from './assets/content/site/info.json'
+import * as SITE_INFO from './content/site/info.json'
 
 export default {
   target: 'static',
@@ -74,7 +73,7 @@ export default {
             'nesting-rules': false
           }
         })
-      }
+      },
     },
 
     /*

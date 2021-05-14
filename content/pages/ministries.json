@@ -1,0 +1,50 @@
+{
+  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+  "ministry_list": [
+    {
+      "name": "Missions",
+      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.",
+      "link": {
+        "label": "SEE WHO WE SUPPORT",
+        "page_link": "/missions"
+      }
+    },
+    {
+      "name": "Children's Ministries",
+      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.",
+      "link": {
+        "label": "FIND A PROGRAM",
+        "page_link": "/childrens-ministries"
+      }
+    },
+    {
+      "name": "Youth Ministries",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.",
+      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "link": {
+        "label": "FIND A PROGRAM",
+        "page_link": "/youth-ministries"
+      }
+    },
+    {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.",
+      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "name": "Sunday School",
+      "link": {
+        "label": "JOIN A CLASS",
+        "page_link": "/sunday-school"
+      }
+    },
+    {
+      "name": "Northside Christian School",
+      "image": "/img/NorthsideLogo.png",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.",
+      "link": {
+        "label": "LEARN MORE",
+        "external_link": "https://www.northsidecharleston.com"
+      }
+    }
+  ]
+}

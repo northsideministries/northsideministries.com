@@ -1,0 +1,22 @@
+{
+  "description": "Leadership page",
+  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+  "leadership_list": [
+    {
+      "name": "Jonathan Cresswell",
+      "image": "/img/cresswell.jpg",
+      "occupation": "Leader",
+      "description": "Hello World",
+      "phone": "843 555 5555",
+      "email": "jcresswell@northsideministries.com"
+    },
+    {
+      "name": "David Shaleeen",
+      "image": "/img/shaleen.jpg",
+      "occupation": "asdf",
+      "description": "asdfasdf",
+      "phone": "843 555 5555",
+      "email": "dshaleen@northsideministries.com"
+    }
+  ]
+}

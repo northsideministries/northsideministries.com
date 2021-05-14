@@ -1,6 +1,6 @@
 <template>
   <main class="mb-48">
-    <Hero title="About" :img="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')"></Hero>
+    <Hero title="About" :img="content.hero_image"></Hero>
 
     <div class="content">
       <!-- TODO: pull images (NOT all text) from CMS -->
@@ -38,6 +38,18 @@ export default {
   name: 'AboutPage',
   components: {
     Hero
-  }
+  },
+  data() {
+    return {
+      img: ''
+    }
+  },
+  async asyncData({ $content }) {
+    const content = await $content('pages', 'about').fetch();
+
+    return {
+      content
+    }
+  },
 }
 </script>

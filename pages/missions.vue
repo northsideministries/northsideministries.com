@@ -1,27 +1,28 @@
 <template>
   <main class="mb-16">
-    <Hero title="Missions" :img="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')">
-      Hello World
+    <Hero title="Missions" :img="content.hero_image">
+      {{ content.description }}
     </Hero>
     <div class="content">
       <section>
         <h2>Home Missionaries</h2>
         <p>We support missionaries directly sent from our church out into the mission field.</p>
 
-        <!-- TODO: import from CMS -->
-
         <div class="mt-4">
-          <p><span class="font-bold">Rickson Kihleng</span> – Micronesia</p>
-          <p><span class="font-bold">Roland Mitchum</span> – British Columbia</p>
-          <p><span class="font-bold">Jim Stackhouse</span> – Papua New Guinea</p>
-          <p><span class="font-bold">Robert Sulik</span> – Poland</p>
+          <p v-for="missionary in content.home_list" :key="missionary.name">
+            <span class="font-bold">{{ missionary.name }}</span> – {{ missionary.location }}
+          </p>
         </div>
       </section>
 
       <section>
         <h2>Ministries</h2>
-        <h4>Shalom</h4>
-        <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velit dui, consectetur et dolor fringilla, molestie convallis dui.</p>
+        <div v-for="ministry in content.ministry_list" :key="ministry.name">
+          <h4>{{ ministry.name }}</h4>
+          <p class="mt-2">
+            {{ ministry.description }}
+          </p>
+        </div>
       </section>
 
       <section>
@@ -29,26 +30,10 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum purus velit, quis cursus ligula ullamcorper ac. Praesent venenatis egestas finibus. Quisque interdum enim a felis pharetra tincidunt.</p>
 
         <div class="missionaries-list mt-6 grid grid-cols-2 row-gap-8">
-          <div>
-            <h4>Japan</h4>
+          <div v-for="country in content.country_list" :key="country.name">
+            <h4>{{ country.name }}</h4>
             <ul>
-              <li>Tim Melton</li>
-              <li>John Knox</li>
-              <li>Matthew Starin</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Italy</h4>
-            <ul>
-              <li>Frank Maietta</li>
-              <li>Joey Tacon</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Italy</h4>
-            <ul>
-              <li>Frank Maietta</li>
-              <li>Joey Tacon</li>
+              <li v-for="missionary in country.missionary_list" :key="missionary.name">{{ missionary.name }}</li>
             </ul>
           </div>
         </div>
@@ -64,7 +49,14 @@ export default {
   name: 'MissionsPage',
   components: {
     Hero
-  }
+  },
+  async asyncData({ $content }) {
+    const content = await $content('pages', 'missions').fetch();
+
+    return {
+      content
+    }
+  },
 }
 </script>
 

@@ -11,35 +11,27 @@
         <p class="text-xl mt-2 leading-6"><span class="font-bold">We are currently offline.</span> You can watch our broadcast here when we're live.</p>
         <p class="text-sm mt-2"><nuxt-link class="text-primary-300 underline" to="/contact">Check our Contact page</nuxt-link> for information about our service times.</p>
       </div>
+
+      <!-- TODO: add embed for livestream -->
     </div>
 
     <div class="content">
       <aside class="flex flex-row mt-4">
-        <LinkButton :link="sermon_link" icon="tv-retro" iconColor="#2941A3" type="secondary" class="ml-auto" short>
+        <LinkButton :link="content.vimeo_link" icon="tv-retro" iconColor="#2941A3" type="secondary" class="ml-auto" short>
           WATCH ON VIMEO
         </LinkButton>
       </aside>
+
       <section>
         <h2>Sunday School</h2>
         <p>Sunday School starts at 9:30am and is livestreamed through Zoom.</p>
-        <div>
-          <h3>Mr. Greg Rysta</h3>
-          <p>Challengers Group</p>
-          <LinkButton :link="rysta_link" icon="external-link-alt" iconColor="white" type="primary" :disabled="rysta_live" wide short>
-            JOIN ON ZOOM
-          </LinkButton>
-        </div>
-        <div>
-          <h3>Dr. Cecil Beach</h3>
-          <p>Families in Christ</p>
-          <LinkButton :link="beach_link" icon="external-link-alt" iconColor="white" type="primary" :disabled="beach_live" wide short>
-            JOIN ON ZOOM
-          </LinkButton>
-        </div>
+        <LivestreamClassList />
       </section>
+
       <section>
         <h2>Past Messages</h2>
-        <Card v-for="sermon in sermons" :key="sermon.date"
+
+        <Card v-for="sermon in limited_sermons" :key="sermon.date"
           :title="sermon.date"
           :subtitle="''"
           :img="sermon.img">
@@ -61,31 +53,23 @@
 import Button from '~/components/Button.vue'
 import Card from '~/components/Card.vue'
 import LinkButton from '~/components/LinkButton.vue'
+import LivestreamClassList from '~/components/LivestreamClassList.vue'
 
 export default {
   name: 'WatchPage',
   components: {
     Button,
     Card,
-    LinkButton
+    LinkButton,
+    LivestreamClassList
   },
   data() {
     return {
-      sermon_live: false,
-
-      // TODO: disable if not live
-      rysta_live: false,
-      beach_live: true,
-
-      // TODO: pull links from CMS
-      sermon_link: '',
-      rysta_link: '',
-      beach_link: '',
-
       LIMIT_DEFAULT: 3,
       limit: 3,
 
       // TODO: pull sermons from YouTube
+      sermon_live: false,
       sermons: [{
         date: 'December 13, 2020',
         link: '#',
@@ -94,10 +78,17 @@ export default {
     }
   },
   computed: {
-    limited_sermosn(){
+    limited_sermons(){
       return this.limit ? this.sermons.slice(0,this.limit) : this.sermons
     }
-  }
+  },
+  async asyncData({ $content }) {
+    const content = await $content('pages', 'watch').fetch();
+
+    return {
+      content
+    }
+  },
 }
 </script>
 

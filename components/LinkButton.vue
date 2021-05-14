@@ -1,7 +1,7 @@
 <template>
   <a
     class="button"
-    :href="link"
+    :href="disabled ? false : link"
     :class="[type ? type : '', wide ? 'wide' : '', icon ? 'icon' : '', short ? 'short' : '', disabled ? 'disabled' : '']"
   >
     <!-- add unicon prop -->

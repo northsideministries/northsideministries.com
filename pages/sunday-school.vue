@@ -1,30 +1,13 @@
 <template>
   <main class="mb-16">
-    <Hero title="Sunday School" :img="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')">
-      Hello World
+    <Hero title="Sunday School" :img="content.hero_image">
+      {{ content.description }}
     </Hero>
     <div class="content">
-      <!-- TODO: pull content from CMS -->
-
       <section>
         <h2>Watch Live</h2>
         <p>Sunday School starts at 9:30am and is livestreamed through Zoom.</p>
-
-        <!-- TODO: abstract section to separate component for use on this page and "Watch" page -->
-        <div class="watch">
-          <h3>Mr. Greg Rysta</h3>
-          <p>Challengers Group</p>
-          <LinkButton :link="rysta_link" icon="external-link-alt" iconColor="white" type="primary" :disabled="rysta_live" wide short>
-            JOIN ON ZOOM
-          </LinkButton>
-        </div>
-        <div class="watch">
-          <h3>Dr. Cecil Beach</h3>
-          <p>Families in Christ</p>
-          <LinkButton :link="beach_link" icon="external-link-alt" iconColor="white" type="primary" :disabled="beach_live" wide short>
-            JOIN ON ZOOM
-          </LinkButton>
-        </div>
+        <LivestreamClassList />
       </section>
 
       <section class="classes">
@@ -32,7 +15,25 @@
         <div>
           <h3>Children</h3>
           <div class="flex flex-col">
-            <p v-for="_class in children_classes" :key="_class.name" class="flex flex-row w-full px-5 py-4">{{ _class.name }}<span class="ml-auto">{{ _class.room }}</span></p>
+            <p v-for="_class in content.children_class_list" :key="_class.name" class="flex flex-row w-full px-5 py-4">{{ _class.name }}<span class="ml-auto">{{ _class.room }}</span></p>
+          </div>
+        </div>
+        <div>
+          <h3>Teens</h3>
+          <div class="flex flex-col">
+            <p v-for="_class in content.teen_class_list" :key="_class.name" class="flex flex-row w-full px-5 py-4">{{ _class.name }}<span class="ml-auto">{{ _class.room }}</span></p>
+          </div>
+        </div>
+        <div>
+          <h3>Adults</h3>
+          <div class="flex flex-col">
+            <p v-for="_class in content.adult_class_list" :key="_class.name" class="flex flex-row w-full px-5 py-4">{{ _class.name }}<span class="ml-auto">{{ _class.room }}</span></p>
+          </div>
+        </div>
+        <div>
+          <h3>Senior Citizens</h3>
+          <div class="flex flex-col">
+            <p v-for="_class in content.senior_citizen_class_list" :key="_class.name" class="flex flex-row w-full px-5 py-4">{{ _class.name }}<span class="ml-auto">{{ _class.room }}</span></p>
           </div>
         </div>
       </section>
@@ -42,36 +43,23 @@
 
 <script>
 import LinkButton from '~/components/LinkButton'
+import LivestreamClassList from '~/components/LivestreamClassList'
 import Hero from '~/components/Hero'
 
 export default {
   name: 'SundaySchoolPage',
   components: {
     LinkButton,
+    LivestreamClassList,
     Hero
   },
-  data() {
+  async asyncData({ $content }) {
+    const content = await $content('pages', 'sunday_school').fetch();
+
     return {
-      children_classes: [
-        {
-          name: 'Nursery',
-          room: 'Elementary 208'
-        },
-        {
-          name: 'Toddler (2)',
-          room: 'Elementary 209'
-        },
-        {
-          name: 'K5 and 1st Grade',
-          room: 'Elementary 212'
-        },
-        {
-          name: 'Grades 2-3',
-          room: 'Elementary 203'
-        },
-      ]
+      content
     }
-  }
+  },
 }
 </script>
 
@@ -84,19 +72,7 @@ export default {
   }
 
   & > p {
-    @apply mt-4;
-  }
-}
-
-.watch {
-  @apply mt-6;
-
-  & > p {
-    @apply mt-2;
-  }
-
-  & > a {
-    @apply mt-2;
+    @apply mt-6;
   }
 }
 

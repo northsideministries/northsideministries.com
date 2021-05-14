@@ -42,6 +42,10 @@ button,
     @apply w-full;
   }
 
+  &.disabled {
+    @apply cursor-not-allowed;
+  }
+
   &.primary {
     @apply text-white bg-primary-600;
     @apply transition-colors duration-200;
@@ -92,7 +96,6 @@ button,
 
     &:hover {
       @apply border-gray-300 bg-gray-100;
-      @apply tracking-wide;
     }
 
     &:active {

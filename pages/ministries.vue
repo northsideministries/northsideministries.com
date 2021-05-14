@@ -1,43 +1,14 @@
 <template>
   <main class="mb-24">
-    <Hero title="Ministries" :img="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')"></Hero>
+    <Hero title="Ministries" :img="content.hero_image"></Hero>
 
     <div class="content">
-      <!-- TODO: pull content from CMS -->
-      
-      <section>
-        <h2>Missions</h2>
-        <img :src="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.</p>
-        <NuxtLinkButton to="/missions" type="secondary" short>SEE WHO WE SUPPORT</NuxtLinkButton>
-      </section>
-
-      <section>
-        <h2>Children's Ministries</h2>
-        <img :src="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.</p>
-        <NuxtLinkButton to="/childrens-ministries" type="secondary" short>FIND A PROGRAM</NuxtLinkButton>
-      </section>
-
-      <section>
-        <h2>Youth Ministries</h2>
-        <img :src="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.</p>
-        <NuxtLinkButton to="/youth-ministries" type="secondary" short>FIND A PROGRAM</NuxtLinkButton>
-      </section>
-
-      <section>
-        <h2>Sunday School</h2>
-        <img :src="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.</p>
-        <NuxtLinkButton to="/sunday-school" type="secondary" short>JOIN A CLASS</NuxtLinkButton>
-      </section>
-
-      <section>
-        <h2>Sunday School</h2>
-        <img :src="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.</p>
-        <LinkButton link="https://www.northsidecharleston.com" type="secondary" short>LEARN MORE</LinkButton>
+      <section v-for="ministry in content.ministry_list" :key="ministry.name">
+        <h2>{{ ministry.name }}</h2>
+        <img :src="ministry.image" />
+        <p>{{ ministry.description }}</p>
+        <NuxtLinkButton v-if="ministry.link && ministry.link.page_link" :to="ministry.link.page_link" type="secondary" short>{{ ministry.link.label }}</NuxtLinkButton>
+        <LinkButton v-if="ministry.link && ministry.link.external_link" :link="ministry.link.external_link" type="secondary" short>{{ ministry.link.label }}</LinkButton>
       </section>
     </div>
   </main>
@@ -54,7 +25,14 @@ export default {
     Hero,
     LinkButton,
     NuxtLinkButton
-  }
+  },
+  async asyncData({ $content }) {
+    const content = await $content('pages', 'ministries').fetch();
+
+    return {
+      content
+    }
+  },
 }
 </script>
 

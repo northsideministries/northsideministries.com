@@ -1,0 +1,25 @@
+{
+  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+  "description": "Hello World",
+  "ministry_list": [
+    {
+      "name": "Youth Group",
+      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam congue dolor in turpis consectetur tempus eu ut orci. Nunc a urna pellentesque, malesuada velit eu, tempus eros. Nam aliquam feugiat leo, sit amet semper ante consequat quis. Vestibulum tempus sit amet enim in convallis. Praesent consequat ut tortor vel tempor.",
+      "day": "Wednesday",
+      "room": "Upstairs Youth Center",
+      "service": "Youth Group",
+      "time": "6:30pm"
+    },
+    {
+      "name": "Community",
+      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam congue dolor in turpis consectetur tempus eu ut orci. Nunc a urna pellentesque, malesuada velit eu, tempus eros. Nam aliquam feugiat leo, sit amet semper ante consequat quis. Vestibulum tempus sit amet enim in convallis. Praesent consequat ut tortor vel tempor.",
+      "service": "",
+      "link": {
+        "label": "FIND AN EVENT",
+        "page_link": "/events"
+      }
+    }
+  ]
+}

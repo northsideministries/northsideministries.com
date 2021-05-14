@@ -1,8 +1,7 @@
 <template>
   <main class="mb-16">
-    <Hero title="Contact Us" :img="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel risus magna. Mauris mattis eros vitae metus
-      lobortis, ut vehicula augue interdum.
+    <Hero title="Contact Us" :img="content.hero_image">
+      {{ content.description }}
     </Hero>
     <div class="content">
       <section class="service-times">
@@ -22,33 +21,18 @@
       </section>
       <section>
         <h2>Phone</h2>
-        <!-- TODO: export phone to CMS -->
-        <p class="font-mono mt-4">(832) 797-2693</p>
+        <p class="font-mono mt-4">{{ content.phone }}</p>
         <Button v-show="callable" icon="calling" iconColor="white" class="mt-3">
-          <a class="w-full" href="tel:+18437972693">CALL US</a>
+          <a class="w-full" :href="`tel:+${parseInt(content.phone.replace(/[^0-9]/g, ''), 10)}`">CALL US</a>
         </Button>
       </section>
       <section>
         <h2>Email</h2>
-        <!-- TODO: export emails to CMS -->
-        <Card title="Jonathan Cresswell" subtitle="Senior Pastor">
-          <address>jcresswell@northsideministries.com</address>
+        <Card v-for="contact in content.contact_list" :key="contact.name" :title="contact.name" :subtitle="contact.occupation">
+          <address>{{ contact.email }}</address>
           <LinkButton
             type="secondary"
-            link="mailto:jcresswell@northsideministries.com"
-            icon="envelope-add"
-            iconColor="#2941A3"
-            wide
-            short
-          >
-            DRAFT EMAIL
-          </LinkButton>
-        </Card>
-        <Card title="Linda McGinnis" subtitle="Secretary">
-          <address>lmcginnis@northsideministries.com</address>
-          <LinkButton
-            type="secondary"
-            link="mailto:lmcginnis@northsideministries.com"
+            :link="'mailto:' + contact.email"
             icon="envelope-add"
             iconColor="#2941A3"
             wide
@@ -84,7 +68,14 @@ export default {
     return {
       callable: isMobile() ? true : false
     }
-  }
+  },
+  async asyncData({ $content }) {
+    const content = await $content('pages', 'contact').fetch();
+
+    return {
+      content
+    }
+  },
 }
 </script>
 

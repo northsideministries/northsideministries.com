@@ -1,30 +1,28 @@
 <template>
+  <!--
+    nearly identical to childrens-ministries and ministries page
+    TODO: template to all-inclusive "ministries" page?
+    would also need to abstract CMS structuring for all 3 pages 
+  -->
   <main class="mb-16">
-    <Hero title="Youth Ministries" :img="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')">
-      Hello World
+    <Hero title="Youth Ministries" :img="content.hero_image">
+      {{ content.description }}
     </Hero>
     <div class="content">
       <!-- TODO: content and images from CMS -->
 
-      <section>
-        <h2>Youth Group</h2>
-        <img src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Youth Group" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam congue dolor in turpis consectetur tempus eu ut orci. Nunc a urna pellentesque, malesuada velit eu, tempus eros. Nam aliquam feugiat leo, sit amet semper ante consequat quis. Vestibulum tempus sit amet enim in convallis. Praesent consequat ut tortor vel tempor.</p>
-        <div class="mt-6">
-          <h3>Wednesday</h3>
-          <p>Upstairs Youth Center</p>
-          <p>Youth Group — 6:30pm</p>
+      <section v-for="ministry in content.ministry_list" :key="ministry.name">
+        <h2>{{ ministry.name }}</h2>
+        <img :src="ministry.image" :alt="ministry.name" />
+        <p>{{ ministry.description }}</p>
+        <div v-if="ministry.day || ministry.room || ministry.service" class="mt-6">
+          <h3>{{ ministry.day }}</h3>
+          <p>{{ ministry.room }}</p>
+          <p>{{ ministry.service }} <span v-if="ministry.time">— {{ ministry.time }}</span></p>
         </div>
-      </section>
-
-      <section>
-        <h2>Community</h2>
-        <img src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Youth Group" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam congue dolor in turpis consectetur tempus eu ut orci. Nunc a urna pellentesque, malesuada velit eu, tempus eros. Nam aliquam feugiat leo, sit amet semper ante consequat quis. Vestibulum tempus sit amet enim in convallis. Praesent consequat ut tortor vel tempor.</p>
-        <div class="mt-4 inline-block">
-          <NuxtLinkButton to="/events" type="secondary" short>
-            FIND AN EVENT
-          </NuxtLinkButton>
+        <div v-if="ministry.link" class="mt-4 inline-block">
+          <NuxtLinkButton v-if="ministry.link.page_link" :to="ministry.link.page_link" type="secondary" short>{{ ministry.link.label }}</NuxtLinkButton>
+          <LinkButton v-if="ministry.link.external_link" :link="ministry.link.external_link" type="secondary" short>{{ ministry.link.label }}</LinkButton>
         </div>
       </section>
     </div>
@@ -40,7 +38,14 @@ export default {
   components: {
     NuxtLinkButton,
     Hero
-  }
+  },
+  async asyncData({ $content }) {
+    const content = await $content('pages', 'youth_ministries').fetch();
+
+    return {
+      content
+    }
+  },
 }
 </script>
 
@@ -62,10 +67,6 @@ export default {
     & > p, & > div {
       @apply ml-8;
     }
-
-    /* & > img {
-      @apply -ml-6;
-    } */
   }
 
   & > h2 {

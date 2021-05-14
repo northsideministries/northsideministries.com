@@ -1,0 +1,33 @@
+{
+  "description": "Lorem ipsum",
+  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+  "ministry_list": [
+    {
+      "name": "Nursery",
+      "description": "Nursery is provided for infants and toddlers during all services. Our nursery leaders provide a warm, clean and loving environment for infants and toddlers. Instruction sheets are provided and kept on each child so that parents can see the excellent care our leaders provide for their children. Beepers are available to mothers for the services. Please come visit and feel at ease leaving your child at our nursery!",
+      "day": "Sunday",
+      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "room": "Elementary Room 208",
+      "service": "Provided during all services",
+      "time": ""
+    },
+    {
+      "name": "Children's Church",
+      "description": "We offer children’s church on Sunday morning for those out of the nursery through 2nd grade. For K5-2nd graders, we use an AWANA lesson book to supplement Bible stories the children learn in their AWANA handbooks.\n\nChildren will be dismissed from the main auditorium during the service before the sermon begins. Children may be picked up on the first floor of our elementary building after the morning service.",
+      "day": "Sunday",
+      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "room": "First floor elementary building",
+      "service": "Children’s Church",
+      "time": "10:30am"
+    },
+    {
+      "name": "AWANA Clubs",
+      "description": "AWANA is an exciting club for kids ages two years old through sixth grade. We help kids know, love, and serve God. AWANA also encourages your child to grow in character by learning obedience, courtesy, and building friendships.\n\nAWANA clubs are Puggles (ages 2 – 3), Cubbies (ages K3 – K4), Sparks (K5 – 2nd grade) and Truth & Training (3rd – 6th grade). Your children will enjoy learning scripture, hearing stories and participating in games. Bring your children to our gym for check-in at 6:30pm!",
+      "day": "Wednesday",
+      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "room": "Gym",
+      "service": "AWANA",
+      "time": "6:30pm"
+    }
+  ]
+}
