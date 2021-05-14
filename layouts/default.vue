@@ -2,12 +2,12 @@
   <div class="container">
     <!-- livestreaming notification; once clicked, don't show again -->
     <transition name="slide-down">
-      <aside v-show="notification_enabled && live" class="flex flex-row items-center py-4 pl-6 pr-4 rounded-btn bg-tertiary-500 live-notification shadow-tall fixed bottom-0 mb-4 z-10">
+      <aside v-show="notification_enabled && live" class="flex flex-row items-center py-4 pl-6 pr-4 rounded-btn bg-primary-600 live-notification shadow-tall fixed bottom-0 mb-4 z-10">
         <div class="flex flex-row items-center">
-          <client-only>
-            <unicon name="rss" fill="white" width="28" height="28"></unicon>
-          </client-only>
-          <!-- <span class="ml-4 font-medium text-white tracking-wide">LIVE</span> -->
+          <!-- <client-only>
+            <unicon name="rss" fill="white" width="30" height="30"></unicon>
+          </client-only> -->
+          <span class="font-medium text-white tracking-wide">LIVE</span>
         </div>
         <NuxtLinkButton type="primary" class="ml-8 watch-button" to="/watch" @click.native="disable">WATCH</NuxtLinkButton>
         <Button type="secondary" class="ml-3 dismiss-button" @click.native="disable">DISMISS</Button>
@@ -60,7 +60,7 @@ export default {
 }
 
 .live-notification > .watch-button::v-deep {
-  @apply bg-white text-tertiary-500 font-bold;
+  @apply bg-white text-primary-600 font-bold;
   
   &:hover {
     @apply bg-gray-200;
@@ -72,7 +72,7 @@ export default {
 }
 
 .live-notification > .dismiss-button::v-deep {
-  @apply bg-white bg-opacity-0 text-white font-medium border-white text-sm px-4 py-3;
+  @apply bg-white bg-opacity-0 text-white font-medium border-white text-sm;
   
   &:hover {
     @apply border-gray-200 bg-opacity-10;

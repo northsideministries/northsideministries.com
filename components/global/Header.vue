@@ -59,29 +59,29 @@ export default {
       about_links: [
         {
           label: "Beliefs",
-          href: "/beliefs"
+          href: "/about/beliefs"
         },
         {
           label: "Our Leadership",
-          href: "/leadership"
+          href: "/about/leadership"
         },
       ],
       ministry_links: [
         {
           label: "Missions",
-          href: "/missions"
+          href: "/ministries/missions"
         },
         {
           label: "Children's Ministries",
-          href: "/childrens-ministries"
+          href: "/ministries/childrens-ministries"
         },
         {
           label: "Youth Ministries",
-          href: "/youth-ministries"
+          href: "/ministries/youth-ministries"
         },
         {
           label: "Sunday School",
-          href: "/sunday-school"
+          href: "/ministries/sunday-school"
         },
       ],
       about_display: false,

@@ -1,7 +1,7 @@
 <template>
-  <div class="inline-block">
-    <div class="button dropdown-button" :class="[ active ? 'active' : '' ]">
-      <a class="text-center w-full px-6 py-3" :href="link">{{ label }}</a>
+  <div class="inline-block relative">
+    <div class="button dropdown-button" :class="[ active ? 'active' : '', expand ? 'expand' : '' ]">
+      <a class="text-center w-full px-6 py-3" :href="link ? link : null">{{ label }}</a>
 
       <div class="ml-auto h-full border-l-2 border-solid border-gray-400 pl-2 py-1 cursor-pointer" @click="toggle">
         <client-only>
@@ -10,7 +10,7 @@
         </client-only>
       </div>
     </div>
-    <div v-show="active" class="dropdown-contents inline-block float-right">
+    <div v-show="active" class="dropdown-contents">
       <slot />
     </div>
   </div>
@@ -26,7 +26,12 @@ export default {
     },
     link: {
       type: String,
-      required: true
+      required: false
+    },
+    expand: {
+      type: Boolean,
+      default: true,
+      required: false
     }
   },
   data() {
@@ -58,11 +63,17 @@ export default {
 .dropdown-button {
   @apply transition-all duration-200;
   @apply ml-auto;
-  @apply w-56;
+
+  &.expand {
+    @apply w-56;
+  }
 
   &.active {
     @apply bg-gray-200 border-transparent;
-    @apply w-64;
+
+    &.expand {
+      @apply w-64;
+    }
   }
 }
 </style>

@@ -7,7 +7,7 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.",
       "link": {
         "label": "SEE WHO WE SUPPORT",
-        "page_link": "/missions"
+        "page_link": "/ministries/missions"
       }
     },
     {
@@ -16,7 +16,7 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.",
       "link": {
         "label": "FIND A PROGRAM",
-        "page_link": "/childrens-ministries"
+        "page_link": "/ministries/childrens-ministries"
       }
     },
     {
@@ -25,7 +25,7 @@
       "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
       "link": {
         "label": "FIND A PROGRAM",
-        "page_link": "/youth-ministries"
+        "page_link": "/ministries/youth-ministries"
       }
     },
     {
@@ -34,7 +34,7 @@
       "name": "Sunday School",
       "link": {
         "label": "JOIN A CLASS",
-        "page_link": "/sunday-school"
+        "page_link": "/ministries/sunday-school"
       }
     },
     {

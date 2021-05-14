@@ -17,7 +17,7 @@
             :mapStyle="mapStyle"
             :center="coordinates"
             :zoom="15"
-            class="w-full h-48 mt-4"
+            class="w-full h-64 mt-4"
           >
             <MglMarker :coordinates="coordinates" color="red" />
           </MglMap>

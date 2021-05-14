@@ -7,13 +7,14 @@
     <div class="content">
       <h2 class="text-center mt-12">Upcoming Events</h2>
       <h5 class="font-bold mt-8">View events for</h5>
-      <DropdownButton :label="selected_timeframe" link="#" class="mt-3 w-56">
-        <ul class="timeframe-list flex flex-col">
+
+      <DropdownButton :label="selected_timeframe" class="mt-3 w-56" :expand="false" ref="timeframe_select">
+        <ul class="timeframe-list flex flex-col mt-1 absolute right-0">
           <li
             v-for="timeframe in timeframe_options"
             :class="[selected_timeframe === timeframe ? 'selected' : '']"
             :key="timeframe"
-            @click="selected_timeframe = timeframe">
+            @click="select(timeframe)">
             {{ timeframe }}
           </li>
         </ul>
@@ -85,16 +86,28 @@ export default {
     limited_events(){
       return this.limit ? this.events.slice(0,this.limit) : this.events
     }
+  },
+  methods: {
+    select(timeframe) {
+      this.selected_timeframe = timeframe
+      this.$refs.timeframe_select.close()
+    }
   }
 }
 </script>
 
 <style lang="postcss" scoped>
 .timeframe-list {
-  @apply ml-auto;
-
   & > li {
-    @apply font-medium text-lg px-4 py-3 border-2 border-solid border-gray-400 bg-gray-100 rounded-btn cursor-pointer mt-1 w-40;
+    &:first-child {
+      @apply rounded-t-btn border-t-2;
+    }
+
+    &:last-child {
+      @apply rounded-b-btn border-b-2;
+    }
+
+    @apply font-medium text-lg px-4 py-3 border-t border-b border-l-2 border-r-2 border-solid border-gray-400 bg-gray-100 cursor-pointer w-40;
     transition: all 0.1s;
 
     &.selected {

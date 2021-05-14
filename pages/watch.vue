@@ -35,7 +35,7 @@
           :title="sermon.date"
           :subtitle="''"
           :img="sermon.img">
-            <LinkButton :link="sermon.link" icon="external-link-alt" iconColor="#2941A3" type="secondary" :disabled="beach_live" short>
+            <LinkButton :link="sermon.link" icon="external-link-alt" iconColor="#2941A3" type="secondary" :disabled="true" short>
               WATCH ON YOUTUBE
             </LinkButton>
         </Card>

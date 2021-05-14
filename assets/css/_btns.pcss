@@ -68,20 +68,29 @@ button,
     @apply transition-colors duration-200;
 
     &:hover {
-      @apply border-primary-500 text-primary-500;
+      @apply border-primary-500 text-primary-500 bg-gray-100;
     }
 
     &:active {
-      @apply border-primary-700 text-primary-700;
+      @apply border-primary-700 text-primary-700 bg-gray-200;
+    }
+
+    &.disabled {
+      @apply border-gray-400 bg-gray-200 text-gray-500;
+
+      & > .unicon > svg {
+        /* hacky trick lol */
+        filter: saturate(0%) brightness(250%);
+      }
     }
   }
 
   &.cta {
-    @apply bg-tertiary-600 text-white;
+    @apply bg-tertiary-500 text-white;
     @apply transition-colors duration-200;
 
     &:hover {
-      @apply bg-tertiary-500;
+      @apply bg-tertiary-400;
     }
 
     &:active {

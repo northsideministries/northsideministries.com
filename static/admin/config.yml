@@ -40,22 +40,21 @@ ministry: &MINISTRY
         hint: 'Link to a page on the website'
         name: 'page_link'
         widget: 'select'
-        # TODO: ensure these are updated properly before deploying
         options:
           - { label: 'About', value: '/about' }
-          - { label: 'Beliefs', value: '/beliefs' }
-          - { label: "Children's Ministries", value: '/childrens-ministries' }
+          - { label: 'Beliefs', value: '/about/beliefs' }
+          - { label: "Children's Ministries", value: '/ministries/childrens-ministries' }
           - { label: 'Contact', value: '/contact' }
           - { label: 'COVID-19', value: '/covid' }
           - { label: 'Events', value: '/events' }
           - { label: 'Give', value: '/give' }
           - { label: 'Home', value: '/' }
-          - { label: 'Leadership', value: '/leadership' }
+          - { label: 'Leadership', value: '/about/leadership' }
           - { label: 'Ministries', value: '/ministries' }
-          - { label: 'Missions', value: '/missions' }
-          - { label: 'Sunday School', value: '/sunday-school' }
+          - { label: 'Missions', value: '/ministries/missions' }
+          - { label: 'Sunday School', value: '/ministries/sunday-school' }
           - { label: 'Watch', value: '/watch' }
-          - { label: 'Youth Ministries', value: '/youth-ministries' }
+          - { label: 'Youth Ministries', value: '/ministries/youth-ministries' }
         required: false
       - label: 'External Link'
         hint: 'Link to an external website or webpage'
