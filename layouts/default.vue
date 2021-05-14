@@ -2,15 +2,17 @@
   <div class="container">
     <!-- livestreaming notification; once clicked, don't show again -->
     <transition name="slide-down">
-      <aside v-show="notification_enabled && live" class="flex flex-row items-center py-4 pl-6 pr-4 rounded-btn bg-primary-600 live-notification shadow-tall fixed bottom-0 mb-4 z-10">
-        <div class="flex flex-row items-center">
-          <!-- <client-only>
-            <unicon name="rss" fill="white" width="30" height="30"></unicon>
-          </client-only> -->
+      <aside v-show="notification_enabled && live" class="flex flex-row justify-center py-4 px-6 rounded-btn bg-primary-600 live-notification shadow-tall fixed bottom-0 mb-4 z-10">
+        <div class="flex-row items-center flex">
+          <div class="hidden md:inline">
+            <client-only>
+              <unicon class="mr-2" name="rss" fill="white" width="30" height="30"></unicon>
+            </client-only>
+          </div>
           <span class="font-medium text-white tracking-wide">LIVE</span>
         </div>
-        <NuxtLinkButton type="primary" class="ml-8 watch-button" to="/watch" @click.native="disable">WATCH</NuxtLinkButton>
-        <Button type="secondary" class="ml-3 dismiss-button" @click.native="disable">DISMISS</Button>
+        <NuxtLinkButton type="primary" class="ml-8 md:ml-16 watch-button" to="/watch" @click.native="disable">WATCH</NuxtLinkButton>
+        <Button type="secondary" class="ml-3 dismiss-button" @click.native="disable">CLOSE</Button>
       </aside>
     </transition>
 

@@ -3,5 +3,6 @@
   "description": "Northside Baptist Church prepares believers to live for Christ and to witness to their community. Come worship with us this Sunday!",
   "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
   "covid": true,
-  "livestream": true
+  "livestream": true,
+  "covid_image": "/img/friends_priscilla-du-preez-unsplash.jpg"
 }

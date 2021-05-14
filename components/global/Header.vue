@@ -1,17 +1,47 @@
 <template>
-  <nav class="px-8 py-6 w-full bg-white top-0 overflow-hidden fixed max-h-screen z-10" :class="[mobile_menu_enabled ? 'h-screen overflow-y-scroll' : '']">
-    <div class="flex flex-row items-center">
-      <nuxt-link to="/">
-        <h1 v-show="!mobile_menu_enabled" class="tracking-tighter font-serif font-bold text-xl">NORTHSIDE</h1>
-      </nuxt-link>
+  <nav class="px-8 py-6 w-full bg-white top-0 overflow-hidden fixed max-h-screen z-10 md:px-24 md:table shadow-regular align-middle md:overflow-y-visible" :class="[mobile_menu_enabled ? 'h-screen overflow-y-scroll' : '']">
+    <div class="md:table-cell align-middle">
+      <div class="flex flex-row items-center">
+        <nuxt-link to="/" class="inline-block">
+          <h1 v-show="!mobile_menu_enabled" class="tracking-tighter font-serif font-bold text-xl">NORTHSIDE</h1>
+        </nuxt-link>
 
-      <Button type="secondary" class="ml-auto" @click.native="toggleMenu">
-        <p v-show="mobile_menu_enabled">CLOSE MENU</p>
-        <p v-show="!mobile_menu_enabled">MENU</p>
-      </Button>
+        <Button type="secondary" class="ml-auto md:hidden" @click.native="toggleMenu">
+          <p v-show="mobile_menu_enabled">CLOSE MENU</p>
+          <p v-show="!mobile_menu_enabled">MENU</p>
+        </Button>
+      </div>
     </div>
+
+    <!-- desktop menu -->
+    <div class="desktop-menu hidden md:inline-block float-right">
+      <ul class="flex flex-row items-end">
+        <li><NuxtLinkButton type="tertiary" to="/">Home</NuxtLinkButton></li>
+        <li>
+          <DropdownButton label="About" link="/about" @toggle="about_display = !about_display" @close="about_display = false">
+            <div class="dropdown-list flex flex-col mt-1 absolute right-0">
+              <NuxtLinkButton type="tertiary" :to="link.href" v-show="about_display" v-for="link in about_links" :key="link.label">{{ link.label }}</NuxtLinkButton>
+            </div>
+          </DropdownButton>
+        </li>
+        <li>
+          <DropdownButton label="Ministries" link="/ministries" @toggle="ministries_display = !ministries_display" @close="ministries_display = false">
+            <div class="dropdown-list flex flex-col mt-1 absolute right-0">
+              <NuxtLinkButton type="tertiary" :to="link.href" v-for="link in ministry_links" v-show="ministries_display" :key="link.label">{{ link.label }}</NuxtLinkButton>
+              <LinkButton type="tertiary" link="https://www.northsidecharleston.com/" v-show="ministries_display" key="Northside Christian School">Northside Christian School</LinkButton>
+            </div>
+          </DropdownButton>
+        </li>
+        <li><NuxtLinkButton type="tertiary" to="/events">Events</NuxtLinkButton></li>
+        <li><NuxtLinkButton type="tertiary" to="/watch">Watch</NuxtLinkButton></li>
+        <li><NuxtLinkButton type="tertiary" to="/give">Give</NuxtLinkButton></li>
+        <li><NuxtLinkButton type="tertiary" to="/contact">Contact</NuxtLinkButton></li>
+      </ul>
+    </div>
+
+    <!-- mobile menu -->
     <transition name="slide-right">
-      <div v-show="mobile_menu_enabled" class="mobile-menu absolute top-0 right-0 w-full bg-white mt-20 pb-16 pr-8 z-10">
+      <div v-show="mobile_menu_enabled" class="mobile-menu absolute top-0 right-0 w-full ml-auto bg-white mt-20 pb-16 pr-8 z-10 md:pr-24">
         <ul class="flex flex-col items-end">
           <li><NuxtLinkButton type="tertiary" to="/">Home</NuxtLinkButton></li>
           <li>
@@ -126,6 +156,10 @@ nav {
   /* @apply ma */
 }
 
+.desktop-menu > ul > li {
+  @apply ml-4;
+}
+
 .mobile-menu > ul > li {
   @apply mt-4;
 }
@@ -153,5 +187,17 @@ nav {
   display: flex;
   transition: all 0.5s;
   width: auto;
+}
+
+/* copied from events page; abstract? */
+.dropdown-list {
+  @apply bg-white px-4 pb-4 pt-2 border rounded-lg shadow-tall;
+  
+  & > a {
+    @apply text-lg;
+    @apply leading-6;
+    @apply mt-2;
+    @apply px-5;
+  }
 }
 </style>

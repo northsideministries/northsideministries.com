@@ -1,5 +1,5 @@
 <template>
-  <section class="location">
+  <div class="location">
     <div>
       <h4>Address</h4>
       <address class="mt-2">
@@ -7,7 +7,7 @@
         <p>North Charleston, SC 29420</p>
       </address>
     </div>
-    <div>
+    <div class="mt-6">
       <h4>Map</h4>
       <div class="mapboxgl-canvas h-64" v-if="access_token !== ''">
         <client-only>
@@ -23,7 +23,7 @@
         </client-only>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -47,9 +47,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss" scoped>
-.location > div {
-  @apply mt-6;
-}
-</style>

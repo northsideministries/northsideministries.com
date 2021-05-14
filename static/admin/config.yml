@@ -245,9 +245,9 @@ collections:
         name: 'index'
         file: 'content/pages/index.json'
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: text }
-          - { label: 'Featured Image', name: hero_image, widget: image }
+          - { label: Title, name: title, widget: string, required: true }
+          - { label: Description, name: description, widget: text, required: true }
+          - { label: 'Featured Image', name: hero_image, widget: image, required: true }
           - {
               label: 'COVID-19 Section',
               name: covid,
@@ -255,13 +255,14 @@ collections:
               default: true,
               hint: 'Display a notification about COVID-19 protocols',
             }
+          - { label: 'COVID-19 Featured Image', name: covid_image, widget: image, required: true }
 
       - label: 'Leadership Page'
         name: 'leadership'
         file: 'content/pages/leadership.json'
         fields:
-          - { label: Description, name: description, widget: text }
-          - { label: 'Featured Image', name: hero_image, widget: image }
+          - { label: Description, name: description, widget: text, required: true }
+          - { label: 'Featured Image', name: hero_image, widget: image, required: true }
           - label: 'Leadership'
             name: 'leadership_list'
             minimize_collapsed: true
@@ -292,7 +293,7 @@ collections:
         name: 'ministries'
         file: 'content/pages/ministries.json'
         fields:
-          - { label: 'Featured Image', name: hero_image, widget: image }
+          - { label: 'Featured Image', name: hero_image, widget: image, required: true }
           - label: 'Ministries'
             name: 'ministry_list'
             minimize_collapsed: true
@@ -303,8 +304,8 @@ collections:
         name: 'missions'
         file: 'content/pages/missions.json'
         fields:
-          - { label: Description, name: description, widget: text }
-          - { label: 'Featured Image', name: hero_image, widget: image }
+          - { label: Description, name: description, widget: text, required: true }
+          - { label: 'Featured Image', name: hero_image, widget: image, required: true }
           - label: 'Home Missionaries'
             hint: 'Missionaries directly supported by Northside'
             name: 'home_list'
@@ -339,8 +340,8 @@ collections:
         name: 'sunday_school'
         file: 'content/pages/sunday_school.json'
         fields:
-          - { label: Description, name: description, widget: text }
-          - { label: 'Featured Image', name: hero_image, widget: image }
+          - { label: Description, name: description, widget: text, required: true }
+          - { label: 'Featured Image', name: hero_image, widget: image, required: true }
           - label: 'Children Classes'
             name: 'children_class_list'
             minimize_collapsed: true
@@ -374,8 +375,8 @@ collections:
         name: 'youth_ministries'
         file: 'content/pages/youth_ministries.json'
         fields:
-          - { label: Description, name: description, widget: text }
-          - { label: 'Featured Image', name: hero_image, widget: image }
+          - { label: Description, name: description, widget: text, required: true }
+          - { label: 'Featured Image', name: hero_image, widget: image, required: true }
           - label: 'Ministries'
             name: 'ministry_list'
             minimize_collapsed: true
