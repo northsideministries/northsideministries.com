@@ -17,7 +17,7 @@
 
     <div class="content">
       <aside class="flex flex-row mt-4">
-        <LinkButton :link="content.vimeo_link" icon="tv-retro" iconColor="#2941A3" type="secondary" class="ml-auto" short>
+        <LinkButton :link="content.vimeo_stream" icon="tv-retro" iconColor="#2941A3" type="secondary" class="ml-auto" short>
           WATCH ON VIMEO
         </LinkButton>
       </aside>
@@ -83,7 +83,7 @@ export default {
     }
   },
   async asyncData({ $content }) {
-    const content = await $content('pages', 'watch').fetch();
+    const content = await $content('site', 'services').fetch();
 
     return {
       content

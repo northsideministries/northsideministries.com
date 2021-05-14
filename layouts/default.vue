@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted() {
-    this.$content('pages', 'index').fetch()
+    this.$content('site', 'info').fetch()
       .then(res => this.notification_enabled = res.livestream)
   }
 }

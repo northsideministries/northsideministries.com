@@ -4,8 +4,6 @@
       {{ content.description }}
     </Hero>
     <div class="content">
-      <!-- TODO: content and images from CMS -->
-
       <section v-for="ministry in content.ministry_list" :key="ministry.name">
         <h2>{{ ministry.name }}</h2>
         <img :src="ministry.image" :alt="ministry.name" />

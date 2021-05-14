@@ -1,5 +1,6 @@
 {
   "sitename": "Northside Baptist Church",
   "sitedescription": "Northside Baptist Church",
-  "sitelang": "en-US"
+  "sitelang": "en-US",
+  "livestream": true
 }

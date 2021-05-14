@@ -15,7 +15,8 @@ import {
   uniEnvelopeAdd,
   uniPhoneAlt,
   uniHeartMedical,
-  uniRss
+  uniRss,
+  uniVideo
 } from 'vue-unicons/dist/icons'
 
 Unicon.add([
@@ -33,6 +34,7 @@ Unicon.add([
   uniEnvelopeAdd,
   uniPhoneAlt,
   uniHeartMedical,
-  uniRss
+  uniRss,
+  uniVideo
 ])
 Vue.use(Unicon)

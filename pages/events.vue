@@ -107,7 +107,7 @@ export default {
       @apply rounded-b-btn border-b-2;
     }
 
-    @apply font-medium text-lg px-4 py-3 border-t border-b border-l-2 border-r-2 border-solid border-gray-400 bg-gray-100 cursor-pointer w-40;
+    @apply font-medium text-xl px-6 py-4 border-t border-b border-l-2 border-r-2 border-solid border-gray-400 bg-gray-100 cursor-pointer w-48;
     transition: all 0.1s;
 
     &.selected {

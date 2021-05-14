@@ -1,7 +1,7 @@
 <template>
   <!--
     nearly identical to childrens-ministries and ministries page
-    TODO: template to all-inclusive "ministries" page?
+    template to all-inclusive "ministries" page?
     would also need to abstract CMS structuring for all 3 pages 
   -->
   <main class="mb-16">
@@ -9,8 +9,6 @@
       {{ content.description }}
     </Hero>
     <div class="content">
-      <!-- TODO: content and images from CMS -->
-
       <section v-for="ministry in content.ministry_list" :key="ministry.name">
         <h2>{{ ministry.name }}</h2>
         <img :src="ministry.image" :alt="ministry.name" />

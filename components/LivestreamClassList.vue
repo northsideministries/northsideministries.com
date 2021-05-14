@@ -26,7 +26,7 @@ export default {
     }
   },
   mounted() {
-    this.$content('pages', 'sunday_school').fetch()
+    this.$content('site', 'services').fetch()
       .then(res => this.livestream_list = res.livestream_list)
   }
 }

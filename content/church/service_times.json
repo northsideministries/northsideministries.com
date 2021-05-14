@@ -1,0 +1,29 @@
+{
+  "services": [
+    {
+      "name": "Sunday School",
+      "day": "Sunday",
+      "time": "9:30am"
+    },
+    {
+      "name": "Morning Service",
+      "day": "Sunday",
+      "time": "10:30am"
+    },
+    {
+      "name": "Evening Service",
+      "day": "Sunday",
+      "time": "5:00pm"
+    },
+    {
+      "name": "AWANA",
+      "day": "Wednesday",
+      "time": "6:30pm"
+    },
+    {
+      "name": "Prayer Meeting",
+      "day": "Wednesday",
+      "time": "6:45pm"
+    }
+  ]
+}

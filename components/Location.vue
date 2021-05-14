@@ -2,7 +2,6 @@
   <section class="location">
     <div>
       <h4>Address</h4>
-      <!-- TODO: export address to CMS -->
       <address class="mt-2">
         <p>7800 Northside Drive</p>
         <p>North Charleston, SC 29420</p>
@@ -10,11 +9,11 @@
     </div>
     <div>
       <h4>Map</h4>
-      <div class="mapboxgl-canvas">
+      <div class="mapboxgl-canvas h-64" v-if="access_token !== ''">
         <client-only>
           <MglMap
-            :accessToken="accessToken"
-            :mapStyle="mapStyle"
+            :accessToken="access_token"
+            :mapStyle="map_style"
             :center="coordinates"
             :zoom="15"
             class="w-full h-64 mt-4"
@@ -32,12 +31,19 @@ export default {
   name: 'Location',
   data() {
     return {
-      // TODO: add tokens and map stuff to CMS
-      accessToken:
-        'pk.eyJ1Ijoibm9ydGhzaWRlbWluaXN0cmllcyIsImEiOiJja29razhlbDcwMGZjMnZvMTE4NWdjenJ5In0.wHLp8LbvYojXOQHLRbYhPA', // public token
-      mapStyle: 'mapbox://styles/mapbox/streets-v11',
-      coordinates: [-80.0546347220587, 32.94422911353373],
+      access_token: '',
+      map_style: '',
+      coordinates: [],
     }
+  },
+  mounted() {
+    this.$content('site', 'mapbox').fetch()
+      .then(res => {
+        this.livestream_list = res.livestream_list
+        this.access_token = res.access_token
+        this.map_style = res.map_style
+        this.coordinates = [parseFloat(res.lat), parseFloat(res.long)]
+      })
   }
 }
 </script>

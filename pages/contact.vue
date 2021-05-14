@@ -1,34 +1,30 @@
 <template>
   <main class="mb-16">
-    <Hero title="Contact Us" :img="content.hero_image">
-      {{ content.description }}
+    <Hero title="Contact Us" :img="page.hero_image">
+      {{ page.description }}
     </Hero>
     <div class="content">
       <section class="service-times">
         <h2>Service Times</h2>
         <div>
           <h4>Sunday</h4>
-          <p>Sunday School — 9:30am</p>
-          <p>Worship Service — 10:30am</p>
-          <p>Children's Church — 10:30am</p>
+          <p v-for="service in sunday_services" :key="service.name">{{ service.name }} — {{ service.time }}</p>
         </div>
         <div>
           <h4>Wednesday</h4>
-          <p>AWANA Clubs — 6:30pm</p>
-          <p>Prayer Meeting — 6:30pm</p>
-          <p>Youth Group — 6:30pm</p>
+          <p v-for="service in wednesday_services" :key="service.name">{{ service.name }} — {{ service.time }}</p>
         </div>
       </section>
       <section>
         <h2>Phone</h2>
-        <p class="font-mono mt-4">{{ content.phone }}</p>
+        <p class="font-mono mt-4">{{ contact.phone }}</p>
         <Button v-show="callable" icon="calling" iconColor="white" class="mt-3">
-          <a class="w-full" :href="`tel:+${parseInt(content.phone.replace(/[^0-9]/g, ''), 10)}`">CALL US</a>
+          <a class="w-full" :href="`tel:+${parseInt(contact.phone.replace(/[^0-9]/g, ''), 10)}`">CALL US</a>
         </Button>
       </section>
       <section>
         <h2>Email</h2>
-        <Card v-for="contact in content.contact_list" :key="contact.name" :title="contact.name" :subtitle="contact.occupation">
+        <Card v-for="contact in page.contact_list" :key="contact.name" :title="contact.name" :subtitle="contact.occupation">
           <address>{{ contact.email }}</address>
           <LinkButton
             type="secondary"
@@ -70,10 +66,17 @@ export default {
     }
   },
   async asyncData({ $content }) {
-    const content = await $content('pages', 'contact').fetch();
+    const page = await $content('pages', 'contact').fetch();
+    const contact = await $content('church', 'contact').fetch();
+    const service_times = await $content('church', 'service_times').fetch();
+    const sunday_services = service_times.services.filter(service => service.day === 'Sunday');
+    const wednesday_services = service_times.services.filter(service => service.day === 'Wednesday');
 
     return {
-      content
+      page,
+      contact,
+      sunday_services,
+      wednesday_services
     }
   },
 }

@@ -4,8 +4,6 @@
       {{ content.description }}
     </Hero>
     <div class="content mt-12">
-      <!-- TODO: pull in each of these sections from CMS -->
-
       <section v-for="leader in content.leadership_list" :key="leader.name" class="mt-12 w-5/6">
         <img class="w-56" :src="leader.image" alt="Jonathan Cresswell"/>
         <h3 class="mt-4">{{ leader.name }}</h3>

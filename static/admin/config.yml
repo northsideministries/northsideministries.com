@@ -67,8 +67,8 @@ ministry: &MINISTRY
 ###############
 
 collections:
-  - name: 'site'
-    label: 'Site settings'
+  - label: 'Site settings'
+    name: 'site'
     description: 'General site information.'
     files:
       - label: 'Site Information'
@@ -85,6 +85,102 @@ collections:
               widget: string,
               hint: 'This is used as descriptive text for links that link to this site',
             }
+          - {
+              label: 'Livestream Notification',
+              name: livestream,
+              widget: boolean,
+              default: true,
+              hint: 'Display a notification when the church livestream is currently broadcasting',
+            }
+      - label: 'Livestream and Social Media'
+        name: services
+        description: 'Links to livestream and social media services.'
+        file: 'content/site/services.json'
+        editor:
+          preview: false
+        fields:
+          - { label: 'Facebook', name: facebook, widget: string, hint: 'Link to Facebook page' }
+          - { label: 'YouTube', name: youtube, widget: string, hint: 'Link to YouTube channel' }
+          - { label: 'Vimeo Channel', name: vimeo_channel, widget: string, hint: 'Link to Vimeo channel' }
+          - {
+              label: 'Vimeo Livestream',
+              name: vimeo_stream,
+              widget: string,
+              required: true,
+              hint: 'Direct link to Vimeo livestream for services',
+            }
+          - label: 'Sunday School Livestreams'
+            summary: 'Zoom livestream link'
+            name: 'livestream_list'
+            minimize_collapsed: true
+            widget: 'list'
+            fields:
+              - { label: Teacher, name: teacher, widget: string, required: true }
+              - { label: Class, name: class, widget: string, required: true }
+              - { label: Link, name: link, widget: string, required: true }
+      - label: 'Mapbox Settings'
+        name: mapbox
+        description: 'Mapbox API settings.'
+        summary: 'Mapbox API settings. This should not have to be edited.'
+        file: 'content/site/mapbox.json'
+        editor:
+          preview: false
+        fields:
+          - { label: 'Access Token', name: access_token, widget: string, hint: 'Mapbox API public token' }
+          - label: 'Map Style'
+            name: map_style
+            widget: select
+            options:
+              - { label: 'Streets', value: 'mapbox://styles/mapbox/streets-v11' }
+              - { label: 'Outdoors', value: 'mapbox://styles/mapbox/outdoors-v11' }
+              - { label: 'Light', value: 'mapbox://styles/mapbox/light-v10' }
+              - { label: 'Dark', value: 'mapbox://styles/mapbox/dark-v10' }
+              - { label: 'Satellite', value: 'mapbox://styles/mapbox/satellite-v9' }
+              - { label: 'Navigation Day', value: 'mapbox://styles/mapbox/navigation-day-v1' }
+              - { label: 'Navigation Night', value: 'mapbox://styles/mapbox/navigation-night-v1' }
+            hint: 'Mapbox map style'
+          - { label: 'Longitude', name: long, widget: number }
+          - { label: 'Latitude', name: lat, widget: number }
+
+  - label: 'Church Information'
+    name: 'church'
+    editor:
+      preview: false
+    files:
+      - label: 'Contact Information'
+        name: 'contact'
+        file: 'content/church/contact.json'
+        fields:
+          - label: 'Phone Number'
+            name: 'phone'
+            widget: 'string'
+            pattern: ['^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$', 'Must be a phone number']
+            required: true
+      - label: 'Service Times'
+        name: 'service_times'
+        file: 'content/church/service_times.json'
+        fields:
+          - label: 'Services'
+            name: 'services'
+            minimize_collapsed: true
+            widget: 'list'
+            hint: 'All church services and meetings throughout each week'
+            fields:
+              - label: 'Service'
+                name: 'name'
+                hint: 'Name of the service or meeting'
+                widget: 'string'
+                required: true
+              - label: 'Day'
+                name: 'day'
+                widget: 'select'
+                options: ['Sunday', 'Wednesday']
+                required: true
+              - label: 'Time'
+                name: 'time'
+                widget: 'string'
+                required: true
+                pattern: ['^[0-9]+\:[0-9]+[ap]m$', 'Must be a timestamp. Examples: 10:30am, 5:15pm']
 
   - label: 'Pages'
     name: 'pages'
@@ -132,10 +228,6 @@ collections:
         fields:
           - { label: Description, name: description, widget: text }
           - { label: 'Featured Image', name: hero_image, widget: image }
-          - label: 'Phone Number'
-            name: 'phone'
-            widget: 'string'
-            pattern: ['^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$', 'Must be a phone number']
           - label: 'Contacts'
             name: 'contact_list'
             minimize_collapsed: true
@@ -162,13 +254,6 @@ collections:
               widget: boolean,
               default: true,
               hint: 'Display a notification about COVID-19 protocols',
-            }
-          - {
-              label: 'Livestream Notification',
-              name: livestream,
-              widget: boolean,
-              default: true,
-              hint: 'Display a notification when the church livestream is currently broadcasting',
             }
 
       - label: 'Leadership Page'
@@ -256,15 +341,6 @@ collections:
         fields:
           - { label: Description, name: description, widget: text }
           - { label: 'Featured Image', name: hero_image, widget: image }
-          - label: 'Livestreams'
-            summary: 'Zoom livestream link'
-            name: 'livestream_list'
-            minimize_collapsed: true
-            widget: 'list'
-            fields:
-              - { label: Teacher, name: teacher, widget: string, required: true }
-              - { label: Class, name: class, widget: string, required: true }
-              - { label: Link, name: link, widget: string, required: true }
           - label: 'Children Classes'
             name: 'children_class_list'
             minimize_collapsed: true
@@ -293,18 +369,6 @@ collections:
             fields:
               - { label: 'Name / Age Group', name: name, widget: string, required: true }
               - { label: Room, name: room, widget: string, required: true }
-
-      - label: 'Watch Page'
-        name: 'watch'
-        file: 'content/pages/watch.json'
-        fields:
-          - {
-              label: 'Vimeo Link',
-              name: vimeo_link,
-              widget: string,
-              required: true,
-              hint: 'Link to Vimeo livestream for services',
-            }
 
       - label: 'Youth Ministries Page'
         name: 'youth_ministries'
