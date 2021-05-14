@@ -48,7 +48,6 @@ export default {
 
   plugins: [
     { src: '~/plugins/vue-unicons', mode: 'client', ssr: false },
-    { src: '~/plugins/fontsource.js', mode: 'client', ssr: false },
     { src: '~/plugins/mapbox.js', mode: 'client', ssr: false },
     '~/plugins/vue-content-placeholders.js'
   ],

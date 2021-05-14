@@ -15,8 +15,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@fontsource/dm-mono": "^4.3.0",
-    "@fontsource/libre-baskerville": "^4.3.0",
     "@nuxt/content": "^1.14.0",
     "@nuxtjs/markdownit": "^1.2.6",
     "mapbox-gl": "^2.2.0",

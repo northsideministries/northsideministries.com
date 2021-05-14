@@ -1,17 +1,17 @@
 <template>
   <main class="mb-24">
-    <img class="absolute bottom-0 left-0 hero-bg md:hidden" src="~/assets/img/home-hero-bg.svg" />
+    <!-- <img class="absolute bottom-0 left-0 hero-bg md:hidden" src="~/assets/img/home-hero-bg.svg" /> -->
 
-    <div class="content">
-      <section>
-        <h1 class="font-serif font-bold text-2xl pr-6 leading-7">{{ content.title }}</h1>
-        <img class="mt-5" :src="content.hero_image" alt="Main image" />
-        <p class="mt-6 leading-6">{{ content.description }}</p>
-        <NuxtLinkButton class="mt-6 shadow-tall" to="/watch" type="primary" wide>
-          JOIN US
-        </NuxtLinkButton>
-      </section>
+    <h1 class="pl-6 font-serif font-bold text-2xl pr-12 leading-7 mt-16">{{ content.title }}</h1>
+    <section class="px-6 pt-2 pb-6 bg-primary-100 mt-4">
+      <img class="mt-5" :src="content.hero_image" alt="Main image" />
+      <p class="mt-6 leading-6">{{ content.description }}</p>
+      <NuxtLinkButton class="mt-6 shadow-tall" to="/watch" type="primary" wide>
+        JOIN US
+      </NuxtLinkButton>
+    </section>
 
+    <div class="content -mt-8">
       <section v-if="content.covid" class="bg-yellow-500 rounded-btn py-6 px-6">
         <div class="flex flex-row items-center justify-center -ml-4">
           <client-only>

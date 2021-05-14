@@ -2,9 +2,7 @@
   <nav class="px-8 py-6 w-full bg-white top-0 overflow-x-hidden fixed max-h-screen z-10" :class="[mobile_menu_enabled ? 'h-screen overflow-y-scroll' : '']">
     <div class="flex flex-row items-center">
       <nuxt-link to="/">
-        <transition name="fade">
-          <h1 v-show="!mobile_menu_enabled" class="tracking-tighter font-serif font-bold text-xl">NORTHSIDE</h1>
-        </transition>
+        <h1 v-show="!mobile_menu_enabled" class="tracking-tighter font-serif font-bold text-xl">NORTHSIDE</h1>
       </nuxt-link>
 
       <Button type="secondary" class="ml-auto" @click.native="toggleMenu">
@@ -96,25 +94,28 @@ export default {
   methods: {
     toggleMenu() {
       this.mobile_menu_enabled = !this.mobile_menu_enabled
+      this.toggleHidden()
+    },
+    closeMenu() {
+      this.mobile_menu_enabled = false
+      this.about_display = false
+      this.ministries_display = false
 
+      this.last_scroll = 0
+      this.toggleHidden()
+    },
+    toggleHidden() {
       // grab all top-level elements except the navbar
       const html = document.querySelectorAll('.container > *:not(nav)')
-
       const className = 'hidden'
-
       if (this.mobile_menu_enabled) {
         this.last_scroll = window.pageYOffset || document.documentElement.scrollTop;
         html.forEach(el => el.classList.add(className))
       } else {
         html.forEach(el => el.classList.remove(className))
-        window.scrollTo(0, this.last_scroll);
+        window.scrollTo(0, this.last_scroll)
       }
-    },
-    closeMenu() {
-      this.mobile_menu_enabled = false;
-      this.about_display = false;
-      this.ministries_display = false;
-    },
+    }
   }
 }
 </script>
