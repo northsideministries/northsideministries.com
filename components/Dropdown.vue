@@ -1,6 +1,6 @@
 <template>
   <details ref="dropdown" @click="toggle" class="bg-gray-300 rounded-btn">
-    <summary class="flex flex-row items-center px-5 py-3 cursor-pointer list-none">
+    <summary class="flex-row items-center px-5 py-3 cursor-pointer list-none w-full inline-flex">
       <h3>{{ title }}</h3>
       <div class="ml-auto">
         <client-only>
