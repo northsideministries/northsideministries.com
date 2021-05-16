@@ -6,13 +6,13 @@
       <section class="lg:flex lg:flex-row lg:justify-center lg:items-center">
         <div class="lg:px-16 lg:py-12 lg:my-32 lg:-mr-16 lg:w-3/4 z-0 lg:bg-gray-200 lg:rounded-lg lg:shadow-regular">
           <h1 class="font-serif font-bold text-2xl pr-6 leading-7">{{ content.title }}</h1>
-          <img class="mt-4 shadow-regular rounded-lg lg:hidden" :src="content.hero_image" alt="Main image" />
+          <img class="mt-4 shadow-regular rounded-btn lg:hidden" :src="content.hero_image" alt="Main image" />
           <p class="mt-6 leading-6">{{ content.description }}</p>
           <NuxtLinkButton class="mt-6 shadow-tall" to="/watch" type="cta" wide>
             JOIN US
           </NuxtLinkButton>
         </div>
-        <img class="hidden object-cover lg:inline lg:w-full lg:mx-6 lg:rounded-lg lg:shadow-tall" :src="content.hero_image" alt="Main image" />
+        <img class="hidden object-cover lg:inline lg:w-full lg:mx-6 lg:rounded-lg lg:shadow-tall lg:max-w-2xl" :src="content.hero_image" alt="Main image" />
       </section>
 
     </div>

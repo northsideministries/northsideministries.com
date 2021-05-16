@@ -1,7 +1,9 @@
 <template>
   <details ref="dropdown" @click="toggle" class="bg-gray-300 rounded-btn">
     <summary class="flex-row items-center px-5 py-3 cursor-pointer list-none w-full inline-flex">
-      <h3>{{ title }}</h3>
+      <div class="inline-block w-auto">
+        <h3 class="inline-block">{{ title }}</h3>
+      </div>
       <div class="ml-auto">
         <client-only>
           <unicon v-show="!active" name="angle-down" width="36" height="36" fill="black" class="ml-1 mt-1"></unicon>

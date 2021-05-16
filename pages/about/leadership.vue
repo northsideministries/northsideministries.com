@@ -44,11 +44,13 @@ export default {
 
 <style lang="postcss" scoped>
 .content > section {
+  @apply mx-auto;
+
   &:nth-child(odd) {
-    @apply ml-auto float-right;
+    @apply ml-auto;
 
     @screen md {
-      @apply float-left;
+      @apply;
       & > img {
         @apply mr-12;
       }
@@ -56,7 +58,7 @@ export default {
   }
 
   &:nth-child(even) {
-    @apply ml-0 mr-auto float-left;
+    @apply ml-0 mr-auto;
     
     @screen md {
       @apply flex-row-reverse;

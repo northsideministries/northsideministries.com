@@ -41,7 +41,11 @@
           </Card>
         </div>
       </section>
-      <Location />
+
+      <section>
+        <h2>Our Location</h2>
+        <Location class="mt-6" />
+      </section>
     </div>
   </main>
 </template>
