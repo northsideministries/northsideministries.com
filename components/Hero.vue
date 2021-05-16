@@ -1,7 +1,7 @@
 <template>
   <div class="hero flex flex-col">
     <div class="h-64 w-full">
-      <img class="h-64 object-cover w-full" :src="img" />
+      <img class="h-64 object-cover w-full" :src="img" :alt="title" />
     </div>
 
     <div class="mx-auto -mt-16 w-full px-6 hero-content md:w-3/4 lg:w-1/2">

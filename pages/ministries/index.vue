@@ -5,7 +5,7 @@
     <div class="content">
       <section v-for="ministry in content.ministry_list" :key="ministry.name">
         <h2>{{ ministry.name }}</h2>
-        <img :src="ministry.image" />
+        <img :src="ministry.image" :alt="ministry.name" />
         <p>{{ ministry.description }}</p>
         <NuxtLinkButton v-if="ministry.link && ministry.link.page_link" :to="ministry.link.page_link" type="secondary" short>{{ ministry.link.label }}</NuxtLinkButton>
         <LinkButton v-if="ministry.link && ministry.link.external_link" :link="ministry.link.external_link" type="secondary" short>{{ ministry.link.label }}</LinkButton>

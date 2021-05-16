@@ -21,13 +21,13 @@
 
         <div class="flex flex-row h-56 mt-4 md:h-auto">
           <p class="mr-6 leading-6 md:w-1/2">At Northside, we strive to faithfully communicate the Scriptures so that we together as a church family increase in our understanding of God and His Word. We provide Bible classes for all ages designed to foster growth in your spiritual life.</p>
-          <img class="w-32 h-64 object-cover -mr-6 md:w-1/2 md:h-32" src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Our Mission"/>
+          <img class="w-32 h-64 object-cover -mr-6 md:w-1/2 md:h-32" src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Why should I attend this Sunday?"/>
         </div>
       </section>
 
       <section class="mt-32 px-10 w-3/4 mx-auto md:mt-48">
         <p class="leading-6">Northside strives to be a place where we love and care for one another, valuing relationships and committing ourselves to serving one another.</p>
-        <img class="object-cover mt-4 md:mt-6 md:h-48 md:w-full" src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Our Mission"/>
+        <img class="object-cover mt-4 md:mt-6 md:h-48 md:w-full" src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Northside"/>
       </section>
     </div>
   </main>

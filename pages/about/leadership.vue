@@ -5,7 +5,7 @@
     </Hero>
     <div class="content mt-12 md:mx-auto">
       <section v-for="leader in content.leadership_list" :key="leader.name" class="mt-12 flex flex-col md:mt-24 md:flex-row">
-        <img class="w-56 md:w-1/2" :src="leader.image" alt="Jonathan Cresswell"/>
+        <img class="w-56 md:w-1/2" :src="leader.image" :alt="leader.name"/>
         <div>
           <h3 class="mt-4 md:mt-8 md:text-2xl">{{ leader.name }}</h3>
           <h5 class="mt-1 md:mt-2">{{ leader.occupation }}</h5>

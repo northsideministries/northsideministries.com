@@ -1,7 +1,5 @@
 <template>
   <main class="mb-24">
-    <!-- <img class="absolute bottom-0 left-0 hero-bg md:hidden" src="~/assets/img/home-hero-bg.svg" /> -->
-
     <div class="hero-index px-6 mt-16 md:mx-auto md:max-w-lg lg:max-w-screen-xl">
       <section class="lg:flex lg:flex-row lg:justify-center lg:items-center">
         <div class="lg:px-16 lg:py-12 lg:my-32 lg:-mr-16 lg:w-3/4 z-0 lg:bg-gray-200 lg:rounded-lg lg:shadow-regular">
@@ -30,8 +28,8 @@
           REVIEW OUR GUIDELINES
         </NuxtLinkButton>
       </div>
-      <!-- TODO: replace with CMS image -->
-      <img :src="content.covid_image" class="hidden md:inline mr-auto object-cover w-1/5 lg:rounded-r-btn" />
+
+      <img :src="content.covid_image" class="hidden md:inline mr-auto object-cover w-1/5 lg:rounded-r-btn" alt="COVID-19" />
     </section>
 
     <div class="content descriptions lg:mt-32">
@@ -78,11 +76,11 @@ export default {
     Location,
     NuxtLinkButton
   },
-  head() {
-    return {
-      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
-    }
-  },
+  // head() {
+  //   return {
+  //     script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
+  //   }
+  // },
   async asyncData({ $content }) {
     const content = await $content('pages', 'index').fetch();
 
