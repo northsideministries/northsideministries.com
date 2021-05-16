@@ -5,8 +5,8 @@
 
       <div class="ml-auto h-full border-l-2 border-solid border-gray-400 pl-2 py-1 cursor-pointer" @click="toggle">
         <client-only>
-          <unicon v-show="!active" name="angle-down" width="30" height="30" fill="black" class="ml-1 mt-1"></unicon>
-          <unicon v-show="active" name="angle-up" width="30" height="30" fill="black" class="ml-1 mt-1"></unicon>
+          <unicon v-show="!active" name="angle-down" width="30" height="29" fill="black" class="ml-1 mt-1"></unicon>
+          <unicon v-show="active" name="angle-up" width="30" height="29" fill="black" class="ml-1 mt-1"></unicon>
         </client-only>
       </div>
     </div>

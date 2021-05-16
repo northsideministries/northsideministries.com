@@ -2,23 +2,23 @@
   <main class="mb-24">
     <!-- <img class="absolute bottom-0 left-0 hero-bg md:hidden" src="~/assets/img/home-hero-bg.svg" /> -->
 
-    <div class="hero-index px-6 mt-16 md:mx-auto md:max-w-screen-xl">
-      <section class="md:flex md:flex-row md:justify-center md:items-center">
-        <div class="md:px-16 md:py-12 md:my-32 md:-mr-16 md:w-3/4 z-0 md:bg-gray-200 md:rounded-lg md:shadow-regular">
+    <div class="hero-index px-6 mt-16 md:mx-auto md:max-w-lg lg:max-w-screen-xl">
+      <section class="lg:flex lg:flex-row lg:justify-center lg:items-center">
+        <div class="lg:px-16 lg:py-12 lg:my-32 lg:-mr-16 lg:w-3/4 z-0 lg:bg-gray-200 lg:rounded-lg lg:shadow-regular">
           <h1 class="font-serif font-bold text-2xl pr-6 leading-7">{{ content.title }}</h1>
-          <img class="mt-4 shadow-regular rounded-lg md:hidden" :src="content.hero_image" alt="Main image" />
+          <img class="mt-4 shadow-regular rounded-lg lg:hidden" :src="content.hero_image" alt="Main image" />
           <p class="mt-6 leading-6">{{ content.description }}</p>
           <NuxtLinkButton class="mt-6 shadow-tall" to="/watch" type="cta" wide>
             JOIN US
           </NuxtLinkButton>
         </div>
-        <img class="hidden object-cover md:inline md:w-full md:mx-6 md:rounded-lg md:shadow-tall" :src="content.hero_image" alt="Main image" />
+        <img class="hidden object-cover lg:inline lg:w-full lg:mx-6 lg:rounded-lg lg:shadow-tall" :src="content.hero_image" alt="Main image" />
       </section>
 
     </div>
 
-    <section v-if="content.covid" class="mt-16 md:-ml-16 md:text-left md:flex md:flex-row">
-      <div class="bg-yellow-500 py-8 px-12 md:py-12 md:pl-64 md:pr-16 md:flex md:flex-col md:justify-center">
+    <section v-if="content.covid" class="mt-16 md:-ml-16 md:text-left md:flex md:flex-row w-full lg:ml-0">
+      <div class="bg-yellow-500 py-8 px-12 md:py-12 md:pl-16 md:pr-16 md:flex md:flex-col md:justify-center md:ml-auto lg:rounded-l-btn">
         <div class="flex flex-row items-center justify-center -ml-4 md:justify-start md:ml-0">
           <client-only>
             <unicon name="heart-medical" fill="black" width="26" height="26"></unicon>
@@ -31,10 +31,31 @@
         </NuxtLinkButton>
       </div>
       <!-- TODO: replace with CMS image -->
-      <img :src="content.covid_image" class="hidden md:inline object-cover w-1/6" />
+      <img :src="content.covid_image" class="hidden md:inline mr-auto object-cover w-1/5 lg:rounded-r-btn" />
     </section>
 
-    <section class="content px-6 mt-16 md:mt-32">
+    <div class="content descriptions lg:mt-32">
+      <section>
+        <h2>A church you can call home.</h2>
+        <p>
+          <img :src="content.hero_image" />
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus cursus feugiat. Nam condimentum, urna eu pharetra faucibus, urna elit tincidunt metus, at vehicula leo purus nec dui. Vivamus libero leo, posuere non dictum non, lobortis in quam. Fusce eget auctor sapien.
+        </p>
+      </section>
+
+      <section>
+        <h2>Traditionally uplifting and edifying.</h2>
+        <p>
+          <img :src="content.hero_image" />
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus cursus feugiat. Nam condimentum, urna eu pharetra faucibus, urna elit tincidunt metus, at vehicula leo purus nec dui. Vivamus libero leo, posuere non dictum non, lobortis in quam. Fusce eget auctor sapien.
+          <NuxtLinkButton to="/beliefs" type="secondary" class="mt-6" short>
+            READ OUR BELIEFS
+          </NuxtLinkButton>
+        </p>
+      </section>
+    </div>
+
+    <section class="content px-6 mt-16 md:mt-32 clear-both">
       <h2 class="text-center">Our Location</h2>
       <Location class="mt-8" />
     </section>
@@ -73,6 +94,60 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.descriptions {
+  @screen lg {
+    @apply max-w-screen-lg !important;
+  }
+}
+
+.descriptions > section {
+  @apply flex flex-col;
+
+  @screen lg {
+    @apply mt-24 !important;
+  }
+
+  & > h2 {
+    @apply leading-7 text-center;
+
+    @screen lg {
+      @apply text-2xl;
+    }
+  }
+
+  & > p {
+    @apply mt-4 pt-2 leading-6;
+
+    @screen lg {
+      @apply mt-8;
+    }
+
+    & > img {
+      @apply w-1/2 h-64 object-cover;
+    }
+  }
+
+  &:nth-child(even) {
+    & > p > img {
+      @apply float-right ml-4;
+
+      @screen md {
+        @apply pl-8 ml-8;
+      }
+    }
+  }
+
+  &:nth-child(odd) {
+    & > p > img {
+      @apply float-left mr-4;
+
+      @screen md {
+        @apply pr-8 mr-8;
+      }
+    }
+  }
+}
+
 .hero-index > img {
   z-index: -1;
 }

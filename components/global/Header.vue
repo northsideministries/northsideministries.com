@@ -1,12 +1,12 @@
 <template>
-  <nav class="px-8 py-6 w-full bg-white top-0 overflow-hidden fixed max-h-screen z-10 md:px-24 md:table shadow-regular align-middle md:overflow-y-visible" :class="[mobile_menu_enabled ? 'h-screen overflow-y-scroll' : '']">
-    <div class="md:table-cell align-middle">
+  <nav class="px-8 py-6 w-full bg-white top-0 overflow-hidden fixed max-h-screen z-10 lg:px-24 lg:table shadow-regular align-middle lg:overflow-y-visible" :class="[mobile_menu_enabled ? 'h-screen overflow-y-scroll' : '']">
+    <div class="lg:table-cell align-middle">
       <div class="flex flex-row items-center">
         <nuxt-link to="/" class="inline-block">
           <h1 v-show="!mobile_menu_enabled" class="tracking-tighter font-serif font-bold text-xl">NORTHSIDE</h1>
         </nuxt-link>
 
-        <Button type="secondary" class="ml-auto md:hidden" @click.native="toggleMenu">
+        <Button type="secondary" class="ml-auto lg:hidden" @click.native="toggleMenu">
           <p v-show="mobile_menu_enabled">CLOSE MENU</p>
           <p v-show="!mobile_menu_enabled">MENU</p>
         </Button>
@@ -14,7 +14,7 @@
     </div>
 
     <!-- desktop menu -->
-    <div class="desktop-menu hidden md:inline-block float-right">
+    <div class="desktop-menu hidden lg:inline-block float-right">
       <ul class="flex flex-row items-end">
         <li><NuxtLinkButton type="tertiary" to="/">Home</NuxtLinkButton></li>
         <li>
@@ -41,7 +41,7 @@
 
     <!-- mobile menu -->
     <transition name="slide-right">
-      <div v-show="mobile_menu_enabled" class="mobile-menu absolute top-0 right-0 w-full ml-auto bg-white mt-20 pb-16 pr-8 z-10 md:pr-24">
+      <div v-show="mobile_menu_enabled" class="mobile-menu absolute top-0 right-0 w-full ml-auto bg-white mt-20 pb-16 pr-8 z-10 lg:pr-24">
         <ul class="flex flex-col items-end">
           <li><NuxtLinkButton type="tertiary" to="/">Home</NuxtLinkButton></li>
           <li>

@@ -9,14 +9,14 @@
     </div>
     <div class="mt-6">
       <h4>Map</h4>
-      <div class="mapboxgl-canvas h-64" v-if="access_token !== ''">
+      <div class="mapboxgl-canvas h-full" v-if="access_token !== ''">
         <client-only>
           <MglMap
             :accessToken="access_token"
             :mapStyle="map_style"
             :center="coordinates"
             :zoom="15"
-            class="w-full h-64 mt-4"
+            class="w-full h-full mt-4"
           >
             <MglMarker :coordinates="coordinates" color="red" />
           </MglMap>
