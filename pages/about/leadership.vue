@@ -3,9 +3,9 @@
     <Hero title="Our Leadership" :img="content.hero_image">
       {{ content.description }}
     </Hero>
-    <div class="content mt-12 md:mx-auto">
+    <div class="content md:mx-auto">
       <section v-for="leader in content.leadership_list" :key="leader.name" class="mt-12 flex flex-col md:mt-24 md:flex-row">
-        <img class="w-56 md:w-1/2" :src="leader.image" :alt="leader.name"/>
+        <img class="w-56 md:w-1/3" :src="leader.image" :alt="leader.name"/>
         <div>
           <h3 class="mt-4 md:mt-8 md:text-2xl">{{ leader.name }}</h3>
           <h5 class="mt-1 md:mt-2">{{ leader.occupation }}</h5>
@@ -44,10 +44,12 @@ export default {
 
 <style lang="postcss" scoped>
 .content > section {
-  @apply mx-auto;
+  @screen md {
+    @apply mx-auto float-none;
+  }
 
   &:nth-child(odd) {
-    @apply ml-auto;
+    @apply ml-auto float-right;
 
     @screen md {
       @apply;
@@ -58,7 +60,7 @@ export default {
   }
 
   &:nth-child(even) {
-    @apply ml-0 mr-auto;
+    @apply ml-0 mr-auto float-left;
     
     @screen md {
       @apply flex-row-reverse;

@@ -10,17 +10,19 @@ export default {
   generate: {
     fallback: true,
   },
-  // ? The env Property: https://nuxtjs.org/api/configuration-env/
+
   env: {
     url:
       process.env.NODE_ENV === 'production'
         ? process.env.URL || 'https://www.northsideministries.com'
         : 'http://localhost:3000',
-    lang: SITE_INFO.sitelang || 'en-US'
   },
 
   head: {
     title: SITE_INFO.sitename || process.env.npm_package_name || '',
+    htmlAttrs: {
+      lang: 'en-US'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
