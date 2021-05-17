@@ -10,7 +10,7 @@
 
     <aside class="mx-auto font-serif mt-12 text-sm">
       <NuxtLinkButton to="/" type="primary" class="mx-auto">RETURN HOME</NuxtLinkButton>
-      <p class="italic">“...he was lost, and is found.”</p>
+      <p class="italic mt-4">“...he was lost, and is found.”</p>
       <p class="text-right mt-2">Luke 15:24</p>
     </aside>
   </main>
