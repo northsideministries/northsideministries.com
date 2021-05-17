@@ -4,26 +4,36 @@
       Hello World
     </Hero>
 
-    <div class="content mt-12 leading-6">
-      <span class="font-bold">Use this online form to give to Northside Baptist Church.</span> Optionally, set up recurring giving by selecting the “Give Multiple Times” option.
+    <div class="content mt-12 leading-6 font-bold text-center text-lg">
+      Click "GIVE NOW" to give to Northside Baptist Church.
     </div>
 
-    <!-- TODO: embed giving page -->
-    <div class="embed mt-12"></div>
+    <div class="embed mt-6 content flex flex-col">
+      <LinkButton link="https://onrealm.org/NorthsideMinistries/give" class="mx-auto max-w-md" icon="external-link-alt" iconColor="white" wide>GIVE NOW</LinkButton>
+      <script id="r-embed-script"></script>
+      <!-- <script type="text/javascript">document.getElementById('r-embed-script').src = 'https://onrealm.org/Assets/Embed/giving-embed.js?v=' + Date.now();</script> -->
+    </div>
 
     <div class="content mt-12 leading-6 font-bold">
-      If you need assistance with online giving or have any questions about other payment methods, <a class="text-primary-600 underline">contact us</a>!
+      If you need assistance with online giving or have any questions about other payment methods, please <a class="text-primary-600 underline">contact us</a>!
     </div>
   </main>
 </template>
 
 <script>
 import Hero from '~/components/Hero'
+import LinkButton from '~/components/LinkButton'
+
+import { embedModded } from '~/utils/realm-giving'
 
 export default {
   name: 'GivePage',
   components: {
-    Hero
+    Hero,
+    LinkButton
+  },
+  mounted() {
+    embedModded();
   }
 }
 </script>
