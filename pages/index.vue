@@ -32,11 +32,12 @@
       <img :src="content.covid_image" class="hidden md:inline mr-auto object-cover w-1/5 lg:rounded-r-btn" alt="COVID-19" />
     </section>
 
+    <!-- TODO: pull from CMS -->
     <div class="content descriptions lg:mt-32">
       <section>
         <h2>A church you can call home.</h2>
         <p>
-          <img :src="content.hero_image" />
+          <img :src="content.hero_image" alt="Home" />
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus cursus feugiat. Nam condimentum, urna eu pharetra faucibus, urna elit tincidunt metus, at vehicula leo purus nec dui. Vivamus libero leo, posuere non dictum non, lobortis in quam. Fusce eget auctor sapien.
         </p>
       </section>
@@ -44,7 +45,7 @@
       <section>
         <h2>Traditionally uplifting and edifying.</h2>
         <p>
-          <img :src="content.hero_image" />
+          <img :src="content.hero_image" alt="Uplifting" />
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus cursus feugiat. Nam condimentum, urna eu pharetra faucibus, urna elit tincidunt metus, at vehicula leo purus nec dui. Vivamus libero leo, posuere non dictum non, lobortis in quam. Fusce eget auctor sapien.
           <NuxtLinkButton to="/beliefs" type="secondary" class="mt-6" short>
             READ OUR BELIEFS

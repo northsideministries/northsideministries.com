@@ -4,7 +4,7 @@
       <div class="inline-block w-auto">
         <h3 class="inline-block">{{ title }}</h3>
       </div>
-      <div class="ml-auto" role="switch">
+      <div class="ml-auto" role="switch" aria-label="dropdown toggle" :aria-checked="active">
         <client-only>
           <unicon v-show="!active" name="angle-down" width="36" height="36" fill="black" class="ml-1 mt-1"></unicon>
           <unicon v-show="active" name="angle-up" width="36" height="36" fill="black" class="ml-1 mt-1"></unicon>

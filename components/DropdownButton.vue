@@ -1,7 +1,7 @@
 <template>
   <div class="inline-block relative">
     <div class="button dropdown-button" :class="[ active ? 'active' : '', expand ? 'expand' : '' ]">
-      <a class="text-center w-full px-6 py-3" :href="link ? link : null">{{ label }}</a>
+      <a class="text-center w-full px-6 py-3" :href="link ? link : null" role="button" aria-label="option">{{ label }}</a>
 
       <div class="ml-auto h-full border-l-2 border-solid border-gray-400 pl-2 py-1 cursor-pointer" tabindex="0" @click="toggle" @keypress.space.prevent="toggle" role="switch" aria-label="Dropdown Control">
         <client-only>
@@ -10,7 +10,7 @@
         </client-only>
       </div>
     </div>
-    <div v-show="active" class="dropdown-contents">
+    <div v-show="active" class="dropdown-contents" role="menu" aria-label="select menu">
       <slot />
     </div>
   </div>
