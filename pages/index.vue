@@ -32,7 +32,7 @@
       <img :src="content.covid_image" class="hidden md:inline mr-auto object-cover w-1/5 lg:rounded-r-btn" alt="COVID-19" />
     </section>
 
-    <!-- TODO: pull from CMS -->
+    <!-- TODO: pull text and images from CMS, store as list -->
     <div class="content descriptions lg:mt-32">
       <section>
         <h2>A church you can call home.</h2>
