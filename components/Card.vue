@@ -1,5 +1,5 @@
 <template>
-  <div class="card flex flex-col rounded-btn shadow-regular bg-white">
+  <div class="card flex flex-col rounded-btn shadow-regular bg-white" role="region">
     <div v-if="img">
       <img :src="img" :alt="title" class="object-cover w-full h-32 rounded-t-btn" />
     </div>

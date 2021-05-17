@@ -1,6 +1,7 @@
 <template>
   <a
     class="button"
+    role="link"
     :href="disabled ? false : link"
     :class="[type ? type : '', wide ? 'wide' : '', icon ? 'icon' : '', short ? 'short' : '', disabled ? 'disabled' : '']"
   >

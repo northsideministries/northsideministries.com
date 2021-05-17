@@ -1,6 +1,7 @@
 <template>
   <nuxt-link
     class="button"
+    role="link"
     :to="to"
     :class="[type ? type : '', wide ? 'wide' : '', icon ? 'icon' : '', short ? 'short' : '', disabled ? 'disabled' : '']"
   >

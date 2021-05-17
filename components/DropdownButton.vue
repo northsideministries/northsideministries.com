@@ -3,7 +3,7 @@
     <div class="button dropdown-button" :class="[ active ? 'active' : '', expand ? 'expand' : '' ]">
       <a class="text-center w-full px-6 py-3" :href="link ? link : null">{{ label }}</a>
 
-      <div class="ml-auto h-full border-l-2 border-solid border-gray-400 pl-2 py-1 cursor-pointer" @click="toggle">
+      <div class="ml-auto h-full border-l-2 border-solid border-gray-400 pl-2 py-1 cursor-pointer" tabindex="0" @click="toggle" @keypress.space.prevent="toggle" role="switch" aria-label="Dropdown Control">
         <client-only>
           <unicon v-show="!active" name="angle-down" width="30" height="29" fill="black" class="ml-1 mt-1"></unicon>
           <unicon v-show="active" name="angle-up" width="30" height="29" fill="black" class="ml-1 mt-1"></unicon>

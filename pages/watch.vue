@@ -1,6 +1,6 @@
 <template>
   <main class="mb-16">
-    <div class="player shadow-tall md:px-16 md:py-32 md:rounded-2xl md:m-8">
+    <div class="player shadow-tall md:px-16 md:py-32 md:rounded-2xl md:m-8" role="presentation" aria-label="livestream">
       <div v-if="sermon_live" class="player-live">
 
       </div>

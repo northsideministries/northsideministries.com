@@ -37,7 +37,7 @@
         <Button v-show="limit === null" class="ml-auto mr-auto mt-8" icon="angle-up" iconColor="#2941A3" type="secondary" short @click.native="limit = LIMIT_DEFAULT">SHOW LESS</Button>
       </div>
     </div>
-    <aside class="mt-16 bg-gray-100 px-6 pb-16 pt-10">
+    <aside class="mt-16 bg-gray-100 md:bg-transparent px-6 pb-16 pt-10">
       <h2 class="text-center">Ladies' Bible Study</h2>
       
       <!-- TODO: pull content from external service? -->
