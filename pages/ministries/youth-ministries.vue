@@ -24,6 +24,12 @@
         </div>
       </section>
     </div>
+
+    <SocialHead
+      title="Youth Ministries"
+      :description="content.description"
+      :image="content.hero_image"
+    />
   </main>
 </template>
 
@@ -36,6 +42,18 @@ export default {
   components: {
     NuxtLinkButton,
     Hero
+  },
+  head() {
+    return {
+      title: 'Youth Ministries',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.content.description
+        }
+      ]
+    }
   },
   async asyncData({ $content }) {
     const content = await $content('pages', 'youth_ministries').fetch();

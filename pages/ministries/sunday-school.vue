@@ -38,6 +38,12 @@
         </div>
       </section>
     </div>
+
+    <SocialHead
+      title="Sunday School"
+      :description="content.description"
+      :image="content.hero_image"
+    />
   </main>
 </template>
 
@@ -52,6 +58,18 @@ export default {
     LinkButton,
     LivestreamClassList,
     Hero
+  },
+  head() {
+    return {
+      title: 'Sunday School',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.content.description
+        }
+      ]
+    }
   },
   async asyncData({ $content }) {
     const content = await $content('pages', 'sunday_school').fetch();

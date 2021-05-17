@@ -28,6 +28,12 @@
         <img class="object-cover mt-4 md:mt-6 md:h-48 md:w-full" :src="content.last_image" alt="Northside"/>
       </section>
     </div>
+
+    <SocialHead
+      title="About"
+      description="About us."
+      :image="content.hero_image"
+    />
   </main>
 </template>
 
@@ -42,6 +48,18 @@ export default {
   data() {
     return {
       img: ''
+    }
+  },
+  head() {
+    return {
+      title: 'About',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'About us'
+        }
+      ]
     }
   },
   async asyncData({ $content }) {

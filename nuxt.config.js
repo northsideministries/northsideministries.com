@@ -19,9 +19,12 @@ export default {
   },
 
   head: {
-    title: SITE_INFO.sitename || process.env.npm_package_name || '',
     htmlAttrs: {
       lang: 'en-US'
+    },
+    titleTemplate: (titleChunk) => {
+      // If undefined or blank then we don't need the hyphen
+      return titleChunk && titleChunk !== 'Northside Baptist Church' ? `${titleChunk} - Northside Baptist Church` : 'Northside Baptist Church'
     },
     meta: [
       { charset: 'utf-8' },
@@ -95,7 +98,8 @@ export default {
   plugins: [
     { src: '~/plugins/vue-unicons', mode: 'client', ssr: false },
     { src: '~/plugins/mapbox.js', mode: 'client', ssr: false },
-    '~/plugins/vue-content-placeholders.js'
+    '~/plugins/vue-content-placeholders.js',
+    '~/plugins/vue-socialhead.js'
   ],
 
   buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa'],

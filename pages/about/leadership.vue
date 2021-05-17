@@ -21,6 +21,12 @@
         </div>
       </section>
     </div>
+
+    <SocialHead
+      title="Our Leadership"
+      :description="content.description"
+      :image="content.hero_image"
+    />
   </main>
 </template>
 
@@ -31,6 +37,18 @@ export default {
   name: 'LeadershipPage',
   components: {
     Hero
+  },
+  head() {
+    return {
+      title: 'Our Leadership',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.content.description
+        }
+      ]
+    }
   },
   async asyncData({ $content }) {
     const content = await $content('pages', 'leadership').fetch();

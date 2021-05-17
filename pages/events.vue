@@ -1,8 +1,7 @@
 <template>
   <main>
-    <Hero title="Events" :img="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel risus magna. Mauris mattis eros vitae metus
-      lobortis, ut vehicula augue interdum.
+    <Hero title="Events" :img="content.hero_image">
+      {{ content.description }}
     </Hero>
     <div class="content">
       <h2 class="text-center mt-12">Upcoming Events</h2>
@@ -40,12 +39,17 @@
     <aside class="mt-16 bg-gray-100 md:bg-transparent px-6 pb-16 pt-10">
       <h2 class="text-center">Ladies' Bible Study</h2>
       
-      <!-- TODO: pull content from external service? -->
       <div class="md:max-w-md md:mx-auto">
-        <img class="shadow-regular mt-6" src="~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg" alt="Ladies' Bible Study"/>
-        <p class="mt-8 leading-6">“Just Open the Door” is a wonderful series involving video discussions, study helps, and practical applications. We will work through this series from January – August 2021. The book is available at Lifeway or Amazon.</p>
+        <img class="shadow-regular mt-6" :src="content.ladies_image" alt="Ladies' Bible Study"/>
+        <p class="mt-8 leading-6">{{ content.ladies_description }}</p>
       </div>
     </aside>
+
+    <SocialHead
+      title="Events"
+      :description="content.description"
+      :image="content.hero_image"
+    />
   </main>
 </template>
 
@@ -71,6 +75,7 @@ export default {
       LIMIT_DEFAULT: 3,
       limit: 3,
 
+      // TODO: pull from Google Calendar
       events: [
         {
           title: 'Youth Activity',
@@ -93,6 +98,25 @@ export default {
     select(timeframe) {
       this.selected_timeframe = timeframe
       this.$refs.timeframe_select.close()
+    }
+  },
+  head() {
+    return {
+      title: 'Events',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.content.description
+        }
+      ]
+    }
+  },
+  async asyncData({ $content }) {
+    const content = await $content('pages', 'events').fetch();
+    
+    return {
+      content
     }
   }
 }

@@ -250,6 +250,22 @@ collections:
                 pattern: ['^[^\s@]+@[^\s@]+\.[^\s@]+$', 'Must be an email address']
                 required: true
 
+      - label: 'COVID-19 Page'
+        name: 'covid'
+        file: 'content/pages/covid.json'
+        fields:
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
+
+      - label: 'Events Page'
+        name: 'events'
+        file: 'content/pages/events.json'
+        fields:
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
+          - { label: "Ladies' Bible Study Featured Image", name: ladies_image, widget: image }
+          - { label: "Ladies' Bible Study Description", name: ladies_description, widget: text }
+
       - label: 'Home Page'
         name: 'index'
         file: 'content/pages/index.json'
@@ -265,6 +281,13 @@ collections:
               hint: 'Display a notification about COVID-19 protocols',
             }
           - { label: 'COVID-19 Featured Image', name: covid_image, widget: image, required: true }
+
+      - label: 'Give Page'
+        name: 'give'
+        file: 'content/pages/give.json'
+        fields:
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
 
       - label: 'Leadership Page'
         name: 'leadership'

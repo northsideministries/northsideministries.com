@@ -19,6 +19,12 @@
         </div>
       </section>
     </div>
+
+    <SocialHead
+      title="Children's Ministries"
+      :description="content.description"
+      :image="content.hero_image"
+    />
   </main>
 </template>
 
@@ -29,6 +35,18 @@ export default {
   name: 'ChildrensMinistriesPage',
   components: {
     Hero
+  },
+  head() {
+    return {
+      title: 'Children\'s Ministries',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.content.description
+        }
+      ]
+    }
   },
   async asyncData({ $content }) {
     const content = await $content('pages', 'childrens_ministries').fetch();

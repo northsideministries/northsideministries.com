@@ -1,8 +1,7 @@
 <template>
   <main class="mb-20">
-    <Hero title="COVID-19" :img="require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg')">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel risus magna. Mauris mattis eros vitae metus
-      lobortis, ut vehicula augue interdum.
+    <Hero title="COVID-19" :img="content.hero_image">
+      {{ content.description }}
     </Hero>
 
     <div class="content">
@@ -34,6 +33,12 @@
         Please call one another and pursue meaningful conversations and times of prayer.
         This is a wonderful way to continue to meet the emotional and spiritual needs of our local body of Christ.
       </p>
+
+      <SocialHead
+        title="COVID-19"
+        :description="content.description"
+        :image="content.hero_image"
+      />
     </div>
   </main>
 </template>
@@ -50,6 +55,25 @@ export default {
     return {
       // TODO: pull from CMS
       last_update_date: 'January 11, 2021'
+    }
+  },
+  head() {
+    return {
+      title: 'COVID-19',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.content.description
+        }
+      ]
+    }
+  },
+  async asyncData({ $content }) {
+    const content = await $content('pages', 'covid').fetch();
+    
+    return {
+      content
     }
   }
 }

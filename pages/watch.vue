@@ -48,6 +48,11 @@
         </div>
       </section>
     </div>
+
+    <SocialHead
+      title="Watch"
+      description="Watch our livestream online."
+    />
   </main>
 </template>
 
@@ -82,6 +87,18 @@ export default {
   computed: {
     limited_sermons(){
       return this.limit ? this.sermons.slice(0,this.limit) : this.sermons
+    }
+  },
+  head() {
+    return {
+      title: this.sermon_live ? 'LIVE' : 'Watch',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Watch our livestream online.'
+        }
+      ]
     }
   },
   async asyncData({ $content }) {

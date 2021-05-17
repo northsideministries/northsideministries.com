@@ -11,6 +11,12 @@
         <LinkButton v-if="ministry.link && ministry.link.external_link" :link="ministry.link.external_link" type="secondary" short>{{ ministry.link.label }}</LinkButton>
       </section>
     </div>
+
+    <SocialHead
+      title="Ministries"
+      :description="description"
+      :image="content.hero_image"
+    />
   </main>
 </template>
 
@@ -25,6 +31,23 @@ export default {
     Hero,
     LinkButton,
     NuxtLinkButton
+  },
+  data() {
+    return {
+      description: 'Northside Baptist Church supports numerous outreach ministries and missionaries across the globe.'
+    }
+  },
+  head() {
+    return {
+      title: 'Ministries',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.description
+        }
+      ]
+    }
   },
   async asyncData({ $content }) {
     const content = await $content('pages', 'ministries').fetch();

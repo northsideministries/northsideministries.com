@@ -10,6 +10,12 @@
         <p class="mt-4 italic text-sm">{{ belief.references }}</p>
       </Dropdown>
     </div>
+
+    <SocialHead
+      title="Beliefs"
+      :description="content.description"
+      :image="content.hero_image"
+    />
   </main>
 </template>
 
@@ -22,6 +28,18 @@ export default {
   components: {
     Dropdown,
     Hero
+  },
+  head() {
+    return {
+      title: 'Beliefs',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.content.description
+        }
+      ]
+    }
   },
   async asyncData({ $content }) {
     const content = await $content('pages', 'beliefs').fetch();

@@ -46,6 +46,12 @@
         <h2>Our Location</h2>
         <Location class="mt-6" />
       </section>
+
+      <SocialHead
+        title="Contact Us"
+        :description="page.description"
+        :image="page.hero_image"
+      />
     </div>
   </main>
 </template>
@@ -70,6 +76,18 @@ export default {
   data() {
     return {
       callable: isMobile() ? true : false
+    }
+  },
+  head() {
+    return {
+      title: 'Contact Us',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.page.description
+        }
+      ]
     }
   },
   async asyncData({ $content }) {

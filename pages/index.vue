@@ -65,6 +65,12 @@
         CONTACT US
       </NuxtLinkButton>
     </section>
+
+    <SocialHead
+      title="Northside Baptist Church"
+      :description="content.description"
+      :image="content.hero_image"
+    />
   </main>
 </template>
 
@@ -82,6 +88,17 @@ export default {
   //     script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
   //   }
   // },
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.content.description
+        }
+      ]
+    }
+  },
   async asyncData({ $content }) {
     const content = await $content('pages', 'index').fetch();
 
