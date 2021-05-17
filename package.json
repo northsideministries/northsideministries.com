@@ -17,6 +17,7 @@
   "dependencies": {
     "@nuxt/content": "^1.14.0",
     "@nuxtjs/markdownit": "^1.2.6",
+    "@nuxtjs/sitemap": "^2.4.0",
     "mapbox-gl": "^2.2.0",
     "nuxt": "^2.14.12",
     "vue-content-placeholders": "^0.2.1",

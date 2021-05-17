@@ -100,7 +100,7 @@ export default {
 
   buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa'],
 
-  modules: ['nuxt-purgecss', '@nuxt/content'],
+  modules: ['nuxt-purgecss', '@nuxt/content', '@nuxtjs/sitemap'],
   markdownit: {
     injected: true
   },
@@ -121,10 +121,19 @@ export default {
       },
     },
 
+    // TODO: only test in pre-production
+    // analyze: true,
+
     /*
      ** You can extend webpack config here
      */
     extend(config, ctx) { }
+  },
+
+  sitemap: {
+    hostname: 'https://northsideministries.com',
+    exclude: ['/static/admin/**'],
+    gzip: true
   },
 
   tailwindcss: {
