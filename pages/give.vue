@@ -11,13 +11,22 @@
     </div>
 
     <div class="embed mt-6 content flex flex-col">
-      <LinkButton link="https://onrealm.org/NorthsideMinistries/give" class="mx-auto max-w-md" icon="external-link-alt" iconColor="white" wide>GIVE NOW</LinkButton>
+      <LinkButton
+        link="https://onrealm.org/NorthsideMinistries/give"
+        class="mx-auto max-w-md"
+        icon="external-link-alt"
+        iconColor="white"
+        wide
+        >GIVE NOW</LinkButton
+      >
       <script id="r-embed-script"></script>
       <!-- <script type="text/javascript">document.getElementById('r-embed-script').src = 'https://onrealm.org/Assets/Embed/giving-embed.js?v=' + Date.now();</script> -->
     </div>
 
     <div class="content mt-12 leading-6 font-bold">
-      If you need assistance with online giving or have any questions about other payment methods, please <a class="text-primary-600 underline">contact us</a>!
+      If you need assistance with online giving or have any questions about
+      other payment methods, please
+      <a class="text-primary-600 underline">contact us</a>!
     </div>
 
     <SocialHead
@@ -41,7 +50,7 @@ export default {
     LinkButton
   },
   mounted() {
-    embedModded();
+    embedModded()
   },
   head() {
     return {
@@ -56,8 +65,8 @@ export default {
     }
   },
   async asyncData({ $content }) {
-    const content = await $content('pages', 'give').fetch();
-    
+    const content = await $content('pages', 'give').fetch()
+
     return {
       content
     }

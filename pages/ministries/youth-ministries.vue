@@ -9,18 +9,40 @@
       {{ content.description }}
     </Hero>
     <div class="content">
-      <section v-for="ministry in content.ministry_list" :key="ministry.name" class="w-11/12 mt-16 md:w-4/5 md:mt-32">
+      <section
+        v-for="ministry in content.ministry_list"
+        :key="ministry.name"
+        class="w-11/12 mt-16 md:w-4/5 md:mt-32"
+      >
         <h2>{{ ministry.name }}</h2>
         <img :src="ministry.image" :alt="ministry.name" />
         <p>{{ ministry.description }}</p>
-        <div v-if="ministry.day || ministry.room || ministry.service" class="mt-6">
+        <div
+          v-if="ministry.day || ministry.room || ministry.service"
+          class="mt-6"
+        >
           <h3>{{ ministry.day }}</h3>
           <p>{{ ministry.room }}</p>
-          <p>{{ ministry.service }} <span v-if="ministry.time">— {{ ministry.time }}</span></p>
+          <p>
+            {{ ministry.service }}
+            <span v-if="ministry.time">— {{ ministry.time }}</span>
+          </p>
         </div>
         <div v-if="ministry.link" class="mt-4 inline-block">
-          <NuxtLinkButton v-if="ministry.link.page_link" :to="ministry.link.page_link" type="secondary" short>{{ ministry.link.label }}</NuxtLinkButton>
-          <LinkButton v-if="ministry.link.external_link" :link="ministry.link.external_link" type="secondary" short>{{ ministry.link.label }}</LinkButton>
+          <NuxtLinkButton
+            v-if="ministry.link.page_link"
+            :to="ministry.link.page_link"
+            type="secondary"
+            short
+            >{{ ministry.link.label }}</NuxtLinkButton
+          >
+          <LinkButton
+            v-if="ministry.link.external_link"
+            :link="ministry.link.external_link"
+            type="secondary"
+            short
+            >{{ ministry.link.label }}</LinkButton
+          >
         </div>
       </section>
     </div>
@@ -56,12 +78,12 @@ export default {
     }
   },
   async asyncData({ $content }) {
-    const content = await $content('pages', 'youth_ministries').fetch();
+    const content = await $content('pages', 'youth_ministries').fetch()
 
     return {
       content
     }
-  },
+  }
 }
 </script>
 
@@ -78,12 +100,14 @@ export default {
       @apply text-right;
     }
 
-    & > p, & > div {
+    & > p,
+    & > div {
       @apply ml-8;
     }
 
     @screen md {
-      & > p, & > div {
+      & > p,
+      & > div {
         @apply ml-0;
       }
     }

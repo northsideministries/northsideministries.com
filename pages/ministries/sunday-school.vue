@@ -15,25 +15,49 @@
         <div>
           <h3>Children</h3>
           <div class="flex flex-col">
-            <p v-for="_class in content.children_class_list" :key="_class.name" class="flex flex-row w-full px-5 py-4">{{ _class.name }}<span class="ml-auto">{{ _class.room }}</span></p>
+            <p
+              v-for="_class in content.children_class_list"
+              :key="_class.name"
+              class="flex flex-row w-full px-5 py-4"
+            >
+              {{ _class.name }}<span class="ml-auto">{{ _class.room }}</span>
+            </p>
           </div>
         </div>
         <div>
           <h3>Teens</h3>
           <div class="flex flex-col">
-            <p v-for="_class in content.teen_class_list" :key="_class.name" class="flex flex-row w-full px-5 py-4">{{ _class.name }}<span class="ml-auto">{{ _class.room }}</span></p>
+            <p
+              v-for="_class in content.teen_class_list"
+              :key="_class.name"
+              class="flex flex-row w-full px-5 py-4"
+            >
+              {{ _class.name }}<span class="ml-auto">{{ _class.room }}</span>
+            </p>
           </div>
         </div>
         <div>
           <h3>Adults</h3>
           <div class="flex flex-col">
-            <p v-for="_class in content.adult_class_list" :key="_class.name" class="flex flex-row w-full px-5 py-4">{{ _class.name }}<span class="ml-auto">{{ _class.room }}</span></p>
+            <p
+              v-for="_class in content.adult_class_list"
+              :key="_class.name"
+              class="flex flex-row w-full px-5 py-4"
+            >
+              {{ _class.name }}<span class="ml-auto">{{ _class.room }}</span>
+            </p>
           </div>
         </div>
         <div>
           <h3>Senior Citizens</h3>
           <div class="flex flex-col">
-            <p v-for="_class in content.senior_citizen_class_list" :key="_class.name" class="flex flex-row w-full px-5 py-4">{{ _class.name }}<span class="ml-auto">{{ _class.room }}</span></p>
+            <p
+              v-for="_class in content.senior_citizen_class_list"
+              :key="_class.name"
+              class="flex flex-row w-full px-5 py-4"
+            >
+              {{ _class.name }}<span class="ml-auto">{{ _class.room }}</span>
+            </p>
           </div>
         </div>
       </section>
@@ -48,14 +72,12 @@
 </template>
 
 <script>
-import LinkButton from '~/components/LinkButton'
 import LivestreamClassList from '~/components/LivestreamClassList'
 import Hero from '~/components/Hero'
 
 export default {
   name: 'SundaySchoolPage',
   components: {
-    LinkButton,
     LivestreamClassList,
     Hero
   },
@@ -72,12 +94,12 @@ export default {
     }
   },
   async asyncData({ $content }) {
-    const content = await $content('pages', 'sunday_school').fetch();
+    const content = await $content('pages', 'sunday_school').fetch()
 
     return {
       content
     }
-  },
+  }
 }
 </script>
 

@@ -6,11 +6,15 @@
     <div class="content">
       <section>
         <h2>Home Missionaries</h2>
-        <p>We support missionaries directly sent from our church out into the mission field.</p>
+        <p>
+          We support missionaries directly sent from our church out into the
+          mission field.
+        </p>
 
         <div class="mt-4">
           <p v-for="missionary in content.home_list" :key="missionary.name">
-            <span class="font-bold">{{ missionary.name }}</span> – {{ missionary.location }}
+            <span class="font-bold">{{ missionary.name }}</span> –
+            {{ missionary.location }}
           </p>
         </div>
       </section>
@@ -27,13 +31,23 @@
 
       <section>
         <h2>Missionaries</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum purus velit, quis cursus ligula ullamcorper ac. Praesent venenatis egestas finibus. Quisque interdum enim a felis pharetra tincidunt.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+          condimentum purus velit, quis cursus ligula ullamcorper ac. Praesent
+          venenatis egestas finibus. Quisque interdum enim a felis pharetra
+          tincidunt.
+        </p>
 
         <div class="missionaries-list mt-6 grid grid-cols-2 row-gap-8">
           <div v-for="country in content.country_list" :key="country.name">
             <h4>{{ country.name }}</h4>
             <ul>
-              <li v-for="missionary in country.missionary_list" :key="missionary.name">{{ missionary.name }}</li>
+              <li
+                v-for="missionary in country.missionary_list"
+                :key="missionary.name"
+              >
+                {{ missionary.name }}
+              </li>
             </ul>
           </div>
         </div>
@@ -69,12 +83,12 @@ export default {
     }
   },
   async asyncData({ $content }) {
-    const content = await $content('pages', 'missions').fetch();
+    const content = await $content('pages', 'missions').fetch()
 
     return {
       content
     }
-  },
+  }
 }
 </script>
 

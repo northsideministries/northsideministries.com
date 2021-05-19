@@ -7,8 +7,20 @@
         <h2>{{ ministry.name }}</h2>
         <img :src="ministry.image" :alt="ministry.name" />
         <p>{{ ministry.description }}</p>
-        <NuxtLinkButton v-if="ministry.link && ministry.link.page_link" :to="ministry.link.page_link" type="secondary" short>{{ ministry.link.label }}</NuxtLinkButton>
-        <LinkButton v-if="ministry.link && ministry.link.external_link" :link="ministry.link.external_link" type="secondary" short>{{ ministry.link.label }}</LinkButton>
+        <NuxtLinkButton
+          v-if="ministry.link && ministry.link.page_link"
+          :to="ministry.link.page_link"
+          type="secondary"
+          short
+          >{{ ministry.link.label }}</NuxtLinkButton
+        >
+        <LinkButton
+          v-if="ministry.link && ministry.link.external_link"
+          :link="ministry.link.external_link"
+          type="secondary"
+          short
+          >{{ ministry.link.label }}</LinkButton
+        >
       </section>
     </div>
 
@@ -34,7 +46,8 @@ export default {
   },
   data() {
     return {
-      description: 'Northside Baptist Church supports numerous outreach ministries and missionaries across the globe.'
+      description:
+        'Northside Baptist Church supports numerous outreach ministries and missionaries across the globe.'
     }
   },
   head() {
@@ -50,12 +63,12 @@ export default {
     }
   },
   async asyncData({ $content }) {
-    const content = await $content('pages', 'ministries').fetch();
+    const content = await $content('pages', 'ministries').fetch()
 
     return {
       content
     }
-  },
+  }
 }
 </script>
 
@@ -63,7 +76,9 @@ export default {
 .content > section {
   @apply mt-24 flex flex-col;
 
-  & > img, & > p, & > a {
+  & > img,
+  & > p,
+  & > a {
     @apply mt-6;
   }
 

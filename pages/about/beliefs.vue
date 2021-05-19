@@ -4,8 +4,15 @@
       {{ content.description }}
     </Hero>
 
-    <div class="content mt-8 md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-4 md:auto-cols-fr">
-      <Dropdown v-for="belief in content.belief_list" :key="belief.name" :title="belief.name" class="md:mb-auto">
+    <div
+      class="content mt-8 md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-4 md:auto-cols-fr"
+    >
+      <Dropdown
+        v-for="belief in content.belief_list"
+        :key="belief.name"
+        :title="belief.name"
+        class="md:mb-auto"
+      >
         <p class="leading-6">{{ belief.description }}</p>
         <p class="mt-4 italic text-sm">{{ belief.references }}</p>
       </Dropdown>
@@ -42,12 +49,12 @@ export default {
     }
   },
   async asyncData({ $content }) {
-    const content = await $content('pages', 'beliefs').fetch();
+    const content = await $content('pages', 'beliefs').fetch()
 
     return {
       content
     }
-  },
+  }
 }
 </script>
 

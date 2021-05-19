@@ -7,40 +7,71 @@
       <h2 class="text-center mt-12">Upcoming Events</h2>
       <h5 class="font-bold mt-8">View events for</h5>
 
-      <DropdownButton :label="selected_timeframe" class="mt-3 w-56" :expand="false" ref="timeframe_select">
+      <DropdownButton
+        :label="selected_timeframe"
+        class="mt-3 w-56"
+        :expand="false"
+        ref="timeframe_select"
+      >
         <ul class="timeframe-list flex flex-col mt-1 absolute right-0">
           <li
             v-for="timeframe in timeframe_options"
             :class="[selected_timeframe === timeframe ? 'selected' : '']"
             :key="timeframe"
-            @click="select(timeframe)">
+            @click="select(timeframe)"
+          >
             {{ timeframe }}
           </li>
         </ul>
       </DropdownButton>
 
       <section class="mt-8 md:grid md:grid-cols-2 md:col-gap-4 md:row-gap-2">
-        <Card v-for="event in limited_events" :key="event.title"
+        <Card
+          v-for="event in limited_events"
+          :key="event.title"
           :title="event.title"
           :subtitle="event.date"
           :img="event.img"
           :location="event.location"
           :time="event.time"
-          :link="event.link">
-            {{ event.desc }}
+          :link="event.link"
+        >
+          {{ event.desc }}
         </Card>
       </section>
 
       <div v-if="events.length > LIMIT_DEFAULT">
-        <Button v-show="limit !== null" class="ml-auto mr-auto mt-8" icon="angle-down" iconColor="#2941A3" type="secondary" short @click.native="limit = null">SHOW MORE</Button>
-        <Button v-show="limit === null" class="ml-auto mr-auto mt-8" icon="angle-up" iconColor="#2941A3" type="secondary" short @click.native="limit = LIMIT_DEFAULT">SHOW LESS</Button>
+        <Button
+          v-show="limit !== null"
+          class="ml-auto mr-auto mt-8"
+          icon="angle-down"
+          iconColor="#2941A3"
+          type="secondary"
+          short
+          @click.native="limit = null"
+          >SHOW MORE</Button
+        >
+        <Button
+          v-show="limit === null"
+          class="ml-auto mr-auto mt-8"
+          icon="angle-up"
+          iconColor="#2941A3"
+          type="secondary"
+          short
+          @click.native="limit = LIMIT_DEFAULT"
+          >SHOW LESS</Button
+        >
       </div>
     </div>
     <aside class="mt-16 bg-gray-100 md:bg-transparent px-6 pb-16 pt-10">
       <h2 class="text-center">Ladies' Bible Study</h2>
-      
+
       <div class="md:max-w-md md:mx-auto">
-        <img class="shadow-regular mt-6" :src="content.ladies_image" alt="Ladies' Bible Study"/>
+        <img
+          class="shadow-regular mt-6"
+          :src="content.ladies_image"
+          alt="Ladies' Bible Study"
+        />
         <p class="mt-8 leading-6">{{ content.ladies_description }}</p>
       </div>
     </aside>
@@ -80,7 +111,9 @@ export default {
         {
           title: 'Youth Activity',
           date: 'January 13, 2021',
-          desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere iaculis.',
+          desc:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere iaculis.',
+          // eslint-disable-next-line no-undef
           img: require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg'),
           location: 'Northside Baptist Church',
           time: '2:00 PM to 3:00 PM',
@@ -90,8 +123,8 @@ export default {
     }
   },
   computed: {
-    limited_events(){
-      return this.limit ? this.events.slice(0,this.limit) : this.events
+    limited_events() {
+      return this.limit ? this.events.slice(0, this.limit) : this.events
     }
   },
   methods: {
@@ -113,8 +146,8 @@ export default {
     }
   },
   async asyncData({ $content }) {
-    const content = await $content('pages', 'events').fetch();
-    
+    const content = await $content('pages', 'events').fetch()
+
     return {
       content
     }

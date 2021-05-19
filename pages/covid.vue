@@ -5,7 +5,9 @@
     </Hero>
 
     <div class="content">
-      <aside class="mt-4 bg-gray-200 rounded-btn text-gray-700 text-center px-8 py-5 font-mono text-sm">
+      <aside
+        class="mt-4 bg-gray-200 rounded-btn text-gray-700 text-center px-8 py-5 font-mono text-sm"
+      >
         Last updated {{ last_update_date }}
       </aside>
 
@@ -16,7 +18,10 @@
       </section>
       <section>
         <h2>Events</h2>
-        <p>All events currently listed on our calender page have not been canceled.</p>
+        <p>
+          All events currently listed on our calender page have not been
+          canceled.
+        </p>
       </section>
       <section>
         <h2>Giving</h2>
@@ -25,13 +30,20 @@
       </section>
       <section>
         <h2>Opportunities</h2>
-        <p>Are you interested in running errands for those in our congregation who may not be able to get out right now? If so, <nuxt-link to="/contact">call the church office</nuxt-link> to let us know when you are available.</p>
+        <p>
+          Are you interested in running errands for those in our congregation
+          who may not be able to get out right now? If so,
+          <nuxt-link to="/contact">call the church office</nuxt-link> to let us
+          know when you are available.
+        </p>
       </section>
 
       <p class="px-10 leading-6 mt-16">
-        Though we are encouraged to practice social distancing, we encourage you to keep in contact regularly with fellow church members during this time of separation.
-        Please call one another and pursue meaningful conversations and times of prayer.
-        This is a wonderful way to continue to meet the emotional and spiritual needs of our local body of Christ.
+        Though we are encouraged to practice social distancing, we encourage you
+        to keep in contact regularly with fellow church members during this time
+        of separation. Please call one another and pursue meaningful
+        conversations and times of prayer. This is a wonderful way to continue
+        to meet the emotional and spiritual needs of our local body of Christ.
       </p>
 
       <SocialHead
@@ -70,8 +82,8 @@ export default {
     }
   },
   async asyncData({ $content }) {
-    const content = await $content('pages', 'covid').fetch();
-    
+    const content = await $content('pages', 'covid').fetch()
+
     return {
       content
     }

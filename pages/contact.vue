@@ -8,25 +8,38 @@
         <h2>Service Times</h2>
         <div>
           <h4>Sunday</h4>
-          <p v-for="service in sunday_services" :key="service.name">{{ service.name }} — {{ service.time }}</p>
+          <p v-for="service in sunday_services" :key="service.name">
+            {{ service.name }} — {{ service.time }}
+          </p>
         </div>
         <div>
           <h4>Wednesday</h4>
-          <p v-for="service in wednesday_services" :key="service.name">{{ service.name }} — {{ service.time }}</p>
+          <p v-for="service in wednesday_services" :key="service.name">
+            {{ service.name }} — {{ service.time }}
+          </p>
         </div>
       </section>
       <section>
         <h2>Phone</h2>
         <p class="font-mono mt-4">{{ contact.phone }}</p>
         <Button v-show="callable" icon="calling" iconColor="white" class="mt-3">
-          <a class="w-full" :href="`tel:+${parseInt(contact.phone.replace(/[^0-9]/g, ''), 10)}`">CALL US</a>
+          <a
+            class="w-full"
+            :href="`tel:+${parseInt(contact.phone.replace(/[^0-9]/g, ''), 10)}`"
+            >CALL US</a
+          >
         </Button>
       </section>
       <section>
         <h2>Email</h2>
 
         <div class="md:grid md:grid-cols-2 md:col-gap-4 md:row-gap-2">
-          <Card v-for="contact in page.contact_list" :key="contact.name" :title="contact.name" :subtitle="contact.occupation">
+          <Card
+            v-for="contact in page.contact_list"
+            :key="contact.name"
+            :title="contact.name"
+            :subtitle="contact.occupation"
+          >
             <address>{{ contact.email }}</address>
             <LinkButton
               type="secondary"
@@ -91,11 +104,15 @@ export default {
     }
   },
   async asyncData({ $content }) {
-    const page = await $content('pages', 'contact').fetch();
-    const contact = await $content('church', 'contact').fetch();
-    const service_times = await $content('church', 'service_times').fetch();
-    const sunday_services = service_times.services.filter(service => service.day === 'Sunday');
-    const wednesday_services = service_times.services.filter(service => service.day === 'Wednesday');
+    const page = await $content('pages', 'contact').fetch()
+    const contact = await $content('church', 'contact').fetch()
+    const service_times = await $content('church', 'service_times').fetch()
+    const sunday_services = service_times.services.filter(
+      service => service.day === 'Sunday'
+    )
+    const wednesday_services = service_times.services.filter(
+      service => service.day === 'Wednesday'
+    )
 
     return {
       page,
@@ -103,7 +120,7 @@ export default {
       sunday_services,
       wednesday_services
     }
-  },
+  }
 }
 </script>
 
