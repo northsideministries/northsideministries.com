@@ -1,10 +1,42 @@
 <template>
-  <footer class="bg-primary-900 text-white text-sm flex flex-col px-6 py-8 w-full md:max-w-screen-xl md:mx-auto">
+  <footer
+    class="bg-primary-900 text-white text-sm flex flex-col px-6 py-8 w-full md:max-w-screen-xl md:mx-auto"
+  >
     <div class="icons flex flex-col md:flex-row md:items-center">
       <client-only>
-        <a :href="links.facebook" aria-label="Facebook" class="flex flex-row items-center"><unicon name="facebook" fill="white" width="32" height="32"></unicon><span class="ml-2">Facebook</span></a>
-        <a :href="links.youtube" aria-label="YouTube" class="flex flex-row items-center mt-1 md:mt-0"><unicon class="md:ml-4" name="youtube" fill="white" width="32" height="32"></unicon><span class="ml-2">YouTube</span></a>
-        <a :href="links.vimeo_channel" aria-label="Vimeo" class="flex flex-row items-center mt-1 md:mt-0"><unicon class="md:ml-4" name="video" fill="white" width="32" height="32"></unicon><span class="ml-2">Vimeo</span></a>
+        <a
+          :href="links.facebook"
+          aria-label="Facebook"
+          class="flex flex-row items-center"
+          ><unicon name="facebook" fill="white" width="32" height="32"></unicon
+          ><span class="ml-2">Facebook</span></a
+        >
+        <a
+          :href="links.youtube"
+          aria-label="YouTube"
+          class="flex flex-row items-center mt-1 md:mt-0"
+          ><unicon
+            class="md:ml-4"
+            name="youtube"
+            fill="white"
+            width="32"
+            height="32"
+          ></unicon
+          ><span class="ml-2">YouTube</span></a
+        >
+        <a
+          :href="links.vimeo_channel"
+          aria-label="Vimeo"
+          class="flex flex-row items-center mt-1 md:mt-0"
+          ><unicon
+            class="md:ml-4"
+            name="video"
+            fill="white"
+            width="32"
+            height="32"
+          ></unicon
+          ><span class="ml-2">Vimeo</span></a
+        >
       </client-only>
     </div>
     <p class="mt-4">© 2021 Northside Baptist Church</p>
@@ -29,8 +61,9 @@ export default {
     }
   },
   mounted() {
-    this.$content('site', 'services').fetch()
-      .then(res => this.links = res)
+    this.$content('site', 'services')
+      .fetch()
+      .then(res => (this.links = res))
   }
 }
 </script>

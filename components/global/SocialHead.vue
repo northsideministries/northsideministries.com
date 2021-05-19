@@ -29,7 +29,9 @@ export default {
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: this.title ? this.title + ' | Northside Baptist Church' : 'Northside Baptist Church'
+          content: this.title
+            ? this.title + ' | Northside Baptist Church'
+            : 'Northside Baptist Church'
         },
         {
           hid: 'twitter:description',
@@ -44,12 +46,16 @@ export default {
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: this.title ? this.title + ' | Northside Baptist Church' : 'Northside Baptist Church'
+          content: this.title
+            ? this.title + ' | Northside Baptist Church'
+            : 'Northside Baptist Church'
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.title ? this.title + ' | Northside Baptist Church' : 'Northside Baptist Church'
+          content: this.title
+            ? this.title + ' | Northside Baptist Church'
+            : 'Northside Baptist Church'
         },
         {
           hid: 'og:description',
@@ -69,7 +75,9 @@ export default {
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
-          content: this.title ? this.title + ' | Northside Baptist Church' : 'Northside Baptist Church'
+          content: this.title
+            ? this.title + ' | Northside Baptist Church'
+            : 'Northside Baptist Church'
         }
       ]
     }

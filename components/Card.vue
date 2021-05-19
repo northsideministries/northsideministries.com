@@ -1,7 +1,14 @@
 <template>
-  <div class="card flex flex-col rounded-btn shadow-regular bg-white" role="region">
+  <div
+    class="card flex flex-col rounded-btn shadow-regular bg-white"
+    role="region"
+  >
     <div v-if="img">
-      <img :src="img" :alt="title" class="object-cover w-full h-32 rounded-t-btn" />
+      <img
+        :src="img"
+        :alt="title"
+        class="object-cover w-full h-32 rounded-t-btn"
+      />
     </div>
     <div class="px-4 py-6">
       <h3>{{ title }}</h3>
@@ -11,15 +18,31 @@
       </div>
       <div v-if="location || time" class="details font-mono mt-5 -ml-1">
         <div v-if="location">
-          <client-only><unicon name="map-marker-alt" fill="black" width="19" height="19"></unicon></client-only>
+          <client-only
+            ><unicon
+              name="map-marker-alt"
+              fill="black"
+              width="19"
+              height="19"
+            ></unicon
+          ></client-only>
           <p>{{ location }}</p>
         </div>
         <div v-if="time">
-          <client-only><unicon name="clock-three" fill="black" width="19" height="19"></unicon></client-only>
+          <client-only
+            ><unicon
+              name="clock-three"
+              fill="black"
+              width="19"
+              height="19"
+            ></unicon
+          ></client-only>
           <p>{{ time }}</p>
         </div>
       </div>
-      <LinkButton v-if="link" type="secondary" class="mt-4" :link="link" wide>READ MORE</LinkButton>
+      <LinkButton v-if="link" type="secondary" class="mt-4" :link="link" wide
+        >READ MORE</LinkButton
+      >
     </div>
   </div>
 </template>

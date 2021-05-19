@@ -3,7 +3,13 @@
     class="button"
     role="link"
     :to="to"
-    :class="[type ? type : '', wide ? 'wide' : '', icon ? 'icon' : '', short ? 'short' : '', disabled ? 'disabled' : '']"
+    :class="[
+      type ? type : '',
+      wide ? 'wide' : '',
+      icon ? 'icon' : '',
+      short ? 'short' : '',
+      disabled ? 'disabled' : ''
+    ]"
   >
     <!-- add unicon prop -->
     <client-only v-if="icon">

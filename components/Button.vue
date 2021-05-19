@@ -1,7 +1,13 @@
 <template>
   <button
     type="button"
-    :class="[type ? type : '', wide ? 'wide' : '', icon ? 'icon' : '', short ? 'short' : '', disabled ? 'disabled' : '']"
+    :class="[
+      type ? type : '',
+      wide ? 'wide' : '',
+      icon ? 'icon' : '',
+      short ? 'short' : '',
+      disabled ? 'disabled' : ''
+    ]"
     @click="$emit('click')"
   >
     <!-- add unicon prop -->

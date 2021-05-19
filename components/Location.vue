@@ -33,11 +33,12 @@ export default {
     return {
       access_token: '',
       map_style: '',
-      coordinates: [],
+      coordinates: []
     }
   },
   mounted() {
-    this.$content('site', 'mapbox').fetch()
+    this.$content('site', 'mapbox')
+      .fetch()
       .then(res => {
         this.livestream_list = res.livestream_list
         this.access_token = res.access_token

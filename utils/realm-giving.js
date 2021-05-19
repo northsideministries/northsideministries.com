@@ -1,5 +1,6 @@
 // Realm giving embed code
 
+/* eslint-disable */
 export function embedModded() {
   !(function(e) {
     var t = {};
@@ -1923,6 +1924,7 @@ export function embedModded() {
   ]);
   
 }
+/* eslint-enable */
 
 export default function embedGiving() {
   document.getElementById('r-embed-script').src = 'https://onrealm.org/Assets/Embed/giving-embed.js?v=' + Date.now();
