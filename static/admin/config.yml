@@ -85,13 +85,6 @@ collections:
               widget: string,
               hint: 'This is used as descriptive text for links that link to this site',
             }
-          - {
-              label: 'Livestream Notification',
-              name: livestream,
-              widget: boolean,
-              default: true,
-              hint: 'Display a notification when the church livestream is currently broadcasting',
-            }
       - label: 'Livestream and Social Media'
         name: services
         description: 'Links to livestream and social media services.'
@@ -118,6 +111,27 @@ collections:
               - { label: Teacher, name: teacher, widget: string, required: true }
               - { label: Class, name: class, widget: string, required: true }
               - { label: Link, name: link, widget: string, required: true }
+          - {
+              label: 'Livestream Notification',
+              name: livestream,
+              widget: boolean,
+              default: true,
+              hint: 'Display a notification when the church livestream is currently broadcasting',
+            }
+          - {
+              label: 'YouTube API Key',
+              name: youtube_api_key,
+              widget: string,
+              hint: 'Developer API public key for YouTube.',
+            }
+          - { label: 'Vimeo API Key', name: vimeo_api_key, widget: string, hint: 'Developer API public key for Vimeo.' }
+          - {
+              label: 'Google Calendar API Key',
+              name: gcal_api_key,
+              widget: string,
+              hint: 'Developer API public key for Google Calendar.',
+            }
+
       - label: 'Mapbox Settings'
         name: mapbox
         description: 'Mapbox API settings.'
