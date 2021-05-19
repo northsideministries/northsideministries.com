@@ -4,3 +4,18 @@ publish = "dist/"
 
 [[plugins]]
 package = "netlify-plugin-subfont"
+
+[[plugins]]
+package = "netlify-plugin-a11y"
+
+  [plugins.inputs]
+  
+  ignoreDirectories = ['/admin']
+  resultMode = "warn"
+
+[[plugins]]
+package = "netlify-plugin-submit-sitemap"
+
+	[plugins.inputs]
+
+	providers = ["google", "bing"]
