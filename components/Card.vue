@@ -12,7 +12,7 @@
     </div>
     <div class="px-4 py-6">
       <h3>{{ title }}</h3>
-      <h5 class="mt-1">{{ subtitle }}</h5>
+      <h5 v-if="subtitle !== ''" class="mt-1">{{ subtitle }}</h5>
       <div class="mt-5">
         <slot />
       </div>

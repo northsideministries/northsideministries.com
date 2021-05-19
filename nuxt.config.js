@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import path from 'path'
 import postcssImport from 'postcss-import'
 import postcssNesting from 'postcss-nesting'
@@ -131,7 +132,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) { }
+    // extend(config, ctx) { }
   },
 
   sitemap: {

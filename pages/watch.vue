@@ -1,10 +1,6 @@
 <template>
   <main class="mb-16">
-    <div
-      class="player shadow-tall md:px-16 md:py-32 md:rounded-2xl md:m-8"
-      role="presentation"
-      aria-label="livestream"
-    >
+    <div class="player shadow-tall md:px-16 md:py-32 md:rounded-2xl md:m-8">
       <div v-if="sermon_live" class="player-live"></div>
       <div
         v-else
@@ -23,14 +19,15 @@
           our broadcast here when we're live.
         </p>
         <p class="text-sm mt-2 md:mt-4 md:text-base">
-          <nuxt-link class="text-primary-300 underline" to="/contact"
-            >Check our Contact page</nuxt-link
-          >
+          <nuxt-link class="text-primary-300 underline" to="/contact">
+            Check our Contact page
+          </nuxt-link>
           for information about our service times.
         </p>
       </div>
 
       <!-- TODO: add embed for livestream -->
+      <div role="presentation" aria-label="livestream"></div>
     </div>
 
     <aside class="flex flex-row mt-4">
@@ -86,8 +83,9 @@
             type="secondary"
             short
             @click.native="limit = null"
-            >SHOW MORE</Button
           >
+            SHOW MORE
+          </Button>
           <Button
             v-show="limit === null"
             class="ml-auto mr-auto mt-8"
@@ -96,8 +94,9 @@
             type="secondary"
             short
             @click.native="limit = LIMIT_DEFAULT"
-            >SHOW LESS</Button
           >
+            SHOW LESS
+          </Button>
         </div>
       </section>
     </div>
