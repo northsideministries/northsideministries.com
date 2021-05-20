@@ -98,14 +98,14 @@ export default {
 
   plugins: [
     { src: '~/plugins/vue-unicons', mode: 'client', ssr: false },
-    { src: '~/plugins/mapbox.js', mode: 'client', ssr: false },
+    // { src: '~/plugins/mapbox.js', mode: 'client', ssr: false },
     '~/plugins/vue-content-placeholders.js',
     '~/plugins/vue-socialhead.js'
   ],
 
   buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa'],
 
-  modules: ['nuxt-purgecss', '@nuxt/content', '@nuxtjs/sitemap'],
+  modules: ['nuxt-purgecss', '@nuxt/content', '@nuxtjs/sitemap', 'nuxt-leaflet'],
   markdownit: {
     injected: true
   },
@@ -127,7 +127,7 @@ export default {
     },
 
     // TODO: only test in pre-production
-    // analyze: true,
+    analyze: true,
 
     /*
      ** You can extend webpack config here

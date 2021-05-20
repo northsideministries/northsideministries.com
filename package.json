@@ -20,6 +20,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "mapbox-gl": "^2.2.0",
     "nuxt": "^2.14.12",
+    "nuxt-leaflet": "^0.0.25",
     "vue-content-placeholders": "^0.2.1",
     "vue-mapbox": "^0.4.1",
     "vue-unicons": "^3.2.1"

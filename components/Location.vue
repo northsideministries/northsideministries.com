@@ -10,7 +10,8 @@
     <div class="mt-6">
       <h4>Map</h4>
       <div class="mapboxgl-canvas h-full" v-if="access_token !== ''">
-        <client-only>
+        <!-- Mapbox -->
+        <!-- <client-only>
           <MglMap
             :accessToken="access_token"
             :mapStyle="map_style"
@@ -20,7 +21,17 @@
           >
             <MglMarker :coordinates="coordinates" color="red" />
           </MglMap>
-        </client-only>
+        </client-only> -->
+
+        <!-- Leaflet -->
+        <l-map :zoom="17" :center="coordinates">
+          <l-tile-layer
+            :url="
+              `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${access_token}`
+            "
+          ></l-tile-layer>
+          <l-marker :lat-lng="coordinates"></l-marker>
+        </l-map>
       </div>
     </div>
   </div>
@@ -43,7 +54,7 @@ export default {
         this.livestream_list = res.livestream_list
         this.access_token = res.access_token
         this.map_style = res.map_style
-        this.coordinates = [parseFloat(res.lat), parseFloat(res.long)]
+        this.coordinates = [parseFloat(res.long), parseFloat(res.lat)]
       })
   }
 }
