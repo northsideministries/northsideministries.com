@@ -4,25 +4,14 @@
       {{ content.description }}
     </Hero>
 
-    <div
-      class="content mt-8 md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-4 md:auto-cols-fr"
-    >
-      <Dropdown
-        v-for="belief in content.belief_list"
-        :key="belief.name"
-        :title="belief.name"
-        class="md:mb-auto"
-      >
+    <div class="content mt-8 md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-4 md:auto-cols-fr">
+      <Dropdown v-for="belief in content.belief_list" :key="belief.name" :title="belief.name" class="md:mb-auto">
         <p class="leading-6">{{ belief.description }}</p>
         <p class="mt-4 italic text-sm">{{ belief.references }}</p>
       </Dropdown>
     </div>
 
-    <SocialHead
-      title="Beliefs"
-      :description="content.description"
-      :image="content.hero_image"
-    />
+    <SocialHead title="Beliefs" :description="content.description" :image="content.hero_image" />
   </main>
 </template>
 
@@ -59,7 +48,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.content > details {
+.content > .dropdown {
   @apply mt-4;
 }
 </style>
