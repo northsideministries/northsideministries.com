@@ -37,9 +37,13 @@ export default {
       }
     ],
     link: [
-      { // mapbox styles
+      // { // mapbox styles
+      //   rel: 'stylesheet',
+      //   href: 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css'
+      // },
+      { // leaflet styles
         rel: 'stylesheet',
-        href: 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css'
+        href: 'https://unpkg.com/leaflet/dist/leaflet.css'
       },
       {
         rel: 'preconnect',
@@ -94,18 +98,28 @@ export default {
    */
   loading: { color: '#526488' },
 
-  css: ['@/assets/css/tailwind.css', '@/assets/css/main.pcss'],
+  css: [
+    '@/assets/css/tailwind.css',
+    '@/assets/css/main.pcss',
+    // 'leaflet/dist/leaflet.css'
+  ],
 
   plugins: [
     { src: '~/plugins/vue-unicons', mode: 'client', ssr: false },
     // { src: '~/plugins/mapbox.js', mode: 'client', ssr: false },
+    { src: '~/plugins/leaflet.js', mode: 'client', ssr: false },
     '~/plugins/vue-content-placeholders.js',
     '~/plugins/vue-socialhead.js'
   ],
 
   buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa'],
 
-  modules: ['nuxt-purgecss', '@nuxt/content', '@nuxtjs/sitemap', 'nuxt-leaflet'],
+  modules: [
+    'nuxt-purgecss',
+    '@nuxt/content',
+    '@nuxtjs/sitemap'
+    // 'nuxt-leaflet'
+  ],
   markdownit: {
     injected: true
   },
@@ -127,7 +141,7 @@ export default {
     },
 
     // TODO: only test in pre-production
-    analyze: true,
+    // analyze: true,
 
     /*
      ** You can extend webpack config here

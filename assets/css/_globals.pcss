@@ -12,13 +12,16 @@ body {
   @apply transition-colors duration-200 ease-in-out;
 }
 
-.mapboxgl-map {
+/* purgecss start ignore */
+.mapboxgl-map,
+.leaflet-container {
   @apply border border-gray-400 rounded-btn border-solid h-64 w-full;
 }
 
 .mapboxgl-canvas {
   @apply relative z-0 h-64 w-full;
 }
+/* purgecss end ignore */
 
 address {
   @apply not-italic;

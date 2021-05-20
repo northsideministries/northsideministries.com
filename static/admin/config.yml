@@ -145,13 +145,13 @@ collections:
             name: map_style
             widget: select
             options:
-              - { label: 'Streets', value: 'mapbox://styles/mapbox/streets-v11' }
-              - { label: 'Outdoors', value: 'mapbox://styles/mapbox/outdoors-v11' }
-              - { label: 'Light', value: 'mapbox://styles/mapbox/light-v10' }
-              - { label: 'Dark', value: 'mapbox://styles/mapbox/dark-v10' }
-              - { label: 'Satellite', value: 'mapbox://styles/mapbox/satellite-v9' }
-              - { label: 'Navigation Day', value: 'mapbox://styles/mapbox/navigation-day-v1' }
-              - { label: 'Navigation Night', value: 'mapbox://styles/mapbox/navigation-night-v1' }
+              - { label: 'Streets', value: 'streets-v11' }
+              - { label: 'Outdoors', value: 'outdoors-v11' }
+              - { label: 'Light', value: 'light-v10' }
+              - { label: 'Dark', value: 'dark-v10' }
+              - { label: 'Satellite', value: 'satellite-v9' }
+              - { label: 'Navigation Day', value: 'navigation-day-v1' }
+              - { label: 'Navigation Night', value: 'navigation-night-v1' }
             hint: 'Mapbox map style'
           - { label: 'Longitude', name: long, widget: number }
           - { label: 'Latitude', name: lat, widget: number }

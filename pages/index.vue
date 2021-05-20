@@ -91,7 +91,12 @@
           cursus feugiat. Nam condimentum, urna eu pharetra faucibus, urna elit
           tincidunt metus, at vehicula leo purus nec dui. Vivamus libero leo,
           posuere non dictum non, lobortis in quam. Fusce eget auctor sapien.
-          <NuxtLinkButton to="/beliefs" type="secondary" class="mt-6" short>
+          <NuxtLinkButton
+            to="/about/beliefs"
+            type="secondary"
+            class="mt-6"
+            short
+          >
             READ OUR BELIEFS
           </NuxtLinkButton>
         </p>
