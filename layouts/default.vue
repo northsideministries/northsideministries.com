@@ -1,8 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container max-w-full">
     <!-- livestreaming notification; once clicked, don't show again -->
     <transition name="slide-down">
-      <aside v-show="notification_enabled && live" class="flex flex-row justify-center py-4 px-6 rounded-btn bg-primary-600 live-notification shadow-tall fixed bottom-0 mb-4 z-10">
+      <aside
+        v-show="notification_enabled && live"
+        class="flex flex-row justify-center py-4 px-6 rounded-btn bg-primary-600 live-notification shadow-tall fixed bottom-0 mb-4 z-10"
+      >
         <div class="flex-row items-center flex">
           <div class="hidden md:inline">
             <client-only>
@@ -11,7 +14,9 @@
           </div>
           <span class="font-medium text-white tracking-wide">LIVE</span>
         </div>
-        <NuxtLinkButton type="primary" class="ml-8 md:ml-16 watch-button" to="/watch" @click.native="disable">WATCH</NuxtLinkButton>
+        <NuxtLinkButton type="primary" class="ml-8 md:ml-16 watch-button" to="/watch" @click.native="disable"
+          >WATCH</NuxtLinkButton
+        >
         <Button type="secondary" class="ml-3 dismiss-button" @click.native="disable">CLOSE</Button>
       </aside>
     </transition>
@@ -44,12 +49,13 @@ export default {
   },
   methods: {
     disable() {
-      this.notification_enabled = false;
+      this.notification_enabled = false
     }
   },
   mounted() {
-    this.$content('site', 'services').fetch()
-      .then(res => this.notification_enabled = res.livestream)
+    this.$content('site', 'services')
+      .fetch()
+      .then(res => (this.notification_enabled = res.livestream))
   }
 }
 </script>
@@ -63,7 +69,7 @@ export default {
 
 .live-notification > .watch-button::v-deep {
   @apply bg-white text-primary-600 font-bold;
-  
+
   &:hover {
     @apply bg-gray-200;
   }
@@ -75,7 +81,7 @@ export default {
 
 .live-notification > .dismiss-button::v-deep {
   @apply bg-white bg-opacity-0 text-white font-medium border-white text-sm;
-  
+
   &:hover {
     @apply border-gray-200 bg-opacity-10;
   }

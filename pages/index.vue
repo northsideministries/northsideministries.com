@@ -1,64 +1,40 @@
 <template>
   <main class="mb-24">
-    <div
-      class="hero-index px-6 mt-16 md:mx-auto md:max-w-lg lg:max-w-screen-xl"
-    >
+    <div class="hero-index px-6 mt-16 md:mx-auto md:max-w-lg lg:max-w-screen-xl">
       <section class="lg:flex lg:flex-row lg:justify-center lg:items-center">
-        <div
-          class="lg:px-16 lg:py-12 lg:my-32 lg:-mr-16 lg:w-3/4 z-0 lg:bg-gray-200 lg:rounded-lg lg:shadow-regular"
-        >
+        <div class="lg:px-16 lg:py-12 lg:my-32 lg:-mr-16 lg:w-3/4 z-0 lg:bg-gray-200 lg:rounded-lg lg:shadow-regular">
           <h1 class="font-serif font-bold text-2xl pr-6 leading-7">
             {{ content.title }}
           </h1>
-          <img
-            class="mt-4 shadow-regular rounded-btn lg:hidden"
-            :src="content.hero_image"
-            alt="Main image"
-          />
+          <img class="mt-4 shadow-regular rounded-btn lg:hidden" :src="content.hero_image" alt="Main image" />
           <p class="mt-6 leading-6">{{ content.description }}</p>
           <NuxtLinkButton class="mt-6 shadow-tall" to="/watch" type="cta" wide>
             JOIN US
           </NuxtLinkButton>
         </div>
         <img
-          class="hidden object-cover lg:inline lg:w-full lg:mx-6 lg:rounded-lg lg:shadow-tall lg:max-w-2xl"
+          class="hidden object-cover md:w-1/2 lg:inline lg:mx-6 lg:rounded-lg lg:shadow-tall lg:max-w-2xl"
           :src="content.hero_image"
           alt="Main image"
         />
       </section>
     </div>
 
-    <section
-      v-if="content.covid"
-      class="mt-16 md:-ml-16 md:text-left md:flex md:flex-row w-full lg:ml-0"
-    >
+    <section v-if="content.covid" class="mt-16 md:-ml-16 md:text-left md:flex md:flex-row w-full lg:ml-0">
       <div
         class="bg-yellow-500 py-8 px-12 md:py-12 md:pl-16 md:pr-16 md:flex md:flex-col md:justify-center md:ml-auto lg:rounded-l-btn"
       >
-        <div
-          class="flex flex-row items-center justify-center -ml-4 md:justify-start md:ml-0"
-        >
+        <div class="flex flex-row items-center justify-center -ml-4 md:justify-start md:ml-0">
           <client-only>
-            <unicon
-              name="heart-medical"
-              fill="black"
-              width="26"
-              height="26"
-            ></unicon>
+            <unicon name="heart-medical" fill="black" width="26" height="26"></unicon>
           </client-only>
           <h3 class="ml-2 font-bold">COVID-19 UPDATES</h3>
         </div>
-        <p
-          class="text-center mt-6 px-4 leading-6 md:max-w-lg md:px-0 md:text-left"
-        >
-          Our staff is working to provide a safe environment to worship in
-          accordance with guidance from the CDC and other agencies.
+        <p class="text-center mt-6 px-4 leading-6 md:max-w-lg md:px-0 md:text-left">
+          Our staff is working to provide a safe environment to worship in accordance with guidance from the CDC and
+          other agencies.
         </p>
-        <NuxtLinkButton
-          class="mt-6 shadow-tall md:mr-auto"
-          to="/covid"
-          type="primary"
-        >
+        <NuxtLinkButton class="mt-6 shadow-tall md:mr-auto" to="/covid" type="primary">
           REVIEW OUR GUIDELINES
         </NuxtLinkButton>
       </div>
@@ -76,10 +52,9 @@
         <h2>A church you can call home.</h2>
         <p>
           <img :src="content.hero_image" alt="Home" />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus
-          cursus feugiat. Nam condimentum, urna eu pharetra faucibus, urna elit
-          tincidunt metus, at vehicula leo purus nec dui. Vivamus libero leo,
-          posuere non dictum non, lobortis in quam. Fusce eget auctor sapien.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus cursus feugiat. Nam condimentum, urna eu
+          pharetra faucibus, urna elit tincidunt metus, at vehicula leo purus nec dui. Vivamus libero leo, posuere non
+          dictum non, lobortis in quam. Fusce eget auctor sapien.
         </p>
       </section>
 
@@ -87,16 +62,10 @@
         <h2>Traditionally uplifting and edifying.</h2>
         <p>
           <img :src="content.hero_image" alt="Uplifting" />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus
-          cursus feugiat. Nam condimentum, urna eu pharetra faucibus, urna elit
-          tincidunt metus, at vehicula leo purus nec dui. Vivamus libero leo,
-          posuere non dictum non, lobortis in quam. Fusce eget auctor sapien.
-          <NuxtLinkButton
-            to="/about/beliefs"
-            type="secondary"
-            class="mt-6"
-            short
-          >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus cursus feugiat. Nam condimentum, urna eu
+          pharetra faucibus, urna elit tincidunt metus, at vehicula leo purus nec dui. Vivamus libero leo, posuere non
+          dictum non, lobortis in quam. Fusce eget auctor sapien.
+          <NuxtLinkButton to="/about/beliefs" type="secondary" class="mt-6" short>
             READ OUR BELIEFS
           </NuxtLinkButton>
         </p>
@@ -115,11 +84,7 @@
       </NuxtLinkButton>
     </section>
 
-    <SocialHead
-      title="Northside Baptist Church"
-      :description="content.description"
-      :image="content.hero_image"
-    />
+    <SocialHead title="Northside Baptist Church" :description="content.description" :image="content.hero_image" />
   </main>
 </template>
 

@@ -1,24 +1,17 @@
 <template>
   <nav
-    class="px-8 py-6 w-full bg-white top-0 overflow-hidden fixed max-h-screen z-10 lg:px-24 lg:table shadow-regular align-middle lg:overflow-y-visible"
+    class="px-8 py-6 w-full bg-white top-0 overflow-hidden fixed max-h-screen z-10 xl:px-24 xl:table shadow-regular align-middle xl:overflow-y-visible"
     :class="[mobile_menu_enabled ? 'h-screen overflow-y-scroll' : '']"
   >
-    <div class="lg:table-cell align-middle">
+    <div class="xl:table-cell align-middle">
       <div class="flex flex-row items-center">
         <nuxt-link to="/" class="inline-block">
-          <h1
-            v-show="!mobile_menu_enabled"
-            class="tracking-tighter font-serif font-bold text-xl"
-          >
+          <h1 v-show="!mobile_menu_enabled" class="tracking-tighter font-serif font-bold text-xl">
             NORTHSIDE
           </h1>
         </nuxt-link>
 
-        <Button
-          type="secondary"
-          class="ml-auto lg:hidden"
-          @click.native="toggleMenu"
-        >
+        <Button type="secondary" class="ml-auto xl:hidden" @click.native="toggleMenu">
           <p v-show="mobile_menu_enabled">CLOSE MENU</p>
           <p v-show="!mobile_menu_enabled">MENU</p>
         </Button>
@@ -26,7 +19,7 @@
     </div>
 
     <!-- desktop menu -->
-    <div class="desktop-menu hidden lg:inline-block float-right">
+    <div class="desktop-menu hidden xl:inline-block float-right">
       <ul class="flex flex-row items-end">
         <li><NuxtLinkButton type="tertiary" to="/">Home</NuxtLinkButton></li>
         <li>
@@ -93,7 +86,7 @@
     <transition name="slide-right">
       <div
         v-show="mobile_menu_enabled"
-        class="mobile-menu absolute top-0 right-0 w-full ml-auto bg-white mt-20 pb-16 pr-8 z-10 lg:pr-24"
+        class="mobile-menu absolute top-0 right-0 w-full ml-auto bg-white mt-20 pb-16 pr-8 z-10 xl:pr-24"
       >
         <ul class="flex flex-col items-end">
           <li><NuxtLinkButton type="tertiary" to="/">Home</NuxtLinkButton></li>
@@ -104,11 +97,7 @@
               @toggle="about_display = !about_display"
               @close="about_display = false"
             >
-              <transition-group
-                name="dropdown"
-                tag="div"
-                class="dropdown-content flex flex-col items-end"
-              >
+              <transition-group name="dropdown" tag="div" class="dropdown-content flex flex-col items-end">
                 <NuxtLinkButton
                   type="tertiary"
                   :to="link.href"
@@ -127,11 +116,7 @@
               @toggle="ministries_display = !ministries_display"
               @close="ministries_display = false"
             >
-              <transition-group
-                name="dropdown"
-                tag="div"
-                class="dropdown-content flex flex-col items-end"
-              >
+              <transition-group name="dropdown" tag="div" class="dropdown-content flex flex-col items-end">
                 <NuxtLinkButton
                   type="tertiary"
                   :to="link.href"
@@ -160,9 +145,7 @@
             <NuxtLinkButton type="tertiary" to="/give">Give</NuxtLinkButton>
           </li>
           <li>
-            <NuxtLinkButton type="tertiary" to="/contact"
-              >Contact</NuxtLinkButton
-            >
+            <NuxtLinkButton type="tertiary" to="/contact">Contact</NuxtLinkButton>
           </li>
         </ul>
       </div>
@@ -241,8 +224,7 @@ export default {
       const html = document.querySelectorAll('.container > *:not(nav)')
       const className = 'hidden'
       if (this.mobile_menu_enabled) {
-        this.last_scroll =
-          window.pageYOffset || document.documentElement.scrollTop
+        this.last_scroll = window.pageYOffset || document.documentElement.scrollTop
         html.forEach(el => el.classList.add(className))
       } else {
         html.forEach(el => el.classList.remove(className))
