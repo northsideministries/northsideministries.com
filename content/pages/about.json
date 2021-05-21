@@ -1,8 +1,8 @@
 {
   "description": "This is from the CMS. Yay!",
   "hero-image": "/img/friends_priscilla-du-preez-unsplash.jpg",
-  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
-  "mission_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
-  "attend_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
-  "last_image": "/img/friends_priscilla-du-preez-unsplash.jpg"
+  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1621562485/friends_priscilla-du-preez-unsplash_original_krroww.jpg",
+  "mission_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1621562485/friends_priscilla-du-preez-unsplash_original_krroww.jpg",
+  "attend_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1621562485/friends_priscilla-du-preez-unsplash_original_krroww.jpg",
+  "last_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1621562485/friends_priscilla-du-preez-unsplash_original_krroww.jpg"
 }

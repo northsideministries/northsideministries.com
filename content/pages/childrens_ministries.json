@@ -1,6 +1,6 @@
 {
   "description": "Lorem ipsum",
-  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1621562485/friends_priscilla-du-preez-unsplash_original_krroww.jpg",
   "ministry_list": [
     {
       "name": "Nursery",

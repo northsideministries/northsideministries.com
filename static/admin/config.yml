@@ -12,6 +12,16 @@ backend:
 
 media_folder: static/img
 public_folder: /img
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: northside-baptist-church
+    api_key: 728192525896344
+    default_transformations:
+      - - fetch_format: auto
+          crop: scale
+          quality: 50
+          width: 0.5
 
 ###############
 # ALIASES     #
