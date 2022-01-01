@@ -19,7 +19,7 @@
     </div>
 
     <!-- desktop menu -->
-    <div class="desktop-menu hidden xl:inline-block float-right">
+    <div class="desktop-menu hidden xl:inline-block float-right text-sm">
       <ul class="flex flex-row items-end">
         <li><NuxtLinkButton type="tertiary" to="/">Home</NuxtLinkButton></li>
         <li>

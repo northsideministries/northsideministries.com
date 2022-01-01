@@ -3,15 +3,16 @@
     <Hero title="Children's Ministries" :img="content.hero_image">
       {{ content.description }}
     </Hero>
-    <div class="content">
+    <div class="sections sm:content md:max-w-6xl md:mx-auto md:grid grid-cols-2 col-gap-16 row-gap-8">
       <section
         v-for="ministry in content.ministry_list"
         :key="ministry.name"
-        class="w-11/12 mt-16 md:w-4/5 md:mt-32"
+        class="mt-16 md:w-full px-12"
       >
         <h2>{{ ministry.name }}</h2>
         <img :src="ministry.image" :alt="ministry.name" />
-        <p>{{ ministry.description }}</p>
+
+        <!-- date/time -->
         <div
           v-if="ministry.day || ministry.room || ministry.service"
           class="mt-6"
@@ -23,21 +24,26 @@
             <span v-if="ministry.time">— {{ ministry.time }}</span>
           </p>
         </div>
+
+        <p>{{ ministry.description }}</p>
+
         <div v-if="ministry.link" class="mt-4 inline-block">
           <NuxtLinkButton
             v-if="ministry.link.page_link"
             :to="ministry.link.page_link"
             type="secondary"
             short
-            >{{ ministry.link.label }}</NuxtLinkButton
           >
+            {{ ministry.link.label }}
+          </NuxtLinkButton>
           <LinkButton
             v-if="ministry.link.external_link"
             :link="ministry.link.external_link"
             type="secondary"
             short
-            >{{ ministry.link.label }}</LinkButton
           >
+            {{ ministry.link.label }}
+          </LinkButton>
         </div>
       </section>
     </div>
@@ -81,7 +87,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.content > section {
+.sections section {
   &:nth-child(odd) {
     @apply -mr-6 float-right;
 
@@ -94,7 +100,7 @@ export default {
     @apply -ml-6 float-left;
 
     & > h2 {
-      @apply text-right;
+      /* @apply text-right; */
     }
 
     & > p,

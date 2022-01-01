@@ -6,11 +6,13 @@
 
     <!-- TODO: clean up page -->
 
+    <!-- TODO: add content sections for what giving funds go towards -->
+
     <div class="content mt-12 leading-6 font-bold text-center text-lg">
       Click "GIVE NOW" to give to Northside Baptist Church.
     </div>
 
-    <div class="embed mt-6 content flex flex-col">
+    <div class="embed content flex flex-col">
       <LinkButton
         link="https://onrealm.org/NorthsideMinistries/give"
         class="mx-auto max-w-md"

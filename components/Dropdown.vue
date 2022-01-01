@@ -11,11 +11,11 @@
         </client-only>
       </div>
     </div>
-    <transition name="slide-up">
+    <!-- <transition name="slide-up"> -->
       <div class="px-5 pt-2 pb-5" v-show="active">
         <slot />
       </div>
-    </transition>
+    <!-- </transition> -->
   </div>
 </template>
 

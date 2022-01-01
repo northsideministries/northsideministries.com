@@ -5,32 +5,51 @@
     </Hero>
     <div class="content">
       <section>
-        <h2>Home Missionaries</h2>
-        <p>
-          We support missionaries directly sent from our church out into the
-          mission field.
+        <h2>Fulfilling the Great Commission.</h2>
+        <p class="mt-4 leading-6">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt dictum eros, ac lobortis elit aliquam vel.
+          Pellentesque viverra gravida lectus, vitae rhoncus est vehicula eget. Etiam euismod ligula nec orci semper vehicula ut quis lacus.
+          Duis quis condimentum ante. Vivamus semper mauris sit amet lacus pretium malesuada. Maecenas ac urna nibh.
+          Quisque finibus risus vitae ex vehicula, at dictum ipsum lobortis. Quisque quis augue felis. Sed vulputate tincidunt tellus.
+          Cras nec velit facilisis, vulputate arcu nec, porta sem. Fusce semper erat in diam ultricies porttitor.
         </p>
-
-        <div class="mt-4">
-          <p v-for="missionary in content.home_list" :key="missionary.name">
-            <span class="font-bold">{{ missionary.name }}</span> –
-            {{ missionary.location }}
-          </p>
-        </div>
       </section>
 
-      <section>
-        <h2>Ministries</h2>
-        <div v-for="ministry in content.ministry_list" :key="ministry.name">
-          <h4>{{ ministry.name }}</h4>
-          <p class="mt-2">
-            {{ ministry.description }}
-          </p>
-        </div>
+      <section class="missions-img-row flex flex-row -mx-3">
+        <img src="@/assets/img/missions/annie-spratt-0cgpyigyIkM-unsplash.jpg" alt="Missions Images" />
+        <img src="@/assets/img/missions/annie-spratt-cVEOh_JJmEE-unsplash.jpg" alt="Missions Images" />
+        <img src="@/assets/img/missions/annie-spratt-0cgpyigyIkM-unsplash.jpg" alt="Missions Images" />
       </section>
 
+      <div class="md:grid grid-cols-2 row-gap-8 col-gap-8">
+        <section>
+          <h3>Home Missionaries</h3>
+          <p>
+            We support missionaries directly sent from our church out into the
+            mission field.
+          </p>
+
+          <div class="mt-4">
+            <p v-for="missionary in content.home_list" :key="missionary.name">
+              <span class="font-bold">{{ missionary.name }}</span> –
+              {{ missionary.location }}
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h3>Ministries</h3>
+          <div v-for="ministry in content.ministry_list" :key="ministry.name">
+            <h4>{{ ministry.name }}</h4>
+            <p class="mt-2">
+              {{ ministry.description }}
+            </p>
+          </div>
+        </section>
+      </div>
+
       <section>
-        <h2>Missionaries</h2>
+        <h3>Missionaries</h3>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
           condimentum purus velit, quis cursus ligula ullamcorper ac. Praesent
@@ -93,10 +112,10 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.content > section {
+.content section {
   @apply mt-16;
 
-  & > h2 {
+  & > h3 {
     @apply mb-4 text-center;
   }
 
@@ -113,5 +132,9 @@ export default {
   & li {
     @apply mt-1;
   }
+}
+
+.missions-img-row img {
+  @apply h-20 w-full object-cover;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <main class="mb-24">
-    <div class="hero-index px-6 mt-16 md:mx-auto md:max-w-lg lg:max-w-screen-xl">
+    <div class="hero-index px-8 mt-16 md:mx-auto md:max-w-lg lg:max-w-screen-xl">
       <section class="lg:flex lg:flex-row lg:justify-center lg:items-center">
         <div class="lg:px-16 lg:py-12 lg:my-32 lg:-mr-16 lg:w-3/4 z-0 lg:bg-gray-200 lg:rounded-lg lg:shadow-regular">
           <h1 class="font-serif font-bold text-2xl pr-6 leading-7">
@@ -20,11 +20,12 @@
       </section>
     </div>
 
-    <section v-if="content.covid" class="mt-16 md:-ml-16 md:text-left md:flex md:flex-row w-full lg:ml-0">
+    <section v-if="content.covid" class="mt-16 md:text-left md:flex md:flex-row">
       <div
-        class="bg-yellow-500 py-8 px-12 md:py-12 md:pl-16 md:pr-16 md:flex md:flex-col md:justify-center md:ml-auto lg:rounded-l-btn"
+        class="bg-yellow-500 py-8 px-12 w-full md:py-10 md:pl-40 md:h-64 md:pr-16 md:flex md:flex-col md:justify-center lg:rounded-l-btn"
       >
-        <div class="flex flex-row items-center justify-center -ml-4 md:justify-start md:ml-0">
+        <!-- <div> -->
+        <div class="flex flex-row items-center justify-center md:justify-start md:ml-0">
           <client-only>
             <unicon name="heart-medical" fill="black" width="26" height="26"></unicon>
           </client-only>
@@ -38,17 +39,16 @@
           REVIEW OUR GUIDELINES
         </NuxtLinkButton>
       </div>
-
       <img
         :src="content.covid_image"
-        class="hidden md:inline mr-auto object-cover w-1/5 lg:rounded-r-btn"
+        class="hidden md:inline object-cover w-full h-64 lg:rounded-r-btn -ml-12"
         alt="COVID-19"
       />
     </section>
 
     <!-- TODO: pull text and images from CMS, store as list -->
     <div class="content descriptions lg:mt-32">
-      <section>
+      <section class="-mr-12">
         <h2>A church you can call home.</h2>
         <p>
           <img :src="content.hero_image" alt="Home" />

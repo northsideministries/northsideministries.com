@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="bg-primary-900 text-white text-sm flex flex-col px-6 py-8 w-full md:max-w-screen-xl md:mx-auto"
+    class="bg-primary-900 text-white text-sm flex flex-col px-6 py-8 w-full md:mx-auto"
   >
     <div class="icons flex flex-col md:flex-row md:items-center">
       <client-only>
@@ -39,7 +39,6 @@
         >
       </client-only>
     </div>
-    <p class="mt-4">© 2021 Northside Baptist Church</p>
     <ul class="grid grid-cols-2 mt-2 max-w-sm">
       <li><nuxt-link to="/">Home</nuxt-link></li>
       <li><nuxt-link to="/about">About</nuxt-link></li>
@@ -49,6 +48,7 @@
       <li><nuxt-link to="/give">Give</nuxt-link></li>
       <li><nuxt-link to="/contact">Contact</nuxt-link></li>
     </ul>
+    <p class="mt-4">© 2021 Northside Baptist Church</p>
   </footer>
 </template>
 

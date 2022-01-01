@@ -3,10 +3,10 @@
     <div
       v-for="livestream in livestream_list"
       :key="livestream.teacher"
-      class="mt-6"
+      class="livestream-class"
     >
-      <h3>{{ livestream.teacher }}</h3>
-      <p class="mt-2">{{ livestream.class }}</p>
+      <h3 class="text-center">{{ livestream.teacher }}</h3>
+      <p class="mt-2 text-center">{{ livestream.class }}</p>
 
       <!-- TODO: disable if livestream is off -->
       <LinkButton
@@ -17,7 +17,6 @@
         type="primary"
         :disabled="livestream.disabled ? true : false"
         wide
-        short
       >
         JOIN ON ZOOM
       </LinkButton>
@@ -45,3 +44,9 @@ export default {
   }
 }
 </script>
+
+<style lang="postcss" scoped>
+.livestream-class:not(:first-child) {
+  @apply mt-6;
+}
+</style>

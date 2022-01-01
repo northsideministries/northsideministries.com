@@ -4,10 +4,12 @@
       {{ content.description }}
     </Hero>
     <div class="content">
-      <section class="max-w-sm mx-auto">
-        <h2>Watch Live</h2>
-        <p>Sunday School starts at 9:30am and is livestreamed through Zoom.</p>
-        <LivestreamClassList />
+      <section class="max-w-md mx-auto px-16 py-12 lg:max-w-none lg:flex lg:flex-row">
+        <div class="lg:w-1/2 p-2 lg:my-auto lg:mr-8">
+          <h2>Watch Live</h2>
+          <p class="mt-2">Sunday School starts at 9:30am and is livestreamed through Zoom.</p>
+        </div>
+        <LivestreamClassList class="mt-8 p-2 lg:mt-0 lg:w-1/2"/>
       </section>
 
       <section class="classes">
@@ -104,7 +106,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.content > section {
+.content section {
   @apply mt-16;
 
   & > h2 {

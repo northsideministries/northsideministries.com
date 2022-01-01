@@ -4,32 +4,34 @@
       {{ page.description }}
     </Hero>
     <div class="content">
-      <section class="service-times">
-        <h2>Service Times</h2>
-        <div>
-          <h4>Sunday</h4>
-          <p v-for="service in sunday_services" :key="service.name">
-            {{ service.name }} — {{ service.time }}
-          </p>
-        </div>
-        <div>
-          <h4>Wednesday</h4>
-          <p v-for="service in wednesday_services" :key="service.name">
-            {{ service.name }} — {{ service.time }}
-          </p>
-        </div>
-      </section>
-      <section>
-        <h2>Phone</h2>
-        <p class="font-mono mt-4">{{ contact.phone }}</p>
-        <Button v-show="callable" icon="calling" iconColor="white" class="mt-3">
-          <a
-            class="w-full"
-            :href="`tel:+${parseInt(contact.phone.replace(/[^0-9]/g, ''), 10)}`"
-            >CALL US</a
-          >
-        </Button>
-      </section>
+      <div class="md:flex">
+        <section class="service-times mt-8">
+          <h2>Service Times</h2>
+          <div>
+            <h4>Sunday</h4>
+            <p v-for="service in sunday_services" :key="service.name">
+              {{ service.name }} — {{ service.time }}
+            </p>
+          </div>
+          <div>
+            <h4>Wednesday</h4>
+            <p v-for="service in wednesday_services" :key="service.name">
+              {{ service.name }} — {{ service.time }}
+            </p>
+          </div>
+        </section>
+        <section class="mt-8 md:ml-16">
+          <h2>Phone</h2>
+          <p class="font-mono mt-4">{{ contact.phone }}</p>
+          <Button v-show="callable" icon="calling" iconColor="white" class="mt-3">
+            <a
+              class="w-full"
+              :href="`tel:+${parseInt(contact.phone.replace(/[^0-9]/g, ''), 10)}`"
+              >CALL US</a
+            >
+          </Button>
+        </section>
+      </div>
       <section>
         <h2>Email</h2>
 
@@ -55,17 +57,18 @@
         </div>
       </section>
 
+      <!-- TODO: convert to two columns -->
       <section>
         <h2>Our Location</h2>
         <Location class="mt-6" />
       </section>
-
-      <SocialHead
-        title="Contact Us"
-        :description="page.description"
-        :image="page.hero_image"
-      />
     </div>
+
+    <SocialHead
+      title="Contact Us"
+      :description="page.description"
+      :image="page.hero_image"
+    />
   </main>
 </template>
 

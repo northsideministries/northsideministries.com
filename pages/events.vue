@@ -7,12 +7,7 @@
       <h2 class="text-center mt-12">Upcoming Events</h2>
       <h5 class="font-bold mt-8">View events for</h5>
 
-      <DropdownButton
-        :label="selected_timeframe"
-        class="mt-3 w-56"
-        :expand="false"
-        ref="timeframe_select"
-      >
+      <DropdownButton :label="selected_timeframe" class="mt-3 w-56" :expand="false" ref="timeframe_select">
         <ul class="timeframe-list flex flex-col mt-1 absolute right-0">
           <li
             v-for="timeframe in timeframe_options"
@@ -67,20 +62,12 @@
       <h2 class="text-center">Ladies' Bible Study</h2>
 
       <div class="md:max-w-md md:mx-auto">
-        <img
-          class="shadow-regular mt-6"
-          :src="content.ladies_image"
-          alt="Ladies' Bible Study"
-        />
+        <img class="shadow-regular mt-6" :src="content.ladies_image" alt="Ladies' Bible Study" />
         <p class="mt-8 leading-6">{{ content.ladies_description }}</p>
       </div>
     </aside>
 
-    <SocialHead
-      title="Events"
-      :description="content.description"
-      :image="content.hero_image"
-    />
+    <SocialHead title="Events" :description="content.description" :image="content.hero_image" />
   </main>
 </template>
 
@@ -89,6 +76,8 @@ import Button from '~/components/Button'
 import Card from '~/components/Card'
 import DropdownButton from '~/components/DropdownButton'
 import Hero from '~/components/Hero'
+
+// import { Client } from '@microsoft/microsoft-graph-client'
 
 export default {
   name: 'EventsPage',
@@ -111,8 +100,7 @@ export default {
         {
           title: 'Youth Activity',
           date: 'January 13, 2021',
-          desc:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere iaculis.',
+          desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere iaculis.',
           // eslint-disable-next-line no-undef
           img: require('~/assets/img/hero/friends_priscilla-du-preez-unsplash.jpg'),
           location: 'Northside Baptist Church',
