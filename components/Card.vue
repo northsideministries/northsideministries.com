@@ -18,31 +18,33 @@
       </div>
       <div v-if="location || time" class="details font-mono mt-5 -ml-1">
         <div v-if="location">
-          <client-only
-            ><unicon
+          <client-only>
+            <unicon
               name="map-marker-alt"
               fill="black"
               width="19"
               height="19"
-            ></unicon
-          ></client-only>
+            >
+            </unicon>
+          </client-only>
           <p>{{ location }}</p>
         </div>
         <div v-if="time">
-          <client-only
-            ><unicon
+          <client-only>
+            <unicon
               name="clock-three"
               fill="black"
               width="19"
               height="19"
-            ></unicon
-          ></client-only>
+            >
+            </unicon>
+          </client-only>
           <p>{{ time }}</p>
         </div>
       </div>
-      <LinkButton v-if="link" type="secondary" class="mt-4" :link="link" wide
-        >READ MORE</LinkButton
-      >
+      <LinkButton v-if="link" type="secondary" class="mt-4" :link="link" wide>
+        READ MORE
+      </LinkButton>
     </div>
   </div>
 </template>

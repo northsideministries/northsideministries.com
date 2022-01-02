@@ -48,7 +48,7 @@
       <li><nuxt-link to="/give">Give</nuxt-link></li>
       <li><nuxt-link to="/contact">Contact</nuxt-link></li>
     </ul>
-    <p class="mt-4">© 2021 Northside Baptist Church</p>
+    <p class="mt-8">© 2021 Northside Baptist Church</p>
   </footer>
 </template>
 

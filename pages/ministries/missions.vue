@@ -3,10 +3,12 @@
     <Hero title="Missions" :img="content.hero_image">
       {{ content.description }}
     </Hero>
-    <div class="content">
+
+    <div class="bg-primary-800 text-white py-12 px-8 -mt-24 pt-24 md:pb-16 md:-mx-16 md:px-32 md:grid lg:grid-cols-3 col-gap-8">
       <section>
+      <!-- TODO: content editable? -->
         <h2>Fulfilling the Great Commission.</h2>
-        <p class="mt-4 leading-6">
+        <p class="mt-4 leading-6 md:max-w-xl">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt dictum eros, ac lobortis elit aliquam vel.
           Pellentesque viverra gravida lectus, vitae rhoncus est vehicula eget. Etiam euismod ligula nec orci semper vehicula ut quis lacus.
           Duis quis condimentum ante. Vivamus semper mauris sit amet lacus pretium malesuada. Maecenas ac urna nibh.
@@ -14,30 +16,21 @@
           Cras nec velit facilisis, vulputate arcu nec, porta sem. Fusce semper erat in diam ultricies porttitor.
         </p>
       </section>
+      <section>
+        <h3>Home Missionaries</h3>
+        <p>
+          We support missionaries directly sent from our church out into the
+          mission field.
+        </p>
 
-      <section class="missions-img-row flex flex-row -mx-3">
-        <img src="@/assets/img/missions/annie-spratt-0cgpyigyIkM-unsplash.jpg" alt="Missions Images" />
-        <img src="@/assets/img/missions/annie-spratt-cVEOh_JJmEE-unsplash.jpg" alt="Missions Images" />
-        <img src="@/assets/img/missions/annie-spratt-0cgpyigyIkM-unsplash.jpg" alt="Missions Images" />
-      </section>
-
-      <div class="md:grid grid-cols-2 row-gap-8 col-gap-8">
-        <section>
-          <h3>Home Missionaries</h3>
-          <p>
-            We support missionaries directly sent from our church out into the
-            mission field.
+        <div class="mt-4">
+          <p v-for="missionary in content.home_list" :key="missionary.name">
+            <span class="font-bold">{{ missionary.name }}</span> –
+            {{ missionary.location }}
           </p>
-
-          <div class="mt-4">
-            <p v-for="missionary in content.home_list" :key="missionary.name">
-              <span class="font-bold">{{ missionary.name }}</span> –
-              {{ missionary.location }}
-            </p>
-          </div>
-        </section>
-
-        <section>
+        </div>
+      </section>
+      <section>
           <h3>Ministries</h3>
           <div v-for="ministry in content.ministry_list" :key="ministry.name">
             <h4>{{ ministry.name }}</h4>
@@ -46,8 +39,15 @@
             </p>
           </div>
         </section>
-      </div>
+    </div>
 
+    <div class="missions-img-row flex flex-row -mx-16">
+      <img src="@/assets/img/missions/annie-spratt-0cgpyigyIkM-unsplash.jpg" alt="Missions Images" />
+      <img src="@/assets/img/missions/annie-spratt-cVEOh_JJmEE-unsplash.jpg" alt="Missions Images" />
+      <img src="@/assets/img/missions/annie-spratt-0cgpyigyIkM-unsplash.jpg" alt="Missions Images" />
+    </div>
+
+    <div class="content">
       <section>
         <h3>Missionaries</h3>
         <p>
@@ -112,7 +112,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.content section {
+section {
   @apply mt-16;
 
   & > h3 {
@@ -135,6 +135,6 @@ export default {
 }
 
 .missions-img-row img {
-  @apply h-20 w-full object-cover;
+  @apply h-16 w-full object-cover;
 }
 </style>

@@ -12,9 +12,9 @@
       <section
         v-for="ministry in content.ministry_list"
         :key="ministry.name"
-        class="w-10/12 mt-16 md:w-4/5 md:mt-32"
+        class="mt-12 w-4/5 md:w-full lg:px-12"
       >
-        <h2 class="sm:ml-4">{{ ministry.name }}</h2>
+        <h2 class="ml-8 md:ml-0">{{ ministry.name }}</h2>
         <img :src="ministry.image" :alt="ministry.name" />
         <div
           v-if="ministry.day || ministry.room || ministry.service"
@@ -95,10 +95,6 @@ export default {
 
   &:nth-child(even) {
     @apply float-left;
-
-    & > h2 {
-      @apply ml-8;
-    }
 
     & > p,
     & > div {

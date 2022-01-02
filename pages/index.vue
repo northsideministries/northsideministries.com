@@ -1,49 +1,50 @@
 <template>
   <main class="mb-24">
-    <div class="hero-index px-8 mt-16 md:mx-auto md:max-w-lg lg:max-w-screen-xl">
-      <section class="lg:flex lg:flex-row lg:justify-center lg:items-center">
-        <div class="lg:px-16 lg:py-12 lg:my-32 lg:-mr-16 lg:w-3/4 z-0 lg:bg-gray-200 lg:rounded-lg lg:shadow-regular">
-          <h1 class="font-serif font-bold text-2xl pr-6 leading-7">
+    <!-- TODO: constrain rules to either md or lg, not both -->
+    <div class="text-white h-screen max-w-full hero-index px-0 -mt-24 md:max-w-lg lg:max-w-xl">
+      <img
+        class="object-cover absolute w-full h-screen md:-ml-16"
+        :src="content.hero_image"
+        alt="Main image"
+      />
+      <section class="flex h-full justify-center align-middle items-center px-8 lg:px-0">
+        <div class="lg:ml-32">
+          <h1 class="font-serif font-bold text-3xl pr-6 leading-9">
             {{ content.title }}
           </h1>
-          <img class="mt-4 shadow-regular rounded-btn lg:hidden" :src="content.hero_image" alt="Main image" />
-          <p class="mt-6 leading-6">{{ content.description }}</p>
+          <p class="mt-6 leading-6 lg:text-lg">{{ content.description }}</p>
           <NuxtLinkButton class="mt-6 shadow-tall" to="/watch" type="cta" wide>
             JOIN US
           </NuxtLinkButton>
         </div>
-        <img
-          class="hidden object-cover md:w-1/2 lg:inline lg:mx-6 lg:rounded-lg lg:shadow-tall lg:max-w-2xl"
-          :src="content.hero_image"
-          alt="Main image"
-        />
       </section>
     </div>
 
-    <section v-if="content.covid" class="mt-16 md:text-left md:flex md:flex-row">
+    <section v-if="content.covid" class="mt-8 md:mt-16 md:text-left md:flex md:flex-row">
       <div
-        class="bg-yellow-500 py-8 px-12 w-full md:py-10 md:pl-40 md:h-64 md:pr-16 md:flex md:flex-col md:justify-center lg:rounded-l-btn"
+        class="bg-yellow-500 py-8 px-12 w-full flex-auto md:py-10 md:rounded-l-btn lg:pr-16 lg:flex lg:flex-col lg:justify-center xl:pl-40"
       >
-        <!-- <div> -->
         <div class="flex flex-row items-center justify-center md:justify-start md:ml-0">
           <client-only>
             <unicon name="heart-medical" fill="black" width="26" height="26"></unicon>
           </client-only>
           <h3 class="ml-2 font-bold">COVID-19 UPDATES</h3>
         </div>
-        <p class="text-center mt-6 px-4 leading-6 md:max-w-lg md:px-0 md:text-left">
+        <p class="text-center mt-6 px-4 leading-6 md:text-left md:px-0 lg:max-w-lg">
           Our staff is working to provide a safe environment to worship in accordance with guidance from the CDC and
           other agencies.
         </p>
-        <NuxtLinkButton class="mt-6 shadow-tall md:mr-auto" to="/covid" type="primary">
+        <NuxtLinkButton class="mt-6 shadow-tall md:mr-auto md:-ml-2" to="/covid" type="primary">
           REVIEW OUR GUIDELINES
         </NuxtLinkButton>
       </div>
-      <img
-        :src="content.covid_image"
-        class="hidden md:inline object-cover w-full h-64 lg:rounded-r-btn -ml-12"
-        alt="COVID-19"
-      />
+      <div style="flex-basis: fit-content; flex-shrink: 2;">
+        <img
+          :src="content.covid_image"
+          class="hidden object-cover rounded-r-btn h-full md:inline"
+          alt="COVID-19"
+        />
+      </div>
     </section>
 
     <!-- TODO: pull text and images from CMS, store as list -->
@@ -97,11 +98,6 @@ export default {
     Location,
     NuxtLinkButton
   },
-  // head() {
-  //   return {
-  //     script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
-  //   }
-  // },
   head() {
     return {
       meta: [
@@ -110,7 +106,8 @@ export default {
           name: 'description',
           content: this.content.description
         }
-      ]
+      ],
+      // script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
     }
   },
   async asyncData({ $content }) {
@@ -132,6 +129,10 @@ export default {
 
 .descriptions > section {
   @apply flex flex-col;
+
+  &:nth-child(odd) {
+    @apply mr-0;
+  }
 
   @screen lg {
     @apply mt-24 !important;
@@ -172,7 +173,7 @@ export default {
       @apply float-left mr-4;
 
       @screen md {
-        @apply pr-8 mr-8;
+        @apply pr-8;
       }
     }
   }

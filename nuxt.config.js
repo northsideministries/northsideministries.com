@@ -115,9 +115,9 @@ export default {
   buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa'],
 
   modules: [
-    'nuxt-purgecss',
     '@nuxt/content',
     '@nuxtjs/sitemap'
+    // 'nuxt-purgecss',
     // 'nuxt-leaflet'
   ],
   markdownit: {

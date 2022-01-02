@@ -4,7 +4,7 @@
       {{ content.description }}
     </Hero>
 
-    <div class="content mt-8 md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-4 md:auto-cols-fr">
+    <div class="px-8 mt-8 md:max-w-screen-md md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-8 md:auto-cols-fr lg:max-w-screen-xl lg:mt-16 lg:mx-auto lg:grid-cols-3">
       <Dropdown v-for="belief in content.belief_list" :key="belief.name" :title="belief.name" class="md:mb-auto">
         <p class="leading-6">{{ belief.description }}</p>
         <p class="mt-4 italic text-sm">{{ belief.references }}</p>

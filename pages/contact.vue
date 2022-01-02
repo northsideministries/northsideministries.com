@@ -4,16 +4,16 @@
       {{ page.description }}
     </Hero>
     <div class="content">
-      <div class="md:flex">
+      <div class="md:grid grid-cols-2">
         <section class="service-times mt-8">
           <h2>Service Times</h2>
-          <div>
+          <div class="ml-8">
             <h4>Sunday</h4>
             <p v-for="service in sunday_services" :key="service.name">
               {{ service.name }} — {{ service.time }}
             </p>
           </div>
-          <div>
+          <div class="ml-8">
             <h4>Wednesday</h4>
             <p v-for="service in wednesday_services" :key="service.name">
               {{ service.name }} — {{ service.time }}
@@ -22,7 +22,7 @@
         </section>
         <section class="mt-8 md:ml-16">
           <h2>Phone</h2>
-          <p class="font-mono mt-4">{{ contact.phone }}</p>
+          <p class="font-mono mt-4 text-center">{{ contact.phone }}</p>
           <Button v-show="callable" icon="calling" iconColor="white" class="mt-3">
             <a
               class="w-full"
@@ -35,6 +35,7 @@
       <section>
         <h2>Email</h2>
 
+        <!-- TODO: text overflow on certain md screen sizes -->
         <div class="md:grid md:grid-cols-2 md:col-gap-4 md:row-gap-2">
           <Card
             v-for="contact in page.contact_list"
@@ -128,8 +129,12 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.content > section {
+.content section {
   @apply mt-12;
+  
+  & > h2 {
+    @apply text-center;
+  }
 }
 
 .service-times > div {

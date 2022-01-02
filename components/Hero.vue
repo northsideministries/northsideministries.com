@@ -1,5 +1,5 @@
 <template>
-  <div class="hero flex flex-col">
+  <div class="hero flex flex-col md:-mx-16">
     <div class="h-64 w-full">
       <img class="h-64 object-cover w-full" :src="img" :alt="title" />
     </div>
