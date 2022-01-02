@@ -23,7 +23,7 @@
         <section class="mt-8 md:ml-16">
           <h2>Phone</h2>
           <p class="font-mono mt-4 text-center">{{ contact.phone }}</p>
-          <Button v-show="callable" icon="calling" iconColor="white" class="mt-3">
+          <Button v-show="callable" icon="calling" iconColor="white" class="mt-3 mx-auto">
             <a
               class="w-full"
               :href="`tel:+${parseInt(contact.phone.replace(/[^0-9]/g, ''), 10)}`"
@@ -52,7 +52,7 @@
               wide
               short
             >
-              DRAFT EMAIL
+              SEND EMAIL
             </LinkButton>
           </Card>
         </div>

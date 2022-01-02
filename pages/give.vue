@@ -8,19 +8,24 @@
 
     <!-- TODO: add content sections for what giving funds go towards -->
 
-    <div class="content mt-12 leading-6 font-bold text-center text-lg">
-      Click "GIVE NOW" to give to Northside Baptist Church.
-    </div>
-
-    <div class="embed content flex flex-col">
+    <div class="embed content flex flex-col mt-8">
+      <section>
+        <h2>Giving grows our ministries.</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Nam venenatis volutpat mauris, vitae tempor eros faucibus eu.
+          Ut placerat nulla eu erat ornare iaculis. Vestibulum scelerisque condimentum aliquam.
+        </p>
+      </section>
       <LinkButton
         link="https://onrealm.org/NorthsideMinistries/give"
-        class="mx-auto max-w-md"
+        class="mx-auto max-w-md h-16"
         icon="external-link-alt"
         iconColor="white"
         wide
-        >GIVE NOW</LinkButton
       >
+        GIVE NOW
+      </LinkButton>
       <script id="r-embed-script"></script>
       <!-- <script type="text/javascript">document.getElementById('r-embed-script').src = 'https://onrealm.org/Assets/Embed/giving-embed.js?v=' + Date.now();</script> -->
     </div>
@@ -75,3 +80,15 @@ export default {
   }
 }
 </script>
+
+<style lang="postcss" scoped>
+.content > section {
+  & > h2 {
+
+  }
+
+  & > p {
+    @apply mt-2 mb-6;
+  }
+}
+</style>

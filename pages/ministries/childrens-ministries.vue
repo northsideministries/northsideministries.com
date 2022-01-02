@@ -7,7 +7,7 @@
       <section
         v-for="ministry in content.ministry_list"
         :key="ministry.name"
-        class="mt-12 md:w-full lg:px-12"
+        class="mt-12 md:w-full px-12"
       >
         <h2>{{ ministry.name }}</h2>
         <img :src="ministry.image" :alt="ministry.name" />

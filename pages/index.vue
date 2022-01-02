@@ -20,9 +20,9 @@
       </section>
     </div>
 
-    <section v-if="content.covid" class="mt-8 md:mt-16 md:text-left md:flex md:flex-row">
+    <section v-if="content.covid" class="md:mt-16 md:text-left md:flex md:flex-row">
       <div
-        class="bg-yellow-500 py-8 px-12 w-full flex-auto md:py-10 md:rounded-l-btn lg:pr-16 lg:flex lg:flex-col lg:justify-center xl:pl-40"
+        class="bg-yellow-500 py-12 px-12 w-full flex-auto md:py-10 md:rounded-l-btn lg:pr-16 lg:flex lg:flex-col lg:justify-center xl:pl-40"
       >
         <div class="flex flex-row items-center justify-center md:justify-start md:ml-0">
           <client-only>

@@ -48,7 +48,11 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.content > .dropdown {
+.dropdown {
   @apply mt-4;
+  
+  @screen md {
+    @apply mt-0;
+  }
 }
 </style>
