@@ -57,7 +57,7 @@ export default {
     }
   },
   mounted() {
-    this.$content('site', 'mapbox')
+    this.$content('dev', 'mapbox')
       .fetch()
       .then(res => {
         this.livestream_list = res.livestream_list

@@ -19,9 +19,9 @@ media_library:
     api_key: 728192525896344
     default_transformations:
       - - fetch_format: auto
-          crop: scale
-          quality: 50
-          width: 0.5
+          crop: fill
+          quality: 35
+          width: 0.35
 
 ###############
 # ALIASES     #
@@ -77,7 +77,7 @@ ministry: &MINISTRY
 ###############
 
 collections:
-  - label: 'Site settings'
+  - label: 'Site Settings'
     name: 'site'
     description: 'General site information.'
     files:
@@ -104,13 +104,6 @@ collections:
         fields:
           - { label: 'Facebook', name: facebook, widget: string, hint: 'Link to Facebook page' }
           - { label: 'YouTube', name: youtube, widget: string, hint: 'Link to YouTube channel' }
-          - {
-              label: 'Vimeo Livestream',
-              name: vimeo_stream,
-              widget: string,
-              required: true,
-              hint: 'Direct link to Vimeo livestream for services',
-            }
           - label: 'Sunday School Livestreams'
             summary: 'Zoom livestream link'
             name: 'livestream_list'
@@ -127,36 +120,6 @@ collections:
               default: true,
               hint: 'Display a notification when the church livestream is currently broadcasting',
             }
-          - {
-              label: 'YouTube API Key',
-              name: youtube_api_key,
-              widget: string,
-              hint: 'Developer API public key for YouTube.',
-            }
-
-      - label: 'Mapbox Settings'
-        name: mapbox
-        description: 'Mapbox API settings.'
-        summary: 'Mapbox API settings. This should not have to be edited.'
-        file: 'content/site/mapbox.json'
-        editor:
-          preview: false
-        fields:
-          - { label: 'Access Token', name: access_token, widget: string, hint: 'Mapbox API public token' }
-          - label: 'Map Style'
-            name: map_style
-            widget: select
-            options:
-              - { label: 'Streets', value: 'streets-v11' }
-              - { label: 'Outdoors', value: 'outdoors-v11' }
-              - { label: 'Light', value: 'light-v10' }
-              - { label: 'Dark', value: 'dark-v10' }
-              - { label: 'Satellite', value: 'satellite-v9' }
-              - { label: 'Navigation Day', value: 'navigation-day-v1' }
-              - { label: 'Navigation Night', value: 'navigation-night-v1' }
-            hint: 'Mapbox map style'
-          - { label: 'Longitude', name: long, widget: number }
-          - { label: 'Latitude', name: lat, widget: number }
 
   - label: 'Church Information'
     name: 'church'
@@ -430,3 +393,34 @@ collections:
             minimize_collapsed: true
             widget: 'list'
             fields: *MINISTRY
+
+  - label: 'Developer Settings'
+    name: 'dev'
+    description: 'Website configuration options for the client and server, only to be used by the developer.'
+    editor:
+      preview: false
+    files:
+      - label: 'Mapbox'
+        name: mapbox
+        description: 'Mapbox API settings.'
+        summary: 'Mapbox API settings. This should not have to be edited.'
+        file: 'content/dev/mapbox.json'
+        format: 'json'
+        editor:
+          preview: false
+        fields:
+          - { label: 'Access Token', name: access_token, widget: string, hint: 'Mapbox API public token' }
+          - label: 'Map Style'
+            name: map_style
+            widget: select
+            options:
+              - { label: 'Streets', value: 'streets-v11' }
+              - { label: 'Outdoors', value: 'outdoors-v11' }
+              - { label: 'Light', value: 'light-v10' }
+              - { label: 'Dark', value: 'dark-v10' }
+              - { label: 'Satellite', value: 'satellite-v9' }
+              - { label: 'Navigation Day', value: 'navigation-day-v1' }
+              - { label: 'Navigation Night', value: 'navigation-night-v1' }
+            hint: 'Mapbox map style'
+          - { label: 'Longitude', name: long, widget: number }
+          - { label: 'Latitude', name: lat, widget: number }
