@@ -4,5 +4,24 @@
   "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641079398/edwin-andrade-6liebVeAfrY-unsplash_ryjntb.jpg",
   "covid": true,
   "livestream": true,
-  "covid_image": "/img/friends_priscilla-du-preez-unsplash.jpg"
+  "covid_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+  "sections": [
+    {
+      "heading": "A church you can call home.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at lobortis augue. Donec tortor lacus, malesuada non convallis eget, consequat in quam. Morbi vel hendrerit turpis, et auctor erat. Sed urna eros, placerat in sodales ac, ullamcorper eu ex. Nullam eu ante vestibulum, efficitur urna vel, consequat ipsum. Morbi id purus pretium, efficitur velit non, vulputate orci.",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_fill,f_auto,q_35,w_0.35/v1621562485/friends_priscilla-du-preez-unsplash_original_krroww.jpg",
+      "link": {
+        "label": "asdf"
+      }
+    },
+    {
+      "heading": "Traditionally uplifting and edifying.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales fringilla mi non condimentum. Morbi non tellus egestas justo rhoncus sollicitudin porta vitae purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_fill,f_auto,q_35,w_0.35/v1621562589/sample.jpg",
+      "link": {
+        "label": "Read our beliefs",
+        "page_link": "/about/beliefs"
+      }
+    }
+  ]
 }
