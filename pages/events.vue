@@ -77,7 +77,7 @@ import Card from '~/components/Card'
 import DropdownButton from '~/components/DropdownButton'
 import Hero from '~/components/Hero'
 
-// import { Client } from '@microsoft/microsoft-graph-client'
+import { Client } from '@microsoft/microsoft-graph-client'
 
 export default {
   name: 'EventsPage',
@@ -120,6 +120,9 @@ export default {
       this.selected_timeframe = timeframe
       this.$refs.timeframe_select.close()
     }
+  },
+  mounted() {
+    
   },
   head() {
     return {

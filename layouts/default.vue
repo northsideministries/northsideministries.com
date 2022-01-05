@@ -3,7 +3,7 @@
     <!-- livestreaming notification; once clicked, don't show again -->
     <transition name="slide-down">
       <aside
-        v-show="notification_enabled && live"
+        v-show="$store.state.notification_enabled && $store.state.live"
         class="flex flex-row justify-center py-4 px-6 rounded-btn bg-primary-600 live-notification shadow-tall fixed bottom-0 mb-4 z-10"
       >
         <div class="flex-row items-center flex">
@@ -14,10 +14,10 @@
           </div>
           <span class="font-medium text-white tracking-wide">LIVE</span>
         </div>
-        <NuxtLinkButton type="primary" class="ml-8 md:ml-16 watch-button" to="/watch" @click.native="disable"
-          >WATCH</NuxtLinkButton
-        >
-        <Button type="secondary" class="ml-3 dismiss-button" @click.native="disable">CLOSE</Button>
+        <NuxtLinkButton type="primary" class="ml-8 md:ml-16 watch-button" to="/watch" @click.native="disableNotification">
+          WATCH
+        </NuxtLinkButton>
+        <Button type="secondary" class="ml-3 dismiss-button" @click.native="disableNotification">CLOSE</Button>
       </aside>
     </transition>
 
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import Button from '~/components/Button'
 import NuxtLinkButton from '~/components/NuxtLinkButton'
 import Header from '~/components/global/Header.vue'
@@ -40,22 +41,37 @@ export default {
     Header,
     Footer
   },
-  data() {
-    return {
-      // TODO: get if livestreaming from YouTube/Vimeo
-      live: true,
-      notification_enabled: true
-    }
-  },
+  data() { return {} },
   methods: {
-    disable() {
-      this.notification_enabled = false
-    }
+    ...mapMutations({
+      pollLivestream: 'pollLivestream',
+      pollNotification: 'pollNotification',
+      goLive: 'goLive',
+      disableNotification: 'disableNotification'
+    })
   },
   mounted() {
-    this.$content('site', 'services')
-      .fetch()
-      .then(res => (this.notification_enabled = res.livestream))
+    // if not checked already, check if the livestream is live
+    if (!this.$store.state.hasPolledLivestream) {
+      fetch('/.netlify/functions/get-youtube-stream')
+        .then(res => res.json())
+        .then(res => {
+            if (res.status) this.goLive()
+            this.pollLivestream()
+          }
+        )
+    }
+
+    // if not checked already, check if the livestream notification is disabled in the CMS
+    if (!this.$store.state.hasPolledNotification) {
+      this.$content('site', 'services')
+        .fetch()
+        .then(res => {
+            if (!res.livestream) this.disableNotification()
+            this.pollNotification()
+          }
+        )
+    }
   }
 }
 </script>

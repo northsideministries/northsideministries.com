@@ -2,6 +2,7 @@
   <a
     class="button"
     role="link"
+    target="_blank"
     :href="disabled ? false : link"
     :class="[
       type ? type : '',

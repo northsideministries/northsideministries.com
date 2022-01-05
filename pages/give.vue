@@ -3,14 +3,10 @@
     <Hero title="Give" :img="content.hero_image">
       {{ content.description }}
     </Hero>
-
-    <!-- TODO: clean up page -->
-
-    <!-- TODO: add content sections for what giving funds go towards -->
-
+    
     <div class="embed content flex flex-col mt-8">
       <section>
-        <h2>Giving grows our ministries.</h2>
+        <h2>Your giving grows our ministries.</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Nam venenatis volutpat mauris, vitae tempor eros faucibus eu.

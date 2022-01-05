@@ -1,6 +1,5 @@
 <template>
   <main class="mb-24">
-    <!-- TODO: constrain rules to either md or lg, not both -->
     <div class="text-white h-screen max-w-full hero-index px-0 -mt-24 md:max-w-lg lg:max-w-xl">
       <img
         class="object-cover absolute w-full h-screen md:-ml-16"

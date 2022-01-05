@@ -4,7 +4,7 @@ logo_url: https://northsideministries.netlify.app/icon.png
 display_url: https://www.northsideministries.com/
 
 local_backend: true
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 backend:
   name: git-gateway
   branch: master
@@ -104,7 +104,6 @@ collections:
         fields:
           - { label: 'Facebook', name: facebook, widget: string, hint: 'Link to Facebook page' }
           - { label: 'YouTube', name: youtube, widget: string, hint: 'Link to YouTube channel' }
-          - { label: 'Vimeo Channel', name: vimeo_channel, widget: string, hint: 'Link to Vimeo channel' }
           - {
               label: 'Vimeo Livestream',
               name: vimeo_stream,
@@ -133,13 +132,6 @@ collections:
               name: youtube_api_key,
               widget: string,
               hint: 'Developer API public key for YouTube.',
-            }
-          - { label: 'Vimeo API Key', name: vimeo_api_key, widget: string, hint: 'Developer API public key for Vimeo.' }
-          - {
-              label: 'Google Calendar API Key',
-              name: gcal_api_key,
-              widget: string,
-              hint: 'Developer API public key for Google Calendar.',
             }
 
       - label: 'Mapbox Settings'

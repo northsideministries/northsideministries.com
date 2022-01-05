@@ -108,6 +108,7 @@ export default {
     { src: '~/plugins/vue-unicons', mode: 'client', ssr: false },
     // { src: '~/plugins/mapbox.js', mode: 'client', ssr: false },
     { src: '~/plugins/leaflet.js', mode: 'client', ssr: false },
+    { src: '~plugins/persistedstate.js', ssr: false },
     '~/plugins/vue-content-placeholders.js',
     '~/plugins/vue-socialhead.js'
   ],
@@ -140,7 +141,7 @@ export default {
       },
     },
 
-    // TODO: only test in pre-production
+    // TODO: test in pre-production
     // analyze: true,
 
     /*

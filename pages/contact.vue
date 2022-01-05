@@ -58,7 +58,6 @@
         </div>
       </section>
 
-      <!-- TODO: convert to two columns -->
       <section>
         <h2>Our Location</h2>
         <Location class="mt-6" />
