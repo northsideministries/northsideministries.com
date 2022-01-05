@@ -94,3 +94,6 @@ sw.*
 
 # Local Netlify folder
 .netlify
+
+# Other
+TODO.md

@@ -2,6 +2,9 @@
 command = "npm run generate"
 publish = "dist/"
 
+[functions]
+node_bundler = "esbuild"
+
 # [[plugins]]
 # package = "netlify-plugin-subfont"
 
