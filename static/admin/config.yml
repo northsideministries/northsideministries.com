@@ -28,14 +28,14 @@ media_library:
 ###############
 
 ministry: &MINISTRY
-  - { label: Ministry Name, name: name, widget: string, required: true }
-  - { label: Description, name: description, widget: text, required: true }
+  - { label: Ministry Name, name: name, widget: string }
+  - { label: Description, name: description, widget: text }
   - label: 'Weekday'
     name: 'day'
     widget: 'select'
     options: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     required: false
-  - { label: Image, name: image, widget: image, required: true }
+  - { label: Image, name: image, widget: image }
   - { label: Room, name: room, widget: string, required: false }
   - { label: Service, name: service, widget: string, required: false }
   - { label: Time, name: time, widget: string, required: false }
@@ -110,9 +110,9 @@ collections:
             minimize_collapsed: true
             widget: 'list'
             fields:
-              - { label: Teacher, name: teacher, widget: string, required: true }
-              - { label: Class, name: class, widget: string, required: true }
-              - { label: Link, name: link, widget: string, required: true }
+              - { label: Teacher, name: teacher, widget: string }
+              - { label: Class, name: class, widget: string }
+              - { label: Link, name: link, widget: string }
           - {
               label: 'Livestream Notification',
               name: livestream,
@@ -194,8 +194,8 @@ collections:
             minimize_collapsed: true
             widget: 'list'
             fields:
-              - { label: Belief Name, name: name, widget: string, required: true }
-              - { label: Description, name: description, widget: string, required: true }
+              - { label: Belief Name, name: name, widget: string }
+              - { label: Description, name: description, widget: string }
               - { label: Scripture References, name: references, widget: string }
 
       - label: "Children's Ministries Page"
@@ -221,8 +221,8 @@ collections:
             minimize_collapsed: true
             widget: 'list'
             fields:
-              - { label: Name, name: name, widget: string, required: true }
-              - { label: Occupation, name: occupation, widget: string, required: true }
+              - { label: Name, name: name, widget: string }
+              - { label: Occupation, name: occupation, widget: string }
               - label: 'Email'
                 name: 'email'
                 widget: 'text'
@@ -235,6 +235,9 @@ collections:
         fields:
           - { label: Description, name: description, widget: text }
           - { label: 'Featured Image', name: hero_image, widget: image }
+          - { label: 'Last Update', name: last_update, widget: date }
+          - { label: Nursery, name: nursery, widget: text }
+          - { label: Events, name: events, widget: text }
 
       - label: 'Events Page'
         name: 'events'
@@ -249,9 +252,9 @@ collections:
         name: 'index'
         file: 'content/pages/index.json'
         fields:
-          - { label: Title, name: title, widget: string, required: true }
-          - { label: Description, name: description, widget: text, required: true }
-          - { label: 'Featured Image', name: hero_image, widget: image, required: true }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
           - {
               label: 'COVID-19 Section',
               name: covid,
@@ -259,7 +262,47 @@ collections:
               default: true,
               hint: 'Display a notification about COVID-19 protocols',
             }
-          - { label: 'COVID-19 Featured Image', name: covid_image, widget: image, required: true }
+          - { label: 'COVID-19 Featured Image', name: covid_image, widget: image }
+          - label: 'Content sections'
+            name: sections
+            minimize_collapsed: true
+            widget: 'list'
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Content, name: content, widget: text }
+              - { label: Image, name: image, widget: image }
+              - label: 'Link'
+                name: 'link'
+                required: false
+                widget: 'object'
+                hint: 'Add a link to another page'
+                fields:
+                  - { label: Label, name: label, widget: string, required: false }
+                  - label: 'Link to Page'
+                    hint: 'Link to a page on the website'
+                    name: 'page_link'
+                    widget: 'select'
+                    options:
+                      - { label: 'About', value: '/about' }
+                      - { label: 'Beliefs', value: '/about/beliefs' }
+                      - { label: "Children's Ministries", value: '/ministries/childrens-ministries' }
+                      - { label: 'Contact', value: '/contact' }
+                      - { label: 'COVID-19', value: '/covid' }
+                      - { label: 'Events', value: '/events' }
+                      - { label: 'Give', value: '/give' }
+                      - { label: 'Home', value: '/' }
+                      - { label: 'Leadership', value: '/about/leadership' }
+                      - { label: 'Ministries', value: '/ministries' }
+                      - { label: 'Missions', value: '/ministries/missions' }
+                      - { label: 'Sunday School', value: '/ministries/sunday-school' }
+                      - { label: 'Watch', value: '/watch' }
+                      - { label: 'Youth Ministries', value: '/ministries/youth-ministries' }
+                    required: false
+                  - label: 'External Link'
+                    hint: 'Link to an external website or webpage'
+                    name: 'external_link'
+                    widget: 'string'
+                    required: false
 
       - label: 'Give Page'
         name: 'give'
@@ -272,15 +315,15 @@ collections:
         name: 'leadership'
         file: 'content/pages/leadership.json'
         fields:
-          - { label: Description, name: description, widget: text, required: true }
-          - { label: 'Featured Image', name: hero_image, widget: image, required: true }
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
           - label: 'Leadership'
             name: 'leadership_list'
             minimize_collapsed: true
             widget: 'list'
             fields:
-              - { label: Name, name: name, widget: string, required: true }
-              - { label: Image, name: image, widget: image, required: true }
+              - { label: Name, name: name, widget: string }
+              - { label: Image, name: image, widget: image }
               - {
                   label: Occupation,
                   name: occupation,
@@ -288,7 +331,7 @@ collections:
                   required: true,
                   hint: 'Position within the church',
                 }
-              - { label: Description, name: description, widget: text, required: true }
+              - { label: Description, name: description, widget: text }
               - label: 'Phone Number'
                 name: 'phone'
                 widget: 'string'
@@ -304,7 +347,7 @@ collections:
         name: 'ministries'
         file: 'content/pages/ministries.json'
         fields:
-          - { label: 'Featured Image', name: hero_image, widget: image, required: true }
+          - { label: 'Featured Image', name: hero_image, widget: image }
           - label: 'Ministries'
             name: 'ministry_list'
             minimize_collapsed: true
@@ -315,79 +358,80 @@ collections:
         name: 'missions'
         file: 'content/pages/missions.json'
         fields:
-          - { label: Description, name: description, widget: text, required: true }
-          - { label: 'Featured Image', name: hero_image, widget: image, required: true }
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
+          - { label: 'Content Paragraph', name: paragraph, widget: text }
           - label: 'Home Missionaries'
             hint: 'Missionaries directly supported by Northside'
             name: 'home_list'
             minimize_collapsed: true
             widget: 'list'
             fields:
-              - { label: Name, name: name, widget: string, required: true }
-              - { label: Location, name: location, widget: string, required: true }
+              - { label: Name, name: name, widget: string }
+              - { label: Location, name: location, widget: string }
           - label: 'Ministries'
             name: 'ministry_list'
             hint: 'Other missions-based ministries'
             minimize_collapsed: true
             widget: 'list'
             fields:
-              - { label: Name, name: name, widget: string, required: true }
-              - { label: Description, name: description, widget: string, required: true }
+              - { label: Name, name: name, widget: string }
+              - { label: Description, name: description, widget: string }
           - label: 'Missionaries (by Location)'
             name: 'country_list'
             minimize_collapsed: true
             widget: 'list'
             hint: 'List of supported missionaries, sorted by location/country they are serving in'
             fields:
-              - { label: Location, name: name, widget: string, required: true }
+              - { label: Location, name: name, widget: string }
               - label: 'Missionaries'
                 name: 'missionary_list'
                 widget: 'list'
                 required: true
                 fields:
-                  - { label: Name, name: name, widget: string, required: true, hint: 'Missionary name' }
+                  - { label: Name, name: name, widget: string, hint: 'Missionary name' }
 
       - label: 'Sunday School Page'
         name: 'sunday_school'
         file: 'content/pages/sunday_school.json'
         fields:
-          - { label: Description, name: description, widget: text, required: true }
-          - { label: 'Featured Image', name: hero_image, widget: image, required: true }
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
           - label: 'Children Classes'
             name: 'children_class_list'
             minimize_collapsed: true
             widget: 'list'
             fields:
-              - { label: 'Name / Age Group', name: name, widget: string, required: true }
-              - { label: Room, name: room, widget: string, required: true }
+              - { label: 'Name / Age Group', name: name, widget: string }
+              - { label: Room, name: room, widget: string }
           - label: 'Teen Classes'
             name: 'teen_class_list'
             minimize_collapsed: true
             widget: 'list'
             fields:
-              - { label: 'Name / Age Group', name: name, widget: string, required: true }
-              - { label: Room, name: room, widget: string, required: true }
+              - { label: 'Name / Age Group', name: name, widget: string }
+              - { label: Room, name: room, widget: string }
           - label: 'Adults Classes'
             name: 'adult_class_list'
             minimize_collapsed: true
             widget: 'list'
             fields:
-              - { label: 'Name / Age Group', name: name, widget: string, required: true }
-              - { label: Room, name: room, widget: string, required: true }
+              - { label: 'Name / Age Group', name: name, widget: string }
+              - { label: Room, name: room, widget: string }
           - label: 'Senior Citizen Classes'
             name: 'senior_citizen_class_list'
             minimize_collapsed: true
             widget: 'list'
             fields:
-              - { label: 'Name / Age Group', name: name, widget: string, required: true }
-              - { label: Room, name: room, widget: string, required: true }
+              - { label: 'Name / Age Group', name: name, widget: string }
+              - { label: Room, name: room, widget: string }
 
       - label: 'Youth Ministries Page'
         name: 'youth_ministries'
         file: 'content/pages/youth_ministries.json'
         fields:
-          - { label: Description, name: description, widget: text, required: true }
-          - { label: 'Featured Image', name: hero_image, widget: image, required: true }
+          - { label: Description, name: description, widget: text }
+          - { label: 'Featured Image', name: hero_image, widget: image }
           - label: 'Ministries'
             name: 'ministry_list'
             minimize_collapsed: true

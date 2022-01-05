@@ -46,29 +46,32 @@
       </div>
     </section>
 
-    <!-- TODO: pull text and images from CMS, store as list -->
     <div class="content descriptions lg:mt-32">
-      <section class="-mr-12">
-        <h2>A church you can call home.</h2>
-        <p>
-          <img :src="content.hero_image" alt="Home" />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus cursus feugiat. Nam condimentum, urna eu
-          pharetra faucibus, urna elit tincidunt metus, at vehicula leo purus nec dui. Vivamus libero leo, posuere non
-          dictum non, lobortis in quam. Fusce eget auctor sapien.
-        </p>
-      </section>
+      <section v-for="section in content.sections" :key="section.heading">
+        <h2>{{ section.heading }}</h2>
+        <div>
+          <img :src="section.image" :alt="section.heading" />
+          <p>{{ section.content }}</p>
 
-      <section>
-        <h2>Traditionally uplifting and edifying.</h2>
-        <p>
-          <img :src="content.hero_image" alt="Uplifting" />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus cursus feugiat. Nam condimentum, urna eu
-          pharetra faucibus, urna elit tincidunt metus, at vehicula leo purus nec dui. Vivamus libero leo, posuere non
-          dictum non, lobortis in quam. Fusce eget auctor sapien.
-          <NuxtLinkButton to="/about/beliefs" type="secondary" class="mt-6" short>
-            READ OUR BELIEFS
-          </NuxtLinkButton>
-        </p>
+          <div v-if="section.link" class="mt-4 inline-block">
+            <NuxtLinkButton
+              v-if="section.link.page_link"
+              :to="section.link.page_link"
+              type="secondary"
+              short
+            >
+              {{ section.link.label }}
+            </NuxtLinkButton>
+            <LinkButton
+              v-if="section.link.external_link"
+              :link="section.link.external_link"
+              type="secondary"
+              short
+            >
+              {{ section.link.label }}
+            </LinkButton>
+          </div>
+        </div>
       </section>
     </div>
 
@@ -145,20 +148,20 @@ export default {
     }
   }
 
-  & > p {
+  & p {
     @apply mt-4 pt-2 leading-6;
 
     @screen lg {
       @apply mt-8;
     }
 
-    & > img {
+    & img {
       @apply w-1/2 h-64 object-cover;
     }
   }
 
   &:nth-child(even) {
-    & > p > img {
+    & img {
       @apply float-right ml-4;
 
       @screen md {
@@ -168,7 +171,7 @@ export default {
   }
 
   &:nth-child(odd) {
-    & > p > img {
+    & img {
       @apply float-left mr-4;
 
       @screen md {

@@ -6,14 +6,9 @@
 
     <div class="bg-primary-800 text-white py-12 px-8 -mt-24 pt-24 md:pb-16 md:-mx-16 md:px-32 md:grid lg:grid-cols-3 col-gap-8">
       <section>
-      <!-- TODO: content editable? -->
         <h2>Fulfilling the Great Commission.</h2>
         <p class="mt-4 leading-6 md:max-w-xl">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt dictum eros, ac lobortis elit aliquam vel.
-          Pellentesque viverra gravida lectus, vitae rhoncus est vehicula eget. Etiam euismod ligula nec orci semper vehicula ut quis lacus.
-          Duis quis condimentum ante. Vivamus semper mauris sit amet lacus pretium malesuada. Maecenas ac urna nibh.
-          Quisque finibus risus vitae ex vehicula, at dictum ipsum lobortis. Quisque quis augue felis. Sed vulputate tincidunt tellus.
-          Cras nec velit facilisis, vulputate arcu nec, porta sem. Fusce semper erat in diam ultricies porttitor.
+          {{ content.paragraph }}
         </p>
       </section>
       <section>

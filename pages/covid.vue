@@ -8,25 +8,20 @@
       <aside
         class="mt-4 bg-gray-200 rounded-btn text-gray-700 text-center px-8 py-5 font-mono text-sm"
       >
-        Last updated {{ last_update_date }}
+        Last updated {{ content.last_update }}
       </aside>
 
-      <!-- TODO: pull info from CMS -->
       <section>
         <h2>Nursery</h2>
-        <p>We are currently providing nursery and children’s church.</p>
+        <p>{{ content.nursery }}</p>
       </section>
       <section>
         <h2>Events</h2>
-        <p>
-          All events currently listed on our calender page have not been
-          canceled.
-        </p>
+        <p>{{ content.events }}</p>
       </section>
       <section>
         <h2>Giving</h2>
-        <!-- TODO: pull link from CMS -->
-        <p>We encourage you to use our <a href="#">online giving system.</a></p>
+        <p>We encourage you to use our <nuxt-link to="/give">online giving system.</nuxt-link></p>
       </section>
       <section>
         <h2>Opportunities</h2>
@@ -63,12 +58,7 @@ export default {
   components: {
     Hero
   },
-  data() {
-    return {
-      // TODO: pull from CMS
-      last_update_date: 'January 11, 2021'
-    }
-  },
+  data() { return { } },
   head() {
     return {
       title: 'COVID-19',
