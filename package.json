@@ -4,7 +4,7 @@
   "description": "Northside Baptist Church",
   "author": "Peyton McGinnis <hello@sergix.dev> (https://www.sergix.dev)",
   "scripts": {
-    "dev": "nuxt",
+    "dev": "sh -c \"npx netlify-cms-proxy-server\" & nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",

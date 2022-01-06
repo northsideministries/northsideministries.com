@@ -6,7 +6,7 @@
       </div>
       <div
         v-else
-        class="player-offline text-white pl-5 pr-12 pt-10 pb-12 md:flex md:flex-col md:items-center md:justify-center md:-mt-4 md:px-16 md:py-32"
+        class="player-offline text-white pl-5 pr-12 pt-10 pb-12 md:flex md:flex-col md:items-center md:text-center md:justify-center md:-mt-4 md:px-16 md:py-32"
       >
         <client-only><unicon name="tv-retro-slash" fill="white" width="32" height="32"></unicon></client-only>
         <p class="text-xl mt-2 leading-6 md:mt-4 md:text-3xl md:leading-8">

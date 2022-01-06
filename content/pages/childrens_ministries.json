@@ -1,12 +1,12 @@
 {
-  "description": "Lorem ipsum",
-  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1621562485/friends_priscilla-du-preez-unsplash_original_krroww.jpg",
+  "description": "We provide multiple activities for your children to enjoy during Sunday and mid-week services.",
+  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641422591/Church/Northside_Baptist_Church-3678_yfmfy5.jpg",
   "ministry_list": [
     {
       "name": "Nursery",
       "description": "Nursery is provided for infants and toddlers during all services. Our nursery leaders provide a warm, clean and loving environment for infants and toddlers. Instruction sheets are provided and kept on each child so that parents can see the excellent care our leaders provide for their children. Beepers are available to mothers for the services. Please come visit and feel at ease leaving your child at our nursery!",
       "day": "Sunday",
-      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641496709/Stock/atikah-akhtar-4Qsngmvdqis-unsplash_d9xd8z.jpg",
       "room": "Elementary Room 208",
       "service": "Provided during all services",
       "time": ""
@@ -15,7 +15,7 @@
       "name": "Children's Church",
       "description": "We offer children’s church on Sunday morning for those out of the nursery through 2nd grade. For K5-2nd graders, we use an AWANA lesson book to supplement Bible stories the children learn in their AWANA handbooks.\n\nChildren will be dismissed from the main auditorium during the service before the sermon begins. Children may be picked up on the first floor of our elementary building after the morning service.",
       "day": "Sunday",
-      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641422590/Church/Northside_Baptist_Church-3674_truy1k.jpg",
       "room": "First floor elementary building",
       "service": "Children’s Church",
       "time": "10:30am"
@@ -24,7 +24,7 @@
       "name": "AWANA Clubs",
       "description": "AWANA is an exciting club for kids ages two years old through sixth grade. We help kids know, love, and serve God. AWANA also encourages your child to grow in character by learning obedience, courtesy, and building friendships.\n\nAWANA clubs are Puggles (ages 2 – 3), Cubbies (ages K3 – K4), Sparks (K5 – 2nd grade) and Truth & Training (3rd – 6th grade). Your children will enjoy learning scripture, hearing stories and participating in games. Bring your children to our gym for check-in at 6:30pm!",
       "day": "Wednesday",
-      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641422591/Church/Northside_Baptist_Church-3677_akjfzr.jpg",
       "room": "Gym",
       "service": "AWANA",
       "time": "6:30pm"

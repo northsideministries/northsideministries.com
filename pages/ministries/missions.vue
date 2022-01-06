@@ -27,7 +27,7 @@
       </section>
       <section>
           <h3>Ministries</h3>
-          <div v-for="ministry in content.ministry_list" :key="ministry.name">
+          <div class="mt-4" v-for="ministry in content.ministry_list" :key="ministry.name">
             <h4>{{ ministry.name }}</h4>
             <p class="mt-2">
               {{ ministry.description }}
@@ -46,14 +46,11 @@
       <section>
         <h3>Missionaries</h3>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-          condimentum purus velit, quis cursus ligula ullamcorper ac. Praesent
-          venenatis egestas finibus. Quisque interdum enim a felis pharetra
-          tincidunt.
+          We support numerous missionaries across the globe who are spreading the gospel.
         </p>
 
         <div class="missionaries-list mt-6 grid grid-cols-2 row-gap-8">
-          <div v-for="country in content.country_list" :key="country.name">
+          <div v-for="country in sorted_missionaries" :key="country.name">
             <h4>{{ country.name }}</h4>
             <ul>
               <li
@@ -83,6 +80,12 @@ export default {
   name: 'MissionsPage',
   components: {
     Hero
+  },
+  computed: {
+    sorted_missionaries() {
+      // https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
+      return this.content.country_list.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+    }
   },
   head() {
     return {

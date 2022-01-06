@@ -35,7 +35,7 @@
       <section>
         <h2>Email</h2>
 
-        <!-- TODO: text overflow on certain md screen sizes -->
+        <!-- text overflow on certain md screen sizes -->
         <div class="md:grid md:grid-cols-2 md:col-gap-4 md:row-gap-2">
           <Card
             v-for="contact in page.contact_list"

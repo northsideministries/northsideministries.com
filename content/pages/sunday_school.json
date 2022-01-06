@@ -1,6 +1,6 @@
 {
-  "description": "Sunday school page",
-  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+  "description": "We have Sunday School classes on Sunday mornings for all ages and all parts of life.",
+  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641422591/Church/Northside_Baptist_Church-3670_yxr7ix.jpg",
   "livestream_list": [
     {
       "teacher": "Mr. Greg Rysta",
@@ -17,41 +17,53 @@
     {
       "age_group": "Nursery",
       "room": "Elementary 208",
-      "name": "Nursery"
+      "name": "Nursery (younger than 2 years old)"
     },
     {
       "age_group": "Toddler (2)",
       "room": "Elementary 209",
-      "name": "Toddler (2)"
+      "name": "Toddlers (2 years old)"
+    },
+    {
+      "name": "Toddlers (3 and 4 years old)",
+      "room": "Elementary 213"
     },
     {
       "age_group": "K5 and 1st Grade",
       "room": "Elementary 212",
-      "name": "K5 and 1st Grade"
+      "name": "Grades K5 – 1st"
     },
     {
       "age_group": "Grades 2-3",
-      "room": "Elementary 203",
-      "name": "Grades 2-3"
+      "room": "Elementary 303",
+      "name": "Grades 2 – 3"
+    },
+    {
+      "name": "Grades 4 – 6",
+      "room": "Elementary 305"
     }
   ],
   "teen_class_list": [
     {
       "age_group": "Junior High",
       "room": "Youth Center",
-      "name": "Junior High"
+      "name": "Junior High (Grades 7 – 8)"
     },
     {
       "room": "Youth Center",
       "age_group": "Senior High",
-      "name": "Senior High"
+      "name": "Senior High (Grades 9 – 12)"
     }
   ],
   "adult_class_list": [
     {
+      "name": "Ladies",
+      "room": "Elementary 210"
+    },
+    {
       "age_group": "Single Adults",
       "room": "High School 604",
-      "name": "Single Adults"
+      "name": "College and Career (Single Adults)"
     },
     {
       "age_group": "Young Married",
@@ -61,12 +73,12 @@
     {
       "age_group": "Families",
       "room": "High School 600",
-      "name": "Families"
+      "name": "Families in Christ (Middle Aged)"
     },
     {
       "age_group": "Older Parents",
       "room": "High School 601",
-      "name": "Older Parents"
+      "name": "Challengers (Older Parents)"
     }
   ],
   "senior_citizen_class_list": [

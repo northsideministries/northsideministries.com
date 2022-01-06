@@ -1,8 +1,38 @@
 {
   "title": "Living to praise of God's glorious grace.",
   "description": "Northside Baptist Church prepares believers to live for Christ and to witness to their community. Come worship with us this Sunday!",
-  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641079398/edwin-andrade-6liebVeAfrY-unsplash_ryjntb.jpg",
+  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641079398/Stock/edwin-andrade-6liebVeAfrY-unsplash_ryjntb.jpg",
   "covid": true,
   "livestream": true,
-  "covid_image": "/img/friends_priscilla-du-preez-unsplash.jpg"
+  "covid_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641419657/Stock/kelly-sikkema-iHYs3h94MNE-unsplash_qlzoqb.jpg",
+  "sections": [
+    {
+      "heading": "A church you can call home.",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641422609/Church/Northside_Baptist_Church-3962_iaij6y.jpg",
+      "content": "A group of believers gathered together for worship on Sunday, and a group of believers gathered in fellowship throughout the week. We provide a place to not just connect with other believers, but to grow with other believers in Christlikeness in encouragement and exhortation."
+    },
+    {
+      "heading": "Traditionally uplifting and edifying.",
+      "content": "Our worship is conservative and traditional, seeking to direct praise towards God and not to man. God deserves all the glory and honor, and we use the musical abilities He has gifted us with to praise Him for all He has done.",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641422598/Church/Northside_Baptist_Church-3727_yasc1u.jpg",
+      "link": {
+        "label": "Read our beliefs",
+        "page_link": "/about/beliefs"
+      }
+    },
+    {
+      "heading": "We are an Independent Baptist Church.",
+      "content": "We believe that the local church has the absolute right of self government, free from the interference of any hierarchy of individuals or organizations, religious or governmental, and that the one and only true Head is Christ, through the Holy Spirit.",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641417167/Stock/Ulstein-Church-2020_uio4xy.jpg"
+    },
+    {
+      "heading": "Providing a Christ-centered education.",
+      "content": "Northside Christian School is a ministry of Northside Baptist Church that teaches doctrinal truths and evangelizes the gospel to students, while building a foundation of Christlikeness that will prepare them for their entire lives.",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641499102/Stock/jeswin-thomas-6CH6tftqENQ-unsplash_mngn9h.jpg",
+      "link": {
+        "label": "FIND OUT MORE",
+        "external_link": "https://northsidecharleston.com"
+      }
+    }
+  ]
 }

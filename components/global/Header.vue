@@ -7,7 +7,7 @@
       <div class="flex flex-row items-center">
         <nuxt-link to="/" class="inline-block">
           <h1 v-show="!mobile_menu_enabled" class="tracking-tighter font-serif font-bold text-xl">
-            NORTHSIDE
+            <img class="w-32" src="@/assets/img/NorthsideLogo.png" alt="Northside Baptist Church" />
           </h1>
         </nuxt-link>
 

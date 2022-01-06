@@ -8,7 +8,7 @@
       <aside
         class="mt-4 bg-gray-200 rounded-btn text-gray-700 text-center px-8 py-5 font-mono text-sm"
       >
-        Last updated {{ content.last_update }}
+        Last updated {{ last_update }}
       </aside>
 
       <section>
@@ -57,6 +57,12 @@ export default {
   name: 'CovidPage',
   components: {
     Hero
+  },
+  computed: {
+    last_update() {
+      const date = new Date(this.content.updatedAt)
+      return `${["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+    }
   },
   data() { return { } },
   head() {

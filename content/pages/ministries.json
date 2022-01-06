@@ -1,10 +1,10 @@
 {
-  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641079398/edwin-andrade-6liebVeAfrY-unsplash_ryjntb.jpg",
+  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641422591/Church/Northside_Baptist_Church-3677_akjfzr.jpg",
   "ministry_list": [
     {
       "name": "Missions",
-      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641417221/Stock/annie-spratt-cVEOh_JJmEE-unsplash_vofgue.jpg",
+      "description": "Northside supports numerous Missionaries who are spreading the gospel throughout the entire world in multiple countries.",
       "link": {
         "label": "SEE WHO WE SUPPORT",
         "page_link": "/ministries/missions"
@@ -12,8 +12,8 @@
     },
     {
       "name": "Children's Ministries",
-      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641422590/Church/Northside_Baptist_Church-3674_truy1k.jpg",
+      "description": "We provide multiple activities for your children to enjoy during Sunday and mid-week services. ",
       "link": {
         "label": "FIND A PROGRAM",
         "page_link": "/ministries/childrens-ministries"
@@ -21,26 +21,27 @@
     },
     {
       "name": "Youth Ministries",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.",
-      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "description": "For teenagers and young adults, we have different groups and community events to get involved in!",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641422595/Church/Northside_Baptist_Church-3713_yujzgf.jpg",
       "link": {
         "label": "FIND A PROGRAM",
         "page_link": "/ministries/youth-ministries"
       }
     },
     {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.",
-      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "description": "We offer a wide variety of Sunday School classes for all ages on Sunday mornings.",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641422587/Church/Northside_Baptist_Church-3664_bpmid7.jpg",
       "name": "Sunday School",
       "link": {
         "label": "JOIN A CLASS",
         "page_link": "/ministries/sunday-school"
-      }
+      },
+      "day": null
     },
     {
       "name": "Northside Christian School",
-      "image": "/img/NorthsideLogo.png",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae erat fringilla, interdum purus sed, tristique leo. Curabitur rutrum quis ipsum ut tempus. Fusce posuere ex sit amet libero ornare, quis tincidunt lacus dictum. Sed ullamcorper lorem et orci posuere, vehicula ultrices felis fermentum.",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641421723/Logos/ncs_j5bqq5.png",
+      "description": "Northside Christian School is a ministry of Northside Baptist Church and focuses on using its ministry to deliver doctrinal truth through education.",
       "link": {
         "label": "LEARN MORE",
         "external_link": "https://www.northsidecharleston.com"

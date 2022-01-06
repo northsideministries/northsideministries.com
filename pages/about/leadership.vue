@@ -1,5 +1,5 @@
 <template>
-  <main class="mb-16">
+  <main class="mb-24">
     <Hero title="Our Leadership" :img="content.hero_image">
       {{ content.description }}
     </Hero>
@@ -9,12 +9,12 @@
         :key="leader.name"
         class="mt-12 flex flex-col md:mt-24 md:flex-row"
       >
-        <img class="w-56 md:w-1/3" :src="leader.image" :alt="leader.name" />
-        <div>
-          <h3 class="mt-4 md:mt-8 md:text-2xl">{{ leader.name }}</h3>
+        <img class="w-56 mx-auto md:mx-0" :src="leader.image" :alt="leader.name" />
+        <div class="mx-4 mt-4 md:mx-0 md:max-w-xs">
+          <h3 class="md:mt-8 md:text-2xl">{{ leader.name }}</h3>
           <h5 class="mt-1 md:mt-2">{{ leader.occupation }}</h5>
           <p class="mt-4">{{ leader.description }}</p>
-          <div class="phone flex flex-row items-center mt-4">
+          <div class="phone flex flex-row items-center mt-4" v-if="leader.phone">
             <client-only
               ><unicon
                 name="phone-alt"
@@ -25,7 +25,7 @@
             ></client-only>
             <p class="text-sm font-mono ml-2">{{ leader.phone }}</p>
           </div>
-          <div class="email flex flex-row items-center mt-1">
+          <div class="email flex flex-row items-center mt-4">
             <client-only
               ><unicon
                 name="envelope-add"
@@ -80,29 +80,22 @@ export default {
 
 <style lang="postcss" scoped>
 .content > section {
-  @screen md {
-    @apply mx-auto float-none;
-  }
-
   &:nth-child(odd) {
-    @apply ml-auto float-right;
-
     @screen md {
-      @apply;
+      @apply flex-row-reverse mx-auto;
+
       & > img {
-        @apply mr-12;
+        @apply ml-8;
       }
     }
   }
 
   &:nth-child(even) {
-    @apply ml-0 mr-auto float-left;
-
     @screen md {
-      @apply flex-row-reverse;
+      @apply mx-auto;
 
       & > img {
-        @apply ml-12;
+        @apply mr-8;
       }
     }
   }

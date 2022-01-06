@@ -8,9 +8,7 @@
       <section>
         <h2>Your giving grows our ministries.</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Nam venenatis volutpat mauris, vitae tempor eros faucibus eu.
-          Ut placerat nulla eu erat ornare iaculis. Vestibulum scelerisque condimentum aliquam.
+          {{ content.paragraph }}
         </p>
       </section>
       <LinkButton

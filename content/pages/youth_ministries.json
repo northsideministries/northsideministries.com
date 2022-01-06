@@ -1,10 +1,10 @@
 {
-  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641422595/Church/Northside_Baptist_Church-3717_sjgpyv.jpg",
   "description": "Hello World",
   "ministry_list": [
     {
       "name": "Youth Group",
-      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641496984/Stock/jesus-loves-austin-Uicpn383-yE-unsplash_z3mgub.jpg",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam congue dolor in turpis consectetur tempus eu ut orci. Nunc a urna pellentesque, malesuada velit eu, tempus eros. Nam aliquam feugiat leo, sit amet semper ante consequat quis. Vestibulum tempus sit amet enim in convallis. Praesent consequat ut tortor vel tempor.",
       "day": "Wednesday",
       "room": "Upstairs Youth Center",
@@ -13,7 +13,7 @@
     },
     {
       "name": "Community",
-      "image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641497031/Stock/aranxa-esteve-S5DEUg2yUVU-unsplash_zm6xuh.jpg",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam congue dolor in turpis consectetur tempus eu ut orci. Nunc a urna pellentesque, malesuada velit eu, tempus eros. Nam aliquam feugiat leo, sit amet semper ante consequat quis. Vestibulum tempus sit amet enim in convallis. Praesent consequat ut tortor vel tempor.",
       "service": "",
       "link": {

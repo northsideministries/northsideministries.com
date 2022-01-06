@@ -95,7 +95,7 @@ export default {
       LIMIT_DEFAULT: 3,
       limit: 3,
 
-      // TODO: pull from Google Calendar
+      // TODO: pull from Microsoft Calendar
       events: [
         {
           title: 'Youth Activity',

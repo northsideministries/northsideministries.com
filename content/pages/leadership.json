@@ -1,22 +1,43 @@
 {
-  "description": "Leadership page",
-  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+  "description": "The Lord has graciously provided us with dedicated leadership and staff who lead the church in humility and service.",
+  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641422594/Church/Northside_Baptist_Church-3711_epmjr8.jpg",
   "leadership_list": [
     {
       "name": "Jonathan Cresswell",
-      "image": "/img/cresswell.jpg",
-      "occupation": "Leader",
-      "description": "Hello World",
-      "phone": "843 555 5555",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641420374/Staff/cresswell_fmnkb5.jpg",
+      "occupation": "Senior Pastor",
+      "description": "Senior Pastor of Northside Baptist Church.",
+      "phone": "",
       "email": "jcresswell@northsideministries.com"
     },
     {
       "name": "David Shaleeen",
-      "image": "/img/shaleen.jpg",
-      "occupation": "asdf",
-      "description": "asdfasdf",
-      "phone": "843 555 5555",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641420374/Staff/shaleen_da8p1z.jpg",
+      "occupation": "Music Director",
+      "description": "Music Director of Northside Baptist Church and Northside Christian School.",
+      "phone": "",
       "email": "dshaleen@northsideministries.com"
+    },
+    {
+      "name": "David McGinnis",
+      "occupation": "Finance Administrator",
+      "description": "Finance Administrator for Northside Baptist Church and Northside Christian School.",
+      "email": "dmcginnis@northsideministries.com",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641420374/Staff/mcginnis_txxx6w.jpg"
+    },
+    {
+      "name": "Gavin Lockaby",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641420374/Staff/lockaby_iilv4o.jpg",
+      "email": "jlockaby@northsideministries.com",
+      "occupation": "Educational Administrator",
+      "description": "Principal for Northside Christian School."
+    },
+    {
+      "name": "David Cresswell",
+      "image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641420374/Staff/david-cresswell_cvveak.jpg",
+      "occupation": "Facilities Manager",
+      "description": "Facilities Manager for Northside's property.",
+      "email": "dcresswell@northsideministries.com"
     }
   ]
 }

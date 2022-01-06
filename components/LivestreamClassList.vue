@@ -8,7 +8,7 @@
       <h3>{{ livestream.teacher }}</h3>
       <p class="mt-2">{{ livestream.class }}</p>
 
-      <!-- TODO: disable if livestream is off -->
+      <!-- T_ODO: disable if livestream is off (currently not applicable) -->
       <LinkButton
         class="mt-2"
         :link="livestream.link"

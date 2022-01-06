@@ -60,7 +60,7 @@
               type="secondary"
               short
             >
-              {{ section.link.label }}
+              {{ section.link.label.toUpperCase() }}
             </NuxtLinkButton>
             <LinkButton
               v-if="section.link.external_link"
@@ -68,7 +68,7 @@
               type="secondary"
               short
             >
-              {{ section.link.label }}
+              {{ section.link.label.toUpperCase() }}
             </LinkButton>
           </div>
         </div>
@@ -148,15 +148,19 @@ export default {
     }
   }
 
-  & p {
-    @apply mt-4 pt-2 leading-6;
+  & > div {
+    @apply mt-4 pt-2;
+
+    & > p {
+      @apply leading-6;
+    }
+
+    & > img {
+      @apply w-1/2 h-64 object-cover;
+    }
 
     @screen lg {
       @apply mt-8;
-    }
-
-    & img {
-      @apply w-1/2 h-64 object-cover;
     }
   }
 

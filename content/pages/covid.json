@@ -1,4 +1,7 @@
 {
-  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
-  "description": "COVID-19 page"
+  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641419657/Stock/kelly-sikkema-iHYs3h94MNE-unsplash_qlzoqb.jpg",
+  "description": "Information on our policies concerning COVID-19. This page is updated regularly.",
+  "last_update": "2022-01-06T18:48:01.802Z",
+  "nursery": "We are currently providing nursery and children’s church.",
+  "events": "All events currently listed on our calendar page have not been canceled."
 }

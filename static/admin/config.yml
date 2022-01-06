@@ -1,6 +1,5 @@
-# TODO: edit site_url
-site_url: https://northsideministries.netlify.app/
-logo_url: https://northsideministries.netlify.app/icon.png
+site_url: https://northsideministries.com/
+logo_url: https://northsideministries.com/icon.png
 display_url: https://www.northsideministries.com/
 
 local_backend: true
@@ -19,9 +18,9 @@ media_library:
     api_key: 728192525896344
     default_transformations:
       - - fetch_format: auto
-          crop: fill
-          quality: 35
-          width: 0.35
+          crop: scale
+          quality: 55
+          width: 0.50
 
 ###############
 # ALIASES     #
@@ -44,6 +43,7 @@ ministry: &MINISTRY
     required: false
     widget: 'object'
     hint: 'Add a link to another page'
+    minimize_collapsed: true
     fields:
       - { label: Label, name: label, widget: string, required: false }
       - label: 'Link to Page'
@@ -195,7 +195,7 @@ collections:
             widget: 'list'
             fields:
               - { label: Belief Name, name: name, widget: string }
-              - { label: Description, name: description, widget: string }
+              - { label: Description, name: description, widget: text }
               - { label: Scripture References, name: references, widget: string }
 
       - label: "Children's Ministries Page"
@@ -235,7 +235,6 @@ collections:
         fields:
           - { label: Description, name: description, widget: text }
           - { label: 'Featured Image', name: hero_image, widget: image }
-          - { label: 'Last Update', name: last_update, widget: date }
           - { label: Nursery, name: nursery, widget: text }
           - { label: Events, name: events, widget: text }
 
@@ -276,6 +275,7 @@ collections:
                 required: false
                 widget: 'object'
                 hint: 'Add a link to another page'
+                minimize_collapsed: true
                 fields:
                   - { label: Label, name: label, widget: string, required: false }
                   - label: 'Link to Page'
@@ -309,6 +309,7 @@ collections:
         file: 'content/pages/give.json'
         fields:
           - { label: Description, name: description, widget: text }
+          - { label: Content, name: paragraph, widget: text }
           - { label: 'Featured Image', name: hero_image, widget: image }
 
       - label: 'Leadership Page'
@@ -336,7 +337,7 @@ collections:
                 name: 'phone'
                 widget: 'string'
                 pattern: ['^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$', 'Must be a phone number']
-                required: true
+                required: false
               - label: 'Email'
                 name: 'email'
                 widget: 'text'

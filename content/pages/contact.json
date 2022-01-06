@@ -1,6 +1,6 @@
 {
-  "description": "Contact page",
-  "hero_image": "/img/friends_priscilla-du-preez-unsplash.jpg",
+  "description": "Have a question, comment, or looking for more information about our church or something we can do for you? We would be more than happy to serve you in any way we can! Use any of our provided methods below to contact us.",
+  "hero_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641498327/Stock/firmbee-com-SpVHcbuKi6E-unsplash_d8xvjt.jpg",
   "phone": "(843) 797-2693",
   "contact_list": [
     {

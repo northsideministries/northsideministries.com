@@ -141,7 +141,7 @@ export default {
       },
     },
 
-    // TODO: test in pre-production
+    // test in pre-production
     // analyze: true,
 
     /*
