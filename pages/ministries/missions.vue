@@ -46,7 +46,7 @@
       <section>
         <h3>Missionaries</h3>
         <p>
-          We support numerous missionaries across the globe who are spreading the gospel.
+          We support numerous missionaries across the globe who are actively spreading the gospel.
         </p>
 
         <div class="missionaries-list mt-6 grid grid-cols-2 row-gap-8">

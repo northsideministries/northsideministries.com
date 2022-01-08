@@ -64,7 +64,7 @@ module.exports = {
     },
     borderRadius: {
       ...defaultTheme.borderRadius,
-      btn: '4px',
+      btn: '3px',
       default: '7px'
     }
   },
