@@ -51,7 +51,7 @@
         <h2>{{ section.heading }}</h2>
         <div>
           <img :src="section.image" :alt="section.heading" />
-          <p>{{ section.content }}</p>
+          <p class="md:mt-16">{{ section.content }}</p>
 
           <div v-if="section.link" class="mt-4 inline-block">
             <NuxtLinkButton

@@ -19,7 +19,7 @@ media_library:
     default_transformations:
       - - fetch_format: auto
           crop: scale
-          quality: 55
+          quality: 70
           width: 0.50
 
 ###############
