@@ -88,34 +88,6 @@ export default {
 
 <style lang="postcss" scoped>
 .sections section {
-  &:nth-child(odd) {
-    @apply -mr-6 float-right;
-
-    & > p {
-      @apply mr-6;
-    }
-  }
-
-  &:nth-child(even) {
-    @apply -ml-6 float-left;
-
-    & > h2 {
-      /* @apply text-right; */
-    }
-
-    & > p,
-    & > div {
-      @apply ml-8;
-    }
-
-    @screen md {
-      & > p,
-      & > div {
-        @apply ml-0;
-      }
-    }
-  }
-
   & > h2 {
     @apply font-normal text-2xl;
   }

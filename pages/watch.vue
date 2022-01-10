@@ -28,7 +28,7 @@
       <section>
         <h2>Past Messages</h2>
 
-        <div class="md:grid md:grid-cols-2 md:col-gap-4 md:row-gap-4">
+        <div class="grid grid-cols-1 col-gap-4 row-gap-4 md:grid-cols-2">
           <Card
             v-for="sermon in limited_sermons"
             :key="sermon.date"

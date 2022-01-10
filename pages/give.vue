@@ -85,4 +85,9 @@ export default {
     @apply mt-2 mb-6;
   }
 }
+
+/* purgecss ignore */
+#embed-iframe-wrapper, #embed-iframe {
+  height: 150%;
+}
 </style>

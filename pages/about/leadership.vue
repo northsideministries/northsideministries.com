@@ -7,10 +7,10 @@
       <section
         v-for="leader in content.leadership_list"
         :key="leader.name"
-        class="mt-12 flex flex-col md:mt-24 md:flex-row"
+        class="mt-12 flex flex-col max-w-lg mx-auto md:mt-24 md:flex-row"
       >
-        <img class="w-56 mx-auto md:mx-0" :src="leader.image" :alt="leader.name" />
-        <div class="mx-4 mt-4 md:mx-0 md:max-w-xs">
+        <img class="w-48 mx-auto md:mx-0 flex-shrink-0" :src="leader.image" :alt="leader.name" />
+        <div class="mt-4 max-w-xs md:mt-0 md:mx-0">
           <h3 class="md:mt-8 md:text-2xl">{{ leader.name }}</h3>
           <h5 class="mt-1 md:mt-2">{{ leader.occupation }}</h5>
           <p class="mt-4">{{ leader.description }}</p>
@@ -81,6 +81,10 @@ export default {
 <style lang="postcss" scoped>
 .content > section {
   &:nth-child(odd) {
+    & > img {
+      @apply ml-0;
+    }
+
     @screen md {
       @apply flex-row-reverse mx-auto;
 
@@ -91,11 +95,29 @@ export default {
   }
 
   &:nth-child(even) {
+    @apply text-right;
+
+    & > div {
+      @apply ml-auto;
+    }
+
+    & .phone > .unicon, & .email > .unicon {
+      @apply ml-auto;
+    }
+
+    & > img {
+      @apply mr-0;
+    }
+
     @screen md {
-      @apply mx-auto;
+      @apply mx-auto text-left;
 
       & > img {
         @apply mr-8;
+      }
+
+      & .phone > .unicon, & .email > .unicon {
+        @apply ml-0;
       }
     }
   }

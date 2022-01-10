@@ -102,6 +102,7 @@ export function embedModded() {
               maxWidth: 1 / 0,
               minHeight: 0,
               minWidth: 0,
+              height: '150%',
               resizeFrom: "parent",
               scrolling: !1,
               sizeHeight: !0,
@@ -636,7 +637,7 @@ export function embedModded() {
                       ") targetOrigin: " +
                       r
                   ),
-                  n.contentWindow.postMessage(l + t, r))
+                  null)
                 : x(o, "[" + e + "] IFrame(" + o + ") not found"),
               i &&
                 p[o] &&
@@ -1391,13 +1392,15 @@ export function embedModded() {
                     Array.prototype.forEach.call(
                       document.querySelectorAll('a[href^="#"]'),
                       function(e) {
-                        "#" !== e.getAttribute("href") &&
-                          oe(e, "click", function(e) {
-                            e.preventDefault(), n(this.getAttribute("href"));
-                          });
+                        // "#" !== e.getAttribute("href") &&
+                        //   oe(e, "click", function(e) {
+                        //     e.preventDefault(), n(this.getAttribute("href"));
+                        //   });
+                        document.getElementById("")
                       }
-                    ),
-                    oe(window, "hashchange", o),
+                      ),
+                    // oe(window, "hashchange", o),
+                    document.getElementById(""),
                     setTimeout(o, l))
                   : ce(
                       "In page linking not fully supported in this browser! (See README.md for IE8 workaround)"
@@ -1734,11 +1737,10 @@ export function embedModded() {
                   O + ":" + (e + ":" + n) + ":" + o + (t !== i ? ":" + i : "")) +
                 ")"
             ),
-            k.postMessage(E + a, r));
+            null);
         }
         function ze() {
-          "loading" !== document.readyState &&
-            window.parent.postMessage("[iFrameResizerChild]Ready", "*");
+          null
         }
       })();
     },
@@ -1775,9 +1777,9 @@ export function embedModded() {
         d = function(e) {
           u(),
             (document.body.style.overflow = "hidden"),
-            (document.body.style.height = "100%"),
+            (document.body.style.height = "150%"),
             (document.documentElement.style.overflow = "hidden"),
-            (document.documentElement.style.height = "100%"),
+            (document.documentElement.style.height = "150%"),
             (o = document.createElement("iframe")),
             (document.body.style.overflow = "hidden"),
             (o.style.position = "absolute"),
@@ -1789,7 +1791,7 @@ export function embedModded() {
             (o.style.overflow = "scroll"),
             (o.style.width = "1px"),
             (o.style.minWidth = "100%"),
-            (o.height = "100%"),
+            (o.height = "150%"),
             (o.frameBorder = 0),
             (o.src = e),
             (o.id = "embed-iframe"),
@@ -1800,7 +1802,7 @@ export function embedModded() {
             (n.id = "embed-iframe-wrapper"),
             n.setAttribute(
               "style",
-              "-webkit-overflow-scrolling: touch; overflow-y: auto; position: fixed; top: 0; right:0; bottom:0; left: 0; width: 100%; height: 100%; z-index: 2147483647; background: rgba(238, 238, 238, 0.85);"
+              "-webkit-overflow-scrolling: touch; overflow-y: auto; position: fixed; top: 0; right:0; bottom:0; left: 0; width: 100%; height: 150%; z-index: 2147483647; background: rgba(238, 238, 238, 0.85);"
             ),
             t.parentNode.insertBefore(n, t),
             n.appendChild(t),

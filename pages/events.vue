@@ -34,7 +34,7 @@
             :title="event.subject"
             :subtitle="dateToString(event.start.dateTime)"
             :location="event.location.displayName || 'Northside Baptist Church'"
-            :time="event.isAllDay ? undefined : timeToString(event.start.dateTime)"
+            :time="event.isAllDay ? 'All day' : timeToString(event.start.dateTime)"
           ></Card>
         </section>
       </transition>
