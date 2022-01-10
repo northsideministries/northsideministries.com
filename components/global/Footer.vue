@@ -25,7 +25,7 @@
             ></unicon
             ><span class="ml-2">YouTube</span></a
           >
-          <a
+          <!-- <a
             :href="links.vimeo_channel"
             aria-label="Vimeo"
             class="flex flex-row items-center mt-1 md:mt-0"
@@ -37,7 +37,7 @@
               height="32"
             ></unicon
             ><span class="ml-2">Vimeo</span></a
-          >
+          > -->
         </client-only>
       </div>
       <ul class="grid grid-cols-2 mt-2 max-w-sm">

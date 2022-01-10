@@ -116,7 +116,7 @@ export default {
         video.date = `${new Array('January','February','March','April','May','June','July','August','September','October','November','December')[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} (${date.getHours() < 12 ? 'AM' : 'PM'})`
         video.title = el.snippet.title
         video.link = `https://www.youtube.com/watch?v=${el.snippet.resourceId.videoId}`
-        video.image = el.snippet.thumbnails.standard.url
+        video.image = el.snippet.thumbnails?.medium.url || el.snippet.thumbnails.default.url
 
         formattedSermons.push(video)
       })
