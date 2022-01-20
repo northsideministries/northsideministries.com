@@ -19,11 +19,11 @@
     </div>
 
     <div class="content">
-      <section class="max-w-sm mx-auto">
+      <!-- <section class="max-w-sm mx-auto">
         <h2>Sunday School</h2>
         <p>Sunday School starts at 9:30am and is livestreamed through Zoom.</p>
         <LivestreamClassList />
-      </section>
+      </section> -->
 
       <section>
         <h2>Past Messages</h2>

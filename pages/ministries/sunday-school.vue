@@ -4,16 +4,16 @@
       {{ content.description }}
     </Hero>
     <div class="content">
-      <section class="p-2 lg:px-16 lg:py-12 lg:max-w-none lg:flex lg:flex-row">
+      <!-- <section class="p-2 lg:px-16 lg:py-12 lg:max-w-none lg:flex lg:flex-row">
         <div class="lg:w-1/2 lg:my-auto lg:mr-16">
           <h2>Watch Live</h2>
           <p class="mt-2">Sunday School starts at 9:30am and is livestreamed through Zoom.</p>
         </div>
         <LivestreamClassList class="mt-8 p-2 w-full lg:mt-0 lg:w-3/4"/>
-      </section>
+      </section> -->
 
       <section class="classes">
-        <h2>Classes</h2>
+        <!-- <h2>Classes</h2> -->
         <div>
           <h3>Children</h3>
           <div class="flex flex-col">
