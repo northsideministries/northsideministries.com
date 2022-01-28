@@ -19,10 +19,6 @@
   ],
   "ministry_list": [
     {
-      "name": "Shalom",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velit dui, consectetur et dolor fringilla, molestie convallis dui."
-    },
-    {
       "name": "Frontline Missions",
       "description": "John Hutcheson"
     },
