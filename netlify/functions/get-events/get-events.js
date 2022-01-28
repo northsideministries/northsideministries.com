@@ -133,6 +133,7 @@ const handler = async function (event) {
     {
       method: 'GET',
       headers: {
+        'Prefer': 'outlook.timezone="America/New_York"',
         'Authorization': `Bearer ${accessToken}`
       }
     }
