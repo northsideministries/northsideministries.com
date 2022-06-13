@@ -262,6 +262,19 @@ collections:
               hint: 'Display a notification about COVID-19 protocols',
             }
           - { label: 'COVID-19 Featured Image', name: covid_image, widget: image }
+
+          - {
+              label: 'Event Banner Section',
+              name: event_banner,
+              widget: boolean,
+              default: true,
+              hint: 'Display a noticeable event banner on the home page for an upcoming event.',
+            }
+          - { label: 'Event Banner Featured Image', name: event_banner_image, widget: image }
+          - { label: 'Event Banner Title', name: event_banner_title, widget: string }
+          - { label: 'Event Banner Description', name: event_banner_desc, widget: text }
+          - { label: 'Event Banner Link', name: event_banner_link, widget: string, required: false }
+
           - label: 'Content sections'
             name: sections
             minimize_collapsed: true

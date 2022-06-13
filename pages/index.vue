@@ -46,6 +46,27 @@
       </div>
     </section>
 
+    <section v-if="content.event_banner" class="md:mt-16 md:text-left md:flex md:flex-row text-white">
+      <div
+        class="bg-primary-800 py-12 px-12 w-full flex-auto md:py-10 md:rounded-l-btn lg:pr-16 lg:flex lg:flex-col lg:justify-center xl:pl-40"
+      >
+        <h3 class="ml-2 font-bold md:ml-0">{{ content.event_banner_title }}</h3>
+        <p class="text-center mt-6 px-4 leading-6 md:text-left md:px-0 lg:max-w-lg">
+          {{ content.event_banner_desc }}
+        </p>
+        <NuxtLinkButton class="mt-6 shadow-tall md:mr-auto md:-ml-2" :to="content.event_banner_link" type="primary">
+          LEARN MORE
+        </NuxtLinkButton>
+      </div>
+      <div style="flex-basis: fit-content; flex-shrink: 2;">
+        <img
+          :src="content.event_banner_image"
+          class="hidden object-cover rounded-r-btn h-full md:inline"
+          alt="COVID-19"
+        />
+      </div>
+    </section>
+
     <div class="content descriptions lg:mt-32">
       <section v-for="section in content.sections" :key="section.heading">
         <h2>{{ section.heading }}</h2>
@@ -75,6 +96,10 @@
       </section>
     </div>
 
+    <section class="mx-auto my-12 max-w-sm md:mt-32 clear-both">
+      <ServiceTimes :wednesdayServices="wednesday_services" :sundayServices="sunday_services" />
+    </section>
+
     <section class="content px-6 mt-16 md:mt-32 clear-both">
       <h2 class="text-center">Our Location</h2>
       <Location class="mt-8" />
@@ -94,11 +119,13 @@
 <script>
 import Location from '~/components/Location'
 import NuxtLinkButton from '~/components/NuxtLinkButton'
+import ServiceTimes from '~/components/ServiceTimes'
 
 export default {
   components: {
     Location,
-    NuxtLinkButton
+    NuxtLinkButton,
+    ServiceTimes
   },
   head() {
     return {
@@ -114,9 +141,18 @@ export default {
   },
   async asyncData({ $content }) {
     const content = await $content('pages', 'index').fetch()
+    const service_times = await $content('church', 'service_times').fetch()
+    const sunday_services = service_times.services.filter(
+      service => service.day === 'Sunday'
+    )
+    const wednesday_services = service_times.services.filter(
+      service => service.day === 'Wednesday'
+    )
 
     return {
-      content
+      content,
+      sunday_services,
+      wednesday_services
     }
   }
 }

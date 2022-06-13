@@ -5,21 +5,7 @@
     </Hero>
     <div class="content">
       <div class="md:grid grid-cols-2">
-        <section class="service-times mt-8">
-          <h2>Service Times</h2>
-          <div class="ml-8">
-            <h4>Sunday</h4>
-            <p v-for="service in sunday_services" :key="service.name">
-              {{ service.name }} — {{ service.time }}
-            </p>
-          </div>
-          <div class="ml-8">
-            <h4>Wednesday</h4>
-            <p v-for="service in wednesday_services" :key="service.name">
-              {{ service.name }} — {{ service.time }}
-            </p>
-          </div>
-        </section>
+        <ServiceTimes :wednesdayServices="wednesday_services" :sundayServices="sunday_services" />
         <section class="mt-8 md:ml-16">
           <h2>Phone</h2>
           <p class="font-mono mt-4 text-center">{{ contact.phone }}</p>
@@ -27,8 +13,9 @@
             <a
               class="w-full"
               :href="`tel:+${parseInt(contact.phone.replace(/[^0-9]/g, ''), 10)}`"
-              >CALL US</a
-            >
+              >
+              CALL US
+            </a>
           </Button>
         </section>
       </div>
@@ -78,6 +65,7 @@ import LinkButton from '~/components/LinkButton'
 import Card from '~/components/Card'
 import Hero from '~/components/Hero'
 import Location from '~/components/Location'
+import ServiceTimes from '~/components/ServiceTimes'
 import { isMobile } from '~/utils/mobile'
 
 export default {
@@ -87,7 +75,8 @@ export default {
     LinkButton,
     Location,
     Card,
-    Hero
+    Hero,
+    ServiceTimes
   },
   data() {
     return {
@@ -133,14 +122,6 @@ export default {
   
   & > h2 {
     @apply text-center;
-  }
-}
-
-.service-times > div {
-  @apply mt-6;
-
-  & > p {
-    @apply mt-3;
   }
 }
 
