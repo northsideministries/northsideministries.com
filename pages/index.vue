@@ -50,7 +50,7 @@
       <div
         class="bg-primary-800 py-12 px-12 w-full flex-auto md:py-10 md:rounded-l-btn lg:pr-16 lg:flex lg:flex-col lg:justify-center xl:pl-40"
       >
-        <h3 class="ml-2 font-bold md:ml-0">{{ content.event_banner_title }}</h3>
+        <h3 class="ml-2 font-bold md:ml-0 text-center">{{ content.event_banner_title }}</h3>
         <p class="text-center mt-6 px-4 leading-6 md:text-left md:px-0 lg:max-w-lg">
           {{ content.event_banner_desc }}
         </p>
