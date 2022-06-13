@@ -54,9 +54,9 @@
         <p class="text-center mt-6 px-4 leading-6 md:text-left md:px-0 lg:max-w-lg">
           {{ content.event_banner_desc }}
         </p>
-        <NuxtLinkButton class="mt-6 shadow-tall md:mr-auto md:-ml-2" :to="content.event_banner_link" type="primary">
+        <LinkButton class="mt-6 shadow-tall md:mr-auto md:-ml-2" :link="content.event_banner_link" type="primary">
           LEARN MORE
-        </NuxtLinkButton>
+        </LinkButton>
       </div>
       <div style="flex-basis: fit-content; flex-shrink: 2;">
         <img
