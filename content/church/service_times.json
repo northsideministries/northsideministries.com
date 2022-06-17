@@ -11,9 +11,14 @@
       "time": "10:30am"
     },
     {
+      "day": "Sunday",
+      "name": "Meal and a Message (July 10, 17, 24, 31)",
+      "time": "12:00pm"
+    },
+    {
       "name": "Afternoon Service",
       "day": "Sunday",
-      "time": "5:00pm"
+      "time": "1:00pm"
     },
     {
       "name": "AWANA",
