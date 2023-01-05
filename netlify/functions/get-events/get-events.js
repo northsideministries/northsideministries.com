@@ -118,7 +118,9 @@ const handler = async function (event) {
   
   const responseTokenBody = await responseToken.json()
   const accessToken = responseTokenBody.access_token
-  
+
+  console.log("[handler] token response: ", responseTokenBody)
+  console.log("[handler] access token: ", accessToken)
   
   // get all events ordered by date
   // query details: https://docs.microsoft.com/en-us/graph/query-parameters
@@ -143,10 +145,11 @@ const handler = async function (event) {
       }
     }
   )
-
+  
   const responseEventsListBody = await responseEventsList.json()
   const events = responseEventsListBody.value
-
+  
+  console.info("[handler] raw events:", responseEventsListBody)
   console.info("[handler] events:", events)
 
   return {
