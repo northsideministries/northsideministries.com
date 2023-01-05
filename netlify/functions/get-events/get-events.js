@@ -130,7 +130,7 @@ const handler = async function (event) {
     '$top': count
   })
 
-  console.info("[handler] grabbing calendar events...")
+  // console.info("[handler] grabbing calendar events...")
   
   const responseEventsList = await fetch(`https://graph.microsoft.com/beta/me/calendars/${MS_NBC_CALENDAR_ID}/events?${filterParams}`,
     {
@@ -145,8 +145,8 @@ const handler = async function (event) {
   const responseEventsListBody = await responseEventsList.json()
   const events = responseEventsListBody.value
   
-  console.info("[handler] raw events:", responseEventsListBody)
-  console.info("[handler] events:", events)
+  // console.info("[handler] raw events:", responseEventsListBody)
+  // console.info("[handler] events:", events)
 
   if (responseEventsListBody.error) {
     const error = responseEventsListBody.error
