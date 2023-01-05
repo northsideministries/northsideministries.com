@@ -12767,12 +12767,12 @@ netlify-plugin-subfont@^6.0.0:
     globby "^11.0.3"
     subfont "^6.0.1"
 
-netlify-plugin-submit-sitemap@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.npmjs.org/netlify-plugin-submit-sitemap/-/netlify-plugin-submit-sitemap-0.2.3.tgz"
-  integrity sha512-OmRZgqCkigLcb9p7ri/gw7XecZjCH4cEh1SLUb819weT5bk2ly6PO46wbHsaZARDgM7UMmj1QzkJyjH53ECtTQ==
+netlify-plugin-submit-sitemap@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/netlify-plugin-submit-sitemap/-/netlify-plugin-submit-sitemap-0.4.0.tgz#0fe830a4c744733bb9b9b0f2da4a3a45d5c41b08"
+  integrity sha512-5ntDtSKZRHaCDrDXh4sH4V7lNEEsoi01lsmSUuqJ/ikPHf0XEErjsKba8TsM3iaZRYEHI9bQse3BWgguwuwIIQ==
   dependencies:
-    node-fetch "^2.6.0"
+    node-fetch "^3.2.3"
 
 netlify-redirect-parser@^14.1.0:
   version "14.1.0"
@@ -12854,7 +12854,7 @@ node-fetch@^2.6.0, node-fetch@^2.6.1:
   resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.1.tgz"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
-node-fetch@^3.0.0, node-fetch@^3.1.1:
+node-fetch@^3.0.0, node-fetch@^3.1.1, node-fetch@^3.2.3:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-3.3.0.tgz#37e71db4ecc257057af828d523a7243d651d91e4"
   integrity sha512-BKwRP/O0UvoMKp7GNdwPlObhYGB5DQqwhEDQlNKuoqwVYSxkSZCSbHjnFFmUEtwSKRPU4kNK8PbDYYitwaE3QA==
