@@ -1,6 +1,6 @@
 {
   "covid_image": "https://res.cloudinary.com/northside-baptist-church/image/upload/c_scale,f_auto,q_50,w_0.5/v1641419657/Stock/kelly-sikkema-iHYs3h94MNE-unsplash_qlzoqb.jpg",
-  "covid": true,
+  "covid": false,
   "event_banner_link": "https://northsideministriesmyanswers.myanswers.com/zoomerang2",
   "event_banner_title": "Vacation Bible School",
   "livestream": true,
