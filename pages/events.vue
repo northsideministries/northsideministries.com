@@ -98,7 +98,7 @@ export default {
   },
   data() {
     return {
-      selected_timeframe_index: 2,
+      selected_timeframe_index: 0,
       timeframe_options: [
         {
           desc: 'All events',
