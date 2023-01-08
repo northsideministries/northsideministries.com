@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="px-8 py-6 w-full bg-white top-0 overflow-hidden fixed max-h-screen z-10 xl:px-24 xl:table shadow-regular align-middle xl:overflow-y-visible"
+    class="px-8 py-6 w-full bg-white top-0 fixed max-h-screen z-10 xl:px-24 xl:table shadow-regular align-middle"
     :class="[mobile_menu_enabled ? 'h-screen overflow-y-scroll' : '']"
   >
     <div class="xl:table-cell align-middle">
@@ -165,7 +165,7 @@ export default {
     Button,
     NuxtLinkButton,
     LinkButton,
-    DropdownButton
+    DropdownButton,
   },
   data() {
     return {
@@ -174,37 +174,37 @@ export default {
       about_links: [
         {
           label: 'Beliefs',
-          href: '/about/beliefs'
+          href: '/about/beliefs',
         },
         {
           label: 'Our Leadership',
-          href: '/about/leadership'
-        }
+          href: '/about/leadership',
+        },
       ],
       ministry_links: [
         {
           label: 'Missions',
-          href: '/ministries/missions'
+          href: '/ministries/missions',
         },
         {
           label: "Children's Ministries",
-          href: '/ministries/childrens-ministries'
+          href: '/ministries/childrens-ministries',
         },
         {
           label: 'Youth Ministries',
-          href: '/ministries/youth-ministries'
+          href: '/ministries/youth-ministries',
         },
         {
           label: 'Sunday School',
-          href: '/ministries/sunday-school'
-        }
+          href: '/ministries/sunday-school',
+        },
       ],
       about_display: false,
-      ministries_display: false
+      ministries_display: false,
     }
   },
   watch: {
-    $route: 'closeMenu'
+    $route: 'closeMenu',
   },
   methods: {
     toggleMenu() {
@@ -225,13 +225,13 @@ export default {
       const className = 'hidden'
       if (this.mobile_menu_enabled) {
         this.last_scroll = window.pageYOffset || document.documentElement.scrollTop
-        html.forEach(el => el.classList.add(className))
+        html.forEach((el) => el.classList.add(className))
       } else {
-        html.forEach(el => el.classList.remove(className))
+        html.forEach((el) => el.classList.remove(className))
         window.scrollTo(0, this.last_scroll)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
