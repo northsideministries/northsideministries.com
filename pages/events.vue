@@ -7,7 +7,12 @@
       <h2 class="text-center mt-12">Upcoming Events</h2>
       <h5 class="font-bold mt-8">View events for</h5>
 
-      <DropdownButton :label="timeframe_options[selected_timeframe_index].desc" class="mt-3 w-56" :expand="false" ref="timeframe_select">
+      <DropdownButton
+        :label="timeframe_options[selected_timeframe_index].desc"
+        class="mt-3 w-56"
+        :expand="false"
+        ref="timeframe_select"
+      >
         <ul class="timeframe-list flex flex-col mt-1 absolute right-0">
           <li
             v-for="(timeframe, index) in timeframe_options"
@@ -48,7 +53,7 @@
           type="secondary"
           short
           @click.native="limit += LIMIT_DEFAULT"
-          >
+        >
           SHOW MORE
         </Button>
         <!-- <Button
@@ -89,37 +94,85 @@ export default {
     Button,
     Card,
     DropdownButton,
-    Hero
+    Hero,
   },
   data() {
     return {
       selected_timeframe_index: 2,
       timeframe_options: [
         {
+          desc: 'All events',
+          range: 'all',
+        },
+        {
           desc: 'This week',
-          range: 'week'
-        }, 
+          range: 'week',
+        },
         {
           desc: 'This month',
-          range: 'month'
-        }, 
+          range: 'month',
+        },
         {
-          desc: 'All events',
-          range: 'all'
-        }
+          desc: 'January',
+          range: '0',
+        },
+        {
+          desc: 'February',
+          range: '1',
+        },
+        {
+          desc: 'March',
+          range: '2',
+        },
+        {
+          desc: 'April',
+          range: '3',
+        },
+        {
+          desc: 'May',
+          range: '4',
+        },
+        {
+          desc: 'June',
+          range: '5',
+        },
+        {
+          desc: 'July',
+          range: '6',
+        },
+        {
+          desc: 'August',
+          range: '7',
+        },
+        {
+          desc: 'September',
+          range: '8',
+        },
+        {
+          desc: 'October',
+          range: '9',
+        },
+        {
+          desc: 'November',
+          range: '10',
+        },
+        {
+          desc: 'December',
+          range: '11',
+        },
       ],
 
       LIMIT_DEFAULT: 4,
       limit: 4,
 
       events: [],
-      loading: true
+      loading: true,
     }
   },
   computed: {
     limited_events() {
       return this.limit ? this.events.slice(0, this.limit) : this.events
-    }
+    },
   },
   methods: {
     select(index) {
@@ -130,30 +183,22 @@ export default {
     getEvents() {
       this.loading = true
       fetch(`/.netlify/functions/get-events?range=${this.timeframe_options[this.selected_timeframe_index].range}`)
-        .then(response => response.json())
-        .then(responseJson => {
+        .then((response) => response.json())
+        .then((responseJson) => {
           this.loading = false
-          if (!responseJson.hasOwnProperty('events'))
-            this.events = new Array()
-          else
-            this.events = responseJson.events
+          if (!responseJson.hasOwnProperty('events')) this.events = new Array()
+          else this.events = responseJson.events
         })
     },
     dateToString(dateString) {
       const date = new Date(dateString)
-      return date.toLocaleDateString(
-        undefined, 
-        { year: 'numeric', month: 'long', day: 'numeric' }
-      )
+      return date.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })
     },
     timeToString(timeString) {
       const date = new Date(timeString)
       console.log(date.toString())
-      return date.toLocaleTimeString(
-        undefined,
-        { timeStyle: 'short', hour12: true }
-      )
-    }
+      return date.toLocaleTimeString(undefined, { timeStyle: 'short', hour12: true })
+    },
   },
   mounted() {
     this.getEvents()
@@ -165,18 +210,18 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.content.description
-        }
-      ]
+          content: this.content.description,
+        },
+      ],
     }
   },
   async asyncData({ $content }) {
     const content = await $content('pages', 'events').fetch()
 
     return {
-      content
+      content,
     }
-  }
+  },
 }
 </script>
 

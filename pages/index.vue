@@ -2,7 +2,7 @@
   <main class="mb-24">
     <div class="text-white h-screen max-w-full hero-index px-0 -mt-24 md:max-w-lg lg:max-w-xl">
       <img
-        class="object-cover absolute w-full h-screen md:-ml-16"
+        class="hero-image object-cover absolute w-full h-screen md:-ml-16"
         :src="content.hero_image"
         alt="Main image"
       />
@@ -12,9 +12,7 @@
             {{ content.title }}
           </h1>
           <p class="mt-6 leading-6 lg:text-lg">{{ content.description }}</p>
-          <NuxtLinkButton class="mt-6 shadow-tall" to="/watch" type="cta" wide>
-            JOIN US
-          </NuxtLinkButton>
+          <NuxtLinkButton class="mt-6 shadow-tall" to="/watch" type="cta" wide> JOIN US </NuxtLinkButton>
         </div>
       </section>
     </div>
@@ -37,12 +35,8 @@
           REVIEW OUR GUIDELINES
         </NuxtLinkButton>
       </div>
-      <div style="flex-basis: fit-content; flex-shrink: 2;">
-        <img
-          :src="content.covid_image"
-          class="hidden object-cover rounded-r-btn h-full md:inline"
-          alt="COVID-19"
-        />
+      <div style="flex-basis: fit-content; flex-shrink: 2">
+        <img :src="content.covid_image" class="hidden object-cover rounded-r-btn h-full md:inline" alt="COVID-19" />
       </div>
     </section>
 
@@ -58,7 +52,7 @@
           LEARN MORE
         </LinkButton>
       </div>
-      <div style="flex-basis: fit-content; flex-shrink: 2;">
+      <div style="flex-basis: fit-content; flex-shrink: 2">
         <img
           :src="content.event_banner_image"
           class="hidden object-cover rounded-r-btn h-full md:inline"
@@ -75,20 +69,10 @@
           <p class="md:mt-16">{{ section.content }}</p>
 
           <div v-if="section.link" class="mt-4 inline-block">
-            <NuxtLinkButton
-              v-if="section.link.page_link"
-              :to="section.link.page_link"
-              type="secondary"
-              short
-            >
+            <NuxtLinkButton v-if="section.link.page_link" :to="section.link.page_link" type="secondary" short>
               {{ section.link.label.toUpperCase() }}
             </NuxtLinkButton>
-            <LinkButton
-              v-if="section.link.external_link"
-              :link="section.link.external_link"
-              type="secondary"
-              short
-            >
+            <LinkButton v-if="section.link.external_link" :link="section.link.external_link" type="secondary" short>
               {{ section.link.label.toUpperCase() }}
             </LinkButton>
           </div>
@@ -107,9 +91,7 @@
 
     <section class="mx-auto px-6 max-w-sm mt-32 mb-16 md:max-w-lg md:mb-32">
       <h2 class="leading-7">Have any questions about us or our ministries?</h2>
-      <NuxtLinkButton class="shadow-regular mt-4" to="/contact" type="cta" wide>
-        CONTACT US
-      </NuxtLinkButton>
+      <NuxtLinkButton class="shadow-regular mt-4" to="/contact" type="cta" wide> CONTACT US </NuxtLinkButton>
     </section>
 
     <SocialHead title="Northside Baptist Church" :description="content.description" :image="content.hero_image" />
@@ -125,7 +107,7 @@ export default {
   components: {
     Location,
     NuxtLinkButton,
-    ServiceTimes
+    ServiceTimes,
   },
   head() {
     return {
@@ -133,32 +115,32 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.content.description
-        }
+          content: this.content.description,
+        },
       ],
-      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
+      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
     }
   },
   async asyncData({ $content }) {
     const content = await $content('pages', 'index').fetch()
     const service_times = await $content('church', 'service_times').fetch()
-    const sunday_services = service_times.services.filter(
-      service => service.day === 'Sunday'
-    )
-    const wednesday_services = service_times.services.filter(
-      service => service.day === 'Wednesday'
-    )
+    const sunday_services = service_times.services.filter((service) => service.day === 'Sunday')
+    const wednesday_services = service_times.services.filter((service) => service.day === 'Wednesday')
 
     return {
       content,
       sunday_services,
-      wednesday_services
+      wednesday_services,
     }
-  }
+  },
 }
 </script>
 
 <style lang="postcss" scoped>
+.hero-image {
+  filter: brightness(50%);
+}
+
 .descriptions {
   @screen lg {
     @apply max-w-screen-lg !important;

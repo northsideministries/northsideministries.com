@@ -23,17 +23,18 @@ const lastDayOfWeek = () => {
   return new Date(newDate)
 }
 
-const firstDayOfMonth = () => {
+const firstDayOfMonth = (month) => {
   const date = new Date()
+  date.setMonth(month)
   date.setDate(1)
   return date
 }
 
-const lastDayOfMonth = () => {
+const lastDayOfMonth = (month) => {
   const date = new Date()
   
   // rolls over to last day of previous month
-  date.setMonth(date.getMonth() + 1)
+  date.setMonth(month + 1)
   date.setDate(0)
   date.setHours(23, 59, 59, 999)
 
@@ -68,7 +69,19 @@ const getFirstDayFromRange = (range) => {
     case 'week':
       return firstDayOfWeek()
     case 'month':
-      return firstDayOfMonth()
+      return firstDayOfMonth((new Date()).getMonth())
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+    case '8':
+    case '9':
+    case '10':
+    case '11':
+      return firstDayOfMonth(parseInt(range))
     default:
       return firstDayOfWeek()
   }
@@ -82,7 +95,19 @@ const getLastDayFromRange = (range) => {
     case 'week':
       return lastDayOfWeek()
     case 'month':
-      return lastDayOfMonth()
+      return lastDayOfMonth((new Date()).getMonth())
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+    case '8':
+    case '9':
+    case '10':
+    case '11':
+      return lastDayOfMonth(parseInt(range))
     default:
       return undefined
   }
