@@ -9,10 +9,6 @@
       "location": "British Columbia"
     },
     {
-      "name": "Jim Stackhouse",
-      "location": "Papua New Guinea"
-    },
-    {
       "name": "Robert Sulik",
       "location": "Poland"
     }
@@ -211,9 +207,6 @@
         },
         {
           "name": "Jeff Nordquist"
-        },
-        {
-          "name": "Jeff Traver"
         }
       ]
     },
