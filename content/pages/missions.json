@@ -153,11 +153,7 @@
     },
     {
       "name": "Argentina",
-      "missionary_list": [
-        {
-          "name": "James Greenwood"
-        }
-      ]
+      "missionary_list": []
     },
     {
       "name": "Jordan",
@@ -166,10 +162,6 @@
           "name": "Ghassan Haddad"
         }
       ]
-    },
-    {
-      "name": "Military",
-      "missionary_list": []
     },
     {
       "name": "Zambia",
