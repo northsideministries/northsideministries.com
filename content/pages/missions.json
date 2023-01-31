@@ -15,10 +15,6 @@
   ],
   "ministry_list": [
     {
-      "name": "Frontline Missions",
-      "description": "John Hutcheson"
-    },
-    {
       "name": "Church Planting (US)",
       "description": "Chris Phillips"
     },
@@ -146,10 +142,6 @@
           "name": "Ron Fruin"
         }
       ]
-    },
-    {
-      "name": "Argentina",
-      "missionary_list": []
     },
     {
       "name": "Jordan",
