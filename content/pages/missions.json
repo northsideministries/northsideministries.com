@@ -80,22 +80,6 @@
       ]
     },
     {
-      "name": "Philippines",
-      "missionary_list": [
-        {
-          "name": "Tom Ashley"
-        }
-      ]
-    },
-    {
-      "name": "Quebec",
-      "missionary_list": [
-        {
-          "name": "Carl Bernard"
-        }
-      ]
-    },
-    {
       "name": "Papua New Guinea",
       "missionary_list": [
         {
@@ -136,26 +120,10 @@
       ]
     },
     {
-      "name": "Cambodia",
-      "missionary_list": [
-        {
-          "name": "Ron Fruin"
-        }
-      ]
-    },
-    {
       "name": "Jordan",
       "missionary_list": [
         {
           "name": "Ghassan Haddad"
-        }
-      ]
-    },
-    {
-      "name": "Zambia",
-      "missionary_list": [
-        {
-          "name": "Dick Jarvis"
         }
       ]
     },
@@ -211,14 +179,6 @@
       ]
     },
     {
-      "name": "Grenada",
-      "missionary_list": [
-        {
-          "name": "John McPherson"
-        }
-      ]
-    },
-    {
       "name": "France",
       "missionary_list": [
         {
@@ -239,14 +199,6 @@
       "missionary_list": [
         {
           "name": "Jeff Reason"
-        }
-      ]
-    },
-    {
-      "name": "England",
-      "missionary_list": [
-        {
-          "name": "Tom Rooney"
         }
       ]
     },
