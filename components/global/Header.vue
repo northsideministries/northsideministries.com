@@ -68,9 +68,6 @@
           </DropdownButton>
         </li>
         <li>
-          <NuxtLinkButton type="tertiary" to="/events">Events</NuxtLinkButton>
-        </li>
-        <li>
           <NuxtLinkButton type="tertiary" to="/watch">Watch</NuxtLinkButton>
         </li>
         <li>
@@ -78,6 +75,9 @@
         </li>
         <li>
           <NuxtLinkButton type="tertiary" to="/contact">Contact</NuxtLinkButton>
+        </li>
+        <li class="btn-staff">
+          <LinkButton type="secondary" link="https://northsidechristianschool.sharepoint.com/sites/NorthsideMinistries">Staff</LinkButton>
         </li>
       </ul>
     </div>
@@ -136,9 +136,6 @@
             </DropdownButton>
           </li>
           <li>
-            <NuxtLinkButton type="tertiary" to="/events">Events</NuxtLinkButton>
-          </li>
-          <li>
             <NuxtLinkButton type="tertiary" to="/watch">Watch</NuxtLinkButton>
           </li>
           <li>
@@ -146,6 +143,9 @@
           </li>
           <li>
             <NuxtLinkButton type="tertiary" to="/contact">Contact</NuxtLinkButton>
+          </li>
+          <li class="btn-staff">
+            <LinkButton type="secondary" link="https://northsidechristianschool.sharepoint.com/sites/NorthsideMinistries">Staff</LinkButton>
           </li>
         </ul>
       </div>
@@ -183,6 +183,10 @@ export default {
       ],
       ministry_links: [
         {
+          label: 'Events',
+          href: '/events'
+        },
+        {
           label: 'Missions',
           href: '/ministries/missions',
         },
@@ -198,6 +202,7 @@ export default {
           label: 'Sunday School',
           href: '/ministries/sunday-school',
         },
+        
       ],
       about_display: false,
       ministries_display: false,
@@ -236,10 +241,6 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-nav {
-  /* @apply ma */
-}
-
 .desktop-menu > ul > li {
   @apply ml-4;
 }
@@ -283,5 +284,9 @@ nav {
     @apply mt-2;
     @apply px-5;
   }
+}
+
+.btn-staff a {
+  @apply text-xl;
 }
 </style>
