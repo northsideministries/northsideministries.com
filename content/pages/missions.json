@@ -9,19 +9,11 @@
       "location": "British Columbia"
     },
     {
-      "name": "Jim Stackhouse",
-      "location": "Papua New Guinea"
-    },
-    {
       "name": "Robert Sulik",
       "location": "Poland"
     }
   ],
   "ministry_list": [
-    {
-      "name": "Frontline Missions",
-      "description": "John Hutcheson"
-    },
     {
       "name": "Church Planting (US)",
       "description": "Chris Phillips"
@@ -88,22 +80,6 @@
       ]
     },
     {
-      "name": "Philippines",
-      "missionary_list": [
-        {
-          "name": "Tom Ashley"
-        }
-      ]
-    },
-    {
-      "name": "Quebec",
-      "missionary_list": [
-        {
-          "name": "Carl Bernard"
-        }
-      ]
-    },
-    {
       "name": "Papua New Guinea",
       "missionary_list": [
         {
@@ -144,42 +120,10 @@
       ]
     },
     {
-      "name": "Cambodia",
-      "missionary_list": [
-        {
-          "name": "Ron Fruin"
-        }
-      ]
-    },
-    {
-      "name": "Argentina",
-      "missionary_list": [
-        {
-          "name": "James Greenwood"
-        }
-      ]
-    },
-    {
       "name": "Jordan",
       "missionary_list": [
         {
           "name": "Ghassan Haddad"
-        }
-      ]
-    },
-    {
-      "name": "Military",
-      "missionary_list": [
-        {
-          "name": "Dennis Harry, Sr."
-        }
-      ]
-    },
-    {
-      "name": "Zambia",
-      "missionary_list": [
-        {
-          "name": "Dick Jarvis"
         }
       ]
     },
@@ -223,9 +167,6 @@
         },
         {
           "name": "Jeff Nordquist"
-        },
-        {
-          "name": "Jeff Traver"
         }
       ]
     },
@@ -234,14 +175,6 @@
       "missionary_list": [
         {
           "name": "Oriel O’Gorman"
-        }
-      ]
-    },
-    {
-      "name": "Grenada",
-      "missionary_list": [
-        {
-          "name": "John McPherson"
         }
       ]
     },
@@ -266,14 +199,6 @@
       "missionary_list": [
         {
           "name": "Jeff Reason"
-        }
-      ]
-    },
-    {
-      "name": "England",
-      "missionary_list": [
-        {
-          "name": "Tom Rooney"
         }
       ]
     },
