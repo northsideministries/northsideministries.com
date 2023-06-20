@@ -8,13 +8,13 @@ node_bundler = "esbuild"
 # [[plugins]]
 # package = "netlify-plugin-subfont"
 
-[[plugins]]
-package = "netlify-plugin-a11y"
+# [[plugins]]
+# package = "netlify-plugin-a11y"
 
-  [plugins.inputs]
+#   [plugins.inputs]
   
-  ignoreDirectories = ['/admin']
-  resultMode = "warn"
+#   ignoreDirectories = ['/admin']
+#   resultMode = "warn"
 
 [[plugins]]
 package = "netlify-plugin-submit-sitemap"
