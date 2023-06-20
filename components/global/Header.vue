@@ -132,7 +132,7 @@
                   key="Northside Christian School"
                   >Northside Christian School</LinkButton
                 >
-              </transition-group>
+              </transition-group> 
             </DropdownButton>
           </li>
           <li>
