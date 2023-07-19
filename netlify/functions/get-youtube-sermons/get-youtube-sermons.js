@@ -20,11 +20,12 @@ const handler = async (event) => {
     const results = responseJson?.items
 
     // filter for only sermons
-    const sermonVideos = results.filter(video => video.snippet.title.toLowerCase().includes("service"))
+    // PROBLEM: livestream title may not contain "service"
+    // const sermonVideos = results.filter(video => video.snippet.title.toLowerCase().includes("service"))
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ videos: sermonVideos }),
+      body: JSON.stringify({ videos: results }),
     }
   } catch (error) {
     return { statusCode: 500, body: error.toString() }
