@@ -10,10 +10,11 @@
         class="object-cover w-full h-32 rounded-t-btn"
       />
     </div>
-    <div class="px-4 py-6">
-      <h3>{{ title }}</h3>
-      <h5 v-if="subtitle !== ''" class="mt-2">{{ subtitle }}</h5>
-      <div class="mt-5">
+    <!-- flex rules for making sure content fills the space in case of rows/cols with other cards that are larger -->
+    <div class="px-4 py-6 flex flex-col h-full">
+      <h3 class="mb-2">{{ title }}</h3>
+      <h5 v-if="subtitle !== ''" class="mb-2">{{ subtitle }}</h5>
+      <div class="mt-auto">
         <slot />
       </div>
       <div v-if="location || time" class="details font-mono mt-5 -ml-1">

@@ -1,17 +1,21 @@
 <template>
   <section class="service-times mt-8">
     <h2>Service Times</h2>
-    <div class="ml-8">
-      <h4>Sunday</h4>
-      <p v-for="service in sundayServices" :key="service.name">
-        {{ service.name }} — {{ service.time }}
-      </p>
+    <div class="ml-8 flex flex-row">
+      <h4 class="w-1/3 text-right">Sunday</h4>
+      <div class="flex flex-col ml-4">
+        <p v-for="service in sundayServices" :key="service.name">
+          {{ service.name }} — {{ service.time }}
+        </p>
+      </div>
     </div>
-    <div class="ml-8">
-      <h4>Wednesday</h4>
-      <p v-for="service in wednesdayServices" :key="service.name">
-        {{ service.name }} — {{ service.time }}
-      </p>
+    <div class="ml-8 flex flex-row">
+      <h4 class="w-1/3 text-right">Wednesday</h4>
+      <div class="flex flex-col ml-4">
+        <p v-for="service in wednesdayServices" :key="service.name">
+          {{ service.name }} — {{ service.time }}
+        </p>
+      </div>
     </div>
   </section>
 </template>

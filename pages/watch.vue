@@ -1,7 +1,7 @@
 <template>
   <main class="mb-16">
     <div class="player shadow-tall md:rounded-2xl md:m-8">
-      <div v-if="$store.state.live" class="player-live" role="presentation" aria-label="livestream">
+      <div v-if="$store.state.live" class="w-full" role="presentation" aria-label="livestream">
         <iframe class="player-frame w-full md:rounded-2xl" src="https://www.youtube.com/embed/live_stream?channel=UCe_GkbqZP_aMRksuFU_MHog" frameborder="0" allowfullscreen></iframe>
       </div>
       <div
@@ -26,21 +26,21 @@
       </section> -->
 
       <section>
-        <h2>Past Messages</h2>
+        <h2>Past Messages and Videos</h2>
 
         <div class="grid grid-cols-1 col-gap-4 row-gap-4 md:grid-cols-2">
           <Card
             v-for="sermon in limited_sermons"
             :key="sermon.date"
-            :title="sermon.date"
-            :subtitle="sermon.title"
+            :title="sermon.title"
             :img="sermon.image"
-          >
+            >
+            <!-- :subtitle="sermon.title" -->
             <LinkButton
               :link="sermon.link"
               icon="external-link-alt"
-              iconColor="#2941A3"
-              type="secondary"
+              iconColor="#fff"
+              type="primary"
               short
             >
               WATCH ON YOUTUBE
@@ -60,17 +60,22 @@
           >
             SHOW MORE
           </Button>
-          <Button
-            v-show="limit === null"
-            class="ml-auto mr-auto mt-8"
-            icon="angle-up"
-            iconColor="#2941A3"
-            type="secondary"
-            short
-            @click.native="limit = LIMIT_DEFAULT"
+          <div
+          v-show="limit === null"
           >
-            SHOW LESS
-          </Button>
+            <p class="text-center text-lg mt-8">For more videos, <a href="https://www.youtube.com/@NorthsideBaptistChurch29420/" class="text-primary-600 underline">visit our YouTube channel!</a></p>
+            <Button
+              v-show="limit === null"
+              class="ml-auto mr-auto mt-8"
+              icon="angle-up"
+              iconColor="#2941A3"
+              type="secondary"
+              short
+              @click.native="limit = LIMIT_DEFAULT"
+            >
+              SHOW LESS
+            </Button>
+          </div>
         </div>
       </section>
     </div>
@@ -110,7 +115,9 @@ export default {
       const formattedSermons = new Array()
 
       this.sermonVideos.forEach(el => {
-        const video = new Object();
+        const video = new Object()
+
+        // PROBLEM: published date may not be actual date of livestream 
 
         const date = new Date(el.snippet.publishedAt)
         video.date = `${new Array('January','February','March','April','May','June','July','August','September','October','November','December')[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} (${date.getHours() < 12 ? 'AM' : 'PM'})`
@@ -140,7 +147,7 @@ export default {
     // cant be in asyncData since a computed prop (formatted_sermons) depends on sermonVideos
     fetch('/.netlify/functions/get-youtube-sermons')
       .then(res => res.json())
-      .then(res => this.sermonVideos = res.videos);
+      .then(res => { console.log(res); this.sermonVideos = res.videos });
   },
   async asyncData({ $content }) {
     const content = await $content('site', 'services').fetch()
@@ -158,7 +165,15 @@ export default {
 }
 
 .player-frame {
-  height: calc(100vh / 2);
+  /* 16:9 aspect ratio for livestream player*/
+
+  @media (max-width: 767px) {
+    height: calc(100vw * (9/16));
+  }
+
+  @media (min-width: 768px) {
+    height: calc(75vw * (9/16));
+  }
 }
 
 .content > section {
