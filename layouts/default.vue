@@ -14,7 +14,12 @@
           </div>
           <span class="font-medium text-white tracking-wide">LIVE</span>
         </div>
-        <NuxtLinkButton type="primary" class="ml-8 md:ml-16 watch-button" to="/watch" @click.native="disableNotification">
+        <NuxtLinkButton
+          type="primary"
+          class="ml-8 md:ml-16 watch-button"
+          to="/watch"
+          @click.native="disableNotification"
+        >
           WATCH
         </NuxtLinkButton>
         <Button type="secondary" class="ml-3 dismiss-button" @click.native="disableNotification">CLOSE</Button>
@@ -39,40 +44,40 @@ export default {
     Button,
     NuxtLinkButton,
     Header,
-    Footer
+    Footer,
   },
-  data() { return {} },
+  data() {
+    return {}
+  },
   methods: {
     ...mapMutations({
       pollLivestream: 'pollLivestream',
       pollNotification: 'pollNotification',
       goLive: 'goLive',
-      disableNotification: 'disableNotification'
-    })
+      disableNotification: 'disableNotification',
+    }),
   },
   mounted() {
     // if not checked already, check if the livestream is live
     if (!this.$store.state.hasPolledLivestream) {
       fetch('/.netlify/functions/get-youtube-stream')
-        .then(res => res.json())
-        .then(res => {
-            if (res.status) this.goLive()
-            this.pollLivestream()
-          }
-        )
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.status) this.goLive(res.url)
+          this.pollLivestream()
+        })
     }
 
     // if not checked already, check if the livestream notification is disabled in the CMS
     if (!this.$store.state.hasPolledNotification) {
       this.$content('site', 'services')
         .fetch()
-        .then(res => {
-            if (!res.livestream) this.disableNotification()
-            this.pollNotification()
-          }
-        )
+        .then((res) => {
+          if (!res.livestream) this.disableNotification()
+          this.pollNotification()
+        })
     }
-  }
+  },
 }
 </script>
 

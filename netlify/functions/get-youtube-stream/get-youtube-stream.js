@@ -13,11 +13,9 @@ const handler = async (event) => {
     const canonicalURL = canonicalURLTag.getAttribute('href')
     const isStreaming = canonicalURL.includes('/watch?v=')
 
-    console.log("is streaming:", isStreaming)
-
     return {
       statusCode: 200,
-      body: JSON.stringify({ status: isStreaming }),
+      body: JSON.stringify({ status: isStreaming, url: canonicalURL }),
     }
   } catch (error) {
     return { statusCode: 500, body: error.toString() }

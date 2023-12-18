@@ -1,10 +1,16 @@
 <template>
   <main class="mb-16">
     <div class="player shadow-tall md:rounded-2xl md:m-8">
-      <!-- <div v-if="$store.state.live" class="w-full" role="presentation" aria-label="livestream">
-        <iframe class="player-frame w-full md:rounded-2xl" src="https://www.youtube.com/embed/live_stream?channel=UCe_GkbqZP_aMRksuFU_MHog" frameborder="0" allowfullscreen></iframe>
-      </div> -->
+      <div v-if="$store.state.live" class="w-full" role="presentation" aria-label="livestream">
+        <iframe
+          class="player-frame w-full md:rounded-2xl"
+          :src="$store.state.liveURL"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
       <div
+        v-else
         class="player-offline text-white pl-5 pr-12 pt-10 pb-12 md:flex md:flex-col md:items-center md:text-center md:justify-center md:-mt-4 md:px-16 md:py-32"
       >
         <p class="text-xl mt-2 leading-6 md:mt-4 md:text-3xl md:leading-8">
@@ -14,7 +20,7 @@
             iconColor="#fff"
             type="primary"
           >
-            Click here to watch our broadcast on YouTube.
+            Click here to go to our YouTube channel.
           </LinkButton>
         </p>
         <p class="text-sm mt-2 md:mt-4 md:text-base">
