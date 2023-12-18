@@ -1,7 +1,7 @@
 <template>
   <div class="container max-w-full">
     <!-- livestreaming notification; once clicked, don't show again -->
-    <transition name="slide-down">
+    <!-- <transition name="slide-down">
       <aside
         v-show="$store.state.notification_enabled && $store.state.live"
         class="flex flex-row justify-center py-4 px-6 rounded-btn bg-primary-600 live-notification shadow-tall fixed bottom-0 mb-4 z-10"
@@ -24,7 +24,7 @@
         </NuxtLinkButton>
         <Button type="secondary" class="ml-3 dismiss-button" @click.native="disableNotification">CLOSE</Button>
       </aside>
-    </transition>
+    </transition> -->
 
     <Header />
     <nuxt />

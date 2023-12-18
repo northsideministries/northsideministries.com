@@ -4,7 +4,7 @@
       <div v-if="$store.state.live" class="w-full" role="presentation" aria-label="livestream">
         <iframe
           class="player-frame w-full md:rounded-2xl"
-          :src="$store.state.liveURL"
+          :src="`https://www.youtube.com/embed/${$store.state.liveURL}`"
           frameborder="0"
           allowfullscreen
         ></iframe>
@@ -41,7 +41,13 @@
         <h2>Past Messages and Videos</h2>
 
         <div class="grid grid-cols-1 col-gap-4 row-gap-4 md:grid-cols-2">
-          <Card v-for="sermon in limited_sermons" :key="sermon.date" :title="sermon.title" :img="sermon.image">
+          <Card
+            v-for="sermon in limited_sermons"
+            :key="sermon.date"
+            :title="sermon.title"
+            :img="sermon.image"
+            subtitle=""
+          >
             <!-- :subtitle="sermon.title" -->
             <LinkButton :link="sermon.link" icon="external-link-alt" iconColor="#fff" type="primary" short>
               WATCH ON YOUTUBE
@@ -167,7 +173,6 @@ export default {
     fetch('/.netlify/functions/get-youtube-sermons')
       .then((res) => res.json())
       .then((res) => {
-        console.log(res)
         this.sermonVideos = res.videos
       })
   },

@@ -15,7 +15,7 @@ const handler = async (event) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ status: isStreaming, url: canonicalURL }),
+      body: JSON.stringify({ status: isStreaming, url: isStreaming ? canonicalURL.slice(canonicalURL.indexOf('/watch?v=') + '/watch?v='.length) : '' }),
     }
   } catch (error) {
     return { statusCode: 500, body: error.toString() }
