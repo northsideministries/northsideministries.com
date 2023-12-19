@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="px-8 py-6 w-full bg-white top-0 fixed max-h-screen z-10 xl:px-24 xl:table shadow-regular align-middle"
+    class="px-8 py-6 w-full bg-white top-0 fixed max-h-screen z-50 xl:px-24 xl:table shadow-regular align-middle"
     :class="[mobile_menu_enabled ? 'h-screen overflow-y-scroll' : '']"
   >
     <div class="xl:table-cell align-middle">
@@ -77,7 +77,9 @@
           <NuxtLinkButton type="tertiary" to="/contact">Contact</NuxtLinkButton>
         </li>
         <li class="btn-staff">
-          <LinkButton type="secondary" link="https://northsidechristianschool.sharepoint.com/sites/NorthsideMinistries">Staff</LinkButton>
+          <LinkButton type="secondary" link="https://northsidechristianschool.sharepoint.com/sites/NorthsideMinistries"
+            >Staff</LinkButton
+          >
         </li>
       </ul>
     </div>
@@ -132,7 +134,7 @@
                   key="Northside Christian School"
                   >Northside Christian School</LinkButton
                 >
-              </transition-group> 
+              </transition-group>
             </DropdownButton>
           </li>
           <li>
@@ -145,7 +147,11 @@
             <NuxtLinkButton type="tertiary" to="/contact">Contact</NuxtLinkButton>
           </li>
           <li class="btn-staff">
-            <LinkButton type="secondary" link="https://northsidechristianschool.sharepoint.com/sites/NorthsideMinistries">Staff</LinkButton>
+            <LinkButton
+              type="secondary"
+              link="https://northsidechristianschool.sharepoint.com/sites/NorthsideMinistries"
+              >Staff</LinkButton
+            >
           </li>
         </ul>
       </div>
@@ -184,7 +190,7 @@ export default {
       ministry_links: [
         {
           label: 'Events',
-          href: '/events'
+          href: '/events',
         },
         {
           label: 'Missions',
@@ -202,7 +208,6 @@ export default {
           label: 'Sunday School',
           href: '/ministries/sunday-school',
         },
-        
       ],
       about_display: false,
       ministries_display: false,

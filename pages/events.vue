@@ -3,71 +3,38 @@
     <Hero title="Events" :img="content.hero_image">
       {{ content.description }}
     </Hero>
-    <div class="px-6 mx-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
+    <div class="px-2 mx-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
       <h2 class="text-center mt-12">Upcoming Events</h2>
+
       <h5 class="font-bold mt-8">View events for</h5>
 
-      <DropdownButton
-        :label="timeframe_options[selected_timeframe_index].desc"
-        class="mt-3 w-56"
-        :expand="false"
-        ref="timeframe_select"
-      >
+      <DropdownButton :label="selectedMonth" class="mt-3 w-56 z-20" :expand="false" ref="month_select">
         <ul class="timeframe-list flex flex-col mt-1 absolute right-0">
           <li
-            v-for="(timeframe, index) in timeframe_options"
-            :class="[selected_timeframe_index === index ? 'selected' : '']"
-            :key="timeframe.range"
-            @click="select(index)"
+            v-for="month in months"
+            :class="[month === selectedMonth ? 'selected' : '']"
+            :key="month"
+            @click="selectMonth(month)"
           >
-            {{ timeframe.desc }}
+            {{ month }}
           </li>
         </ul>
       </DropdownButton>
 
-      <transition name="fade" mode="out-in">
-        <aside v-if="loading" class="mt-16 text-center p-12">
-          <h3>Getting events...</h3>
-        </aside>
-        <aside v-else-if="events.length === 0" class="mt-16 text-center p-12 leading-7">
-          <h3>No upcoming events found for this selection. Try selecting 'All events' to get more results!</h3>
-        </aside>
-        <section v-else class="mt-8 grid grid-cols-1 col-gap-4 row-gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <Card
-            v-for="event in limited_events"
-            :key="event.id"
-            :title="event.subject"
-            :subtitle="dateToString(event.start.dateTime)"
-            :location="event.location.displayName || 'Northside Baptist Church'"
-            :time="event.isAllDay ? 'All day' : timeToString(event.start.dateTime)"
-          ></Card>
-        </section>
-      </transition>
-
-      <div v-if="events.length > LIMIT_DEFAULT">
-        <Button
-          v-show="limit < events.length"
-          class="ml-auto mr-auto mt-8"
-          icon="angle-down"
-          iconColor="#2941A3"
-          type="secondary"
-          short
-          @click.native="limit += LIMIT_DEFAULT"
-        >
-          SHOW MORE
-        </Button>
-        <!-- <Button
-          v-show="limit >= events.length"
-          class="ml-auto mr-auto mt-8"
-          icon="angle-up"
-          iconColor="#2941A3"
-          type="secondary"
-          short
-          @click.native="limit -= LIMIT_DEFAULT"
+      <DropdownButton :label="`${selectedYear}`" class="mt-3 w-56" :expand="false" ref="year_select">
+        <ul class="timeframe-list flex flex-col mt-1 absolute right-0">
+          <li
+            v-for="year in years"
+            :class="[year === selectedYear ? 'selected' : '']"
+            :key="year"
+            @click="selectYear(year)"
           >
-          SHOW LESS
-        </Button> -->
-      </div>
+            {{ year }}
+          </li>
+        </ul>
+      </DropdownButton>
+
+      <Calendar :month="selectedMonth" :year="selectedYear" class="mt-8" />
     </div>
     <aside class="mt-16 bg-gray-100 md:bg-transparent px-6 pb-16 pt-10">
       <h2 class="text-center">Ladies' Bible Study</h2>
@@ -83,112 +50,65 @@
 </template>
 
 <script>
-import Button from '~/components/Button'
-import Card from '~/components/Card'
 import DropdownButton from '~/components/DropdownButton'
 import Hero from '~/components/Hero'
+import Calendar from '~/components/Calendar'
 
 export default {
   name: 'EventsPage',
   components: {
-    Button,
-    Card,
     DropdownButton,
     Hero,
+    Calendar,
   },
   data() {
     return {
-      selected_timeframe_index: 0,
-      timeframe_options: [
-        {
-          desc: 'All events',
-          range: 'all',
-        },
-        {
-          desc: 'This week',
-          range: 'week',
-        },
-        {
-          desc: 'This month',
-          range: 'month',
-        },
-        {
-          desc: 'January',
-          range: '0',
-        },
-        {
-          desc: 'February',
-          range: '1',
-        },
-        {
-          desc: 'March',
-          range: '2',
-        },
-        {
-          desc: 'April',
-          range: '3',
-        },
-        {
-          desc: 'May',
-          range: '4',
-        },
-        {
-          desc: 'June',
-          range: '5',
-        },
-        {
-          desc: 'July',
-          range: '6',
-        },
-        {
-          desc: 'August',
-          range: '7',
-        },
-        {
-          desc: 'September',
-          range: '8',
-        },
-        {
-          desc: 'October',
-          range: '9',
-        },
-        {
-          desc: 'November',
-          range: '10',
-        },
-        {
-          desc: 'December',
-          range: '11',
-        },
+      months: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
       ],
-
-      LIMIT_DEFAULT: 4,
-      limit: 4,
-
-      events: [],
-      loading: true,
+      years: [],
+      selectedMonth: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ][new Date().getMonth()],
+      selectedYear: new Date().getFullYear(),
     }
   },
-  computed: {
-    limited_events() {
-      return this.limit ? this.events.slice(0, this.limit) : this.events
-    },
+  created() {
+    const currentYear = new Date().getFullYear()
+    for (let i = currentYear - 2; i < currentYear; i++) this.years.push(i)
+    for (let i = currentYear; i < currentYear + 3; i++) this.years.push(i)
   },
   methods: {
-    select(index) {
-      this.selected_timeframe_index = index
-      this.$refs.timeframe_select.close()
-      this.getEvents()
+    selectMonth(month) {
+      this.selectedMonth = month
+      this.$refs.month_select.close()
     },
-    getEvents() {
-      this.loading = true
-      fetch(`/.netlify/functions/get-events?range=${this.timeframe_options[this.selected_timeframe_index].range}`)
-        .then((response) => response.json())
-        .then((responseJson) => {
-          this.loading = false
-          if (!responseJson.hasOwnProperty('events')) this.events = new Array()
-          else this.events = responseJson.events
-        })
+    selectYear(year) {
+      this.selectedYear = year
+      this.selectedMonth = this.months[0]
+      this.$refs.year_select.close()
     },
     dateToString(dateString) {
       const date = new Date(dateString)
@@ -199,9 +119,6 @@ export default {
       console.log(date.toString())
       return date.toLocaleTimeString(undefined, { timeStyle: 'short', hour12: true })
     },
-  },
-  mounted() {
-    this.getEvents()
   },
   head() {
     return {

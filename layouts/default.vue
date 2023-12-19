@@ -1,31 +1,5 @@
 <template>
   <div class="container max-w-full">
-    <!-- livestreaming notification; once clicked, don't show again -->
-    <!-- <transition name="slide-down">
-      <aside
-        v-show="$store.state.notification_enabled && $store.state.live"
-        class="flex flex-row justify-center py-4 px-6 rounded-btn bg-primary-600 live-notification shadow-tall fixed bottom-0 mb-4 z-10"
-      >
-        <div class="flex-row items-center flex">
-          <div class="hidden md:inline">
-            <client-only>
-              <unicon class="mr-2" name="rss" fill="white" width="30" height="30"></unicon>
-            </client-only>
-          </div>
-          <span class="font-medium text-white tracking-wide">LIVE</span>
-        </div>
-        <NuxtLinkButton
-          type="primary"
-          class="ml-8 md:ml-16 watch-button"
-          to="/watch"
-          @click.native="disableNotification"
-        >
-          WATCH
-        </NuxtLinkButton>
-        <Button type="secondary" class="ml-3 dismiss-button" @click.native="disableNotification">CLOSE</Button>
-      </aside>
-    </transition> -->
-
     <Header />
     <nuxt />
     <Footer />
