@@ -44,7 +44,9 @@
                 v-for="evt of events.filter(
                   (evt) =>
                     new Date(evt.startDate).getDate() <= fromRowCol(i, j) &&
-                    new Date(evt.endDate).getDate() >= fromRowCol(i, j)
+                    (evt.isAllDay
+                      ? new Date(evt.endDate).getDate() > fromRowCol(i, j)
+                      : new Date(evt.endDate).getDate() >= fromRowCol(i, j))
                 )"
                 :key="evt.webLink"
                 class="day-event text-xs border-b border-solid border-gray-400 px-2 py-1 tooltip"
@@ -74,18 +76,6 @@
 </template>
 
 <script>
-// TODO:
-// - table for each day
-//   - separator for each event
-//   - sorted by time
-//   - highlight current day
-// - hover/tap box with info about event (dialog overlay?)
-// - dropdown to select month
-
-// TODO:
-// - for events over multiple days
-// - for recurring events?
-
 export default {
   name: 'CalendarView',
   props: {
@@ -168,8 +158,6 @@ export default {
           const events = []
           for (const evt of responseJson.events)
             events.push({
-              // startDate: this.getDateTimeZone(evt.start.dateTime, evt.start.timeZone),
-              // endDate: this.getDateTimeZone(evt.end.dateTime, evt.end.timeZone),
               startDate: evt.start.dateTime,
               endDate: evt.end.dateTime,
               isAllDay: evt.isAllDay,
@@ -183,21 +171,6 @@ export default {
           this.loading = false
         })
     },
-    // getUTCOffset(d, tz) {
-    //   // https://stackoverflow.com/questions/36112774/calculate-the-utc-offset-given-a-timezone-string-in-javascript
-    //   const a = d.toLocaleString('ja', { timeZone: tz }).split(/[/\s:]/)
-    //   a[1]--
-    //   const t1 = Date.UTC.apply(null, a)
-    //   const t2 = new Date(d).setMilliseconds(0)
-    //   return Math.floor((t2 - t1) / 3600 / 1000)
-    // },
-    // getDateTimeZone(dateTimeString, timeZoneString) {
-    //   const utcOffset = this.getUTCOffset(new Date(dateTimeString), timeZoneString)
-    //   const dateString = `${dateTimeString}${utcOffset >= 0 ? '+' : '-'}${Math.abs(utcOffset)
-    //     .toString()
-    //     .padStart(2, '0')}:00`
-    //   return new Date(dateString)
-    // },
     getHourMinuteString(dateTimeString) {
       const date = new Date(dateTimeString)
       return date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
