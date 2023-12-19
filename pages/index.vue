@@ -80,6 +80,29 @@
       </section>
     </div>
 
+    <section class="my-12 md:mt-32 mx-2 clear-both">
+      <h2 class="text-center mb-8">Event Calendar</h2>
+      <Calendar
+        :month="
+          [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December',
+          ][new Date().getMonth()]
+        "
+        :year="new Date().getFullYear()"
+      ></Calendar>
+    </section>
+
     <section class="mx-auto my-12 max-w-sm md:mt-32 clear-both">
       <ServiceTimes :wednesdayServices="wednesday_services" :sundayServices="sunday_services" />
     </section>
@@ -102,12 +125,14 @@
 import Location from '~/components/Location'
 import NuxtLinkButton from '~/components/NuxtLinkButton'
 import ServiceTimes from '~/components/ServiceTimes'
+import Calendar from '~/components/Calendar.vue'
 
 export default {
   components: {
     Location,
     NuxtLinkButton,
     ServiceTimes,
+    Calendar,
   },
   head() {
     return {
