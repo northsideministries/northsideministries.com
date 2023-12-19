@@ -41,7 +41,11 @@
                 {{ excludeDate(i, j) ? '' : fromRowCol(i, j) }}
               </div>
               <div
-                v-for="evt of events.filter((evt) => new Date(evt.startDate).getDate() === fromRowCol(i, j))"
+                v-for="evt of events.filter(
+                  (evt) =>
+                    new Date(evt.startDate).getDate() <= fromRowCol(i, j) &&
+                    new Date(evt.endDate).getDate() >= fromRowCol(i, j)
+                )"
                 :key="evt.webLink"
                 class="day-event text-xs border-b border-solid border-gray-400 px-2 py-1 tooltip"
               >
@@ -158,6 +162,8 @@ export default {
           // this.loading = false
           // eslint-disable-next-line no-prototype-builtins
           if (!responseJson.hasOwnProperty('events')) return
+
+          console.log(responseJson.events)
 
           const events = []
           for (const evt of responseJson.events)
