@@ -47,8 +47,16 @@ const handler = async function (event) {
   )
   
   const responseTokenBody = await responseToken.json()
+  if (responseTokenBody.error) {
+    console.error(responseTokenBody.error)
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "could not get events" })
+    }
+  }
+
   const accessToken = responseTokenBody.access_token
-  
+
   // get all events ordered by date
   // query details: https://docs.microsoft.com/en-us/graph/query-parameters
 
@@ -78,10 +86,10 @@ const handler = async function (event) {
   const events = responseEventsListBody.value
 
   if (responseEventsListBody.error) {
-    const error = responseEventsListBody.error
+    console.error(responseEventsListBody.error)
     return {
       statusCode: 500,
-      body: JSON.stringify({ error })
+      body: JSON.stringify({ error: "could not get events" })
     }
   }
 
