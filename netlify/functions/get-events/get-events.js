@@ -28,7 +28,7 @@ const handler = async function (event) {
 
   const DEFAULT_COUNT = 100
 
-  const responseToken = await fetch(`https://login.microsoftonline.com/${MS_APP_ID}/v2.0/oauth2/token`,
+  const responseToken = await fetch(`https://login.microsoftonline.com/${MS_APP_ID}/oauth2/v2.0/token`,
     {
       method: 'POST',
       headers: {
