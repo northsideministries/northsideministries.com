@@ -1,10 +1,6 @@
 {
   "home_list": [
     {
-      "name": "Rickson Kihleng",
-      "location": "Micronesia"
-    },
-    {
       "name": "Roland Mitchum",
       "location": "British Columbia"
     },
@@ -14,10 +10,6 @@
     }
   ],
   "ministry_list": [
-    {
-      "name": "Church Planting (US)",
-      "description": "Chris Phillips"
-    },
     {
       "name": "The Anchorage",
       "description": "David Ulrich"
@@ -29,12 +21,6 @@
       "missionary_list": [
         {
           "name": "Tim Melton"
-        },
-        {
-          "name": "John Knox"
-        },
-        {
-          "name": "Matthew Starin"
         }
       ]
     },
@@ -54,9 +40,6 @@
       "missionary_list": [
         {
           "name": "Tim Dysert"
-        },
-        {
-          "name": "Larry Parks"
         }
       ]
     },
@@ -73,11 +56,7 @@
     },
     {
       "name": "Mexico",
-      "missionary_list": [
-        {
-          "name": "Bacilio Alfaro"
-        }
-      ]
+      "missionary_list": []
     },
     {
       "name": "Papua New Guinea",
@@ -153,11 +132,7 @@
     },
     {
       "name": "Indonesia",
-      "missionary_list": [
-        {
-          "name": "WeiChee Lam"
-        }
-      ]
+      "missionary_list": []
     },
     {
       "name": "Brazil",
