@@ -28,27 +28,27 @@ const handler = async function (event) {
 
   const DEFAULT_COUNT = 100
 
-  const responseToken = await fetch(`https://login.microsoftonline.com/${MS_APP_ID}/oauth2/token`,
-  {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: encodeParams({
-      'grant_type': 'password',
-      'client_id': MS_CLIENT_ID,
-      'client_secret': MS_CLIENT_SECRET,
-      'resource': 'https://graph.microsoft.com',
-      'username': MS_USERNAME,
-      'password': MS_PASSWORD,
-      'scope': `api://${MS_CLIENT_ID}/WebCalendarScope`
-    })
-  }
+  const responseToken = await fetch(`https://login.microsoftonline.com/${MS_APP_ID}/v2.0/oauth2/token`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: encodeParams({
+        'grant_type': 'password',
+        'client_id': MS_CLIENT_ID,
+        'client_secret': MS_CLIENT_SECRET,
+        'resource': 'https://graph.microsoft.com',
+        'username': MS_USERNAME,
+        'password': MS_PASSWORD,
+        'scope': `api://${MS_CLIENT_ID}/WebCalendarScope`
+      })
+    }
   )
-  
+
   const responseTokenBody = await responseToken.json()
   if (responseTokenBody.error) {
-    console.error(responseTokenBody.error)
+    console.error("[token error] " + responseTokenBody.error)
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "could not get events" })
@@ -63,7 +63,7 @@ const handler = async function (event) {
   const firstDay = new Date(Date.UTC(year, month, 1, 0, 0, 0, 0))
   const lastDay = new Date(Date.UTC(year, month, 1, 23, 59, 59, 999))
   lastDay.setUTCMonth(lastDay.getUTCMonth() + 1, 0)
-  
+
   const filterParams = concatParams({
     '$orderby': 'start/dateTime',
     '$select': 'subject,bodyPreview,webLink,isAllDay,isCancelled,categories,isOnlineMeeting,onlineMeetingUrl,start,end,location,recurrence',
@@ -81,12 +81,12 @@ const handler = async function (event) {
       }
     }
   )
-  
+
   const responseEventsListBody = await responseEventsList.json()
   const events = responseEventsListBody.value
 
   if (responseEventsListBody.error) {
-    console.error(responseEventsListBody.error)
+    console.error("[events list error] " + responseEventsListBody.error)
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "could not get events" })
