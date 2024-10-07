@@ -38,7 +38,6 @@ const handler = async function (event) {
         'grant_type': 'password',
         'client_id': MS_CLIENT_ID,
         'client_secret': MS_CLIENT_SECRET,
-        'resource': 'https://graph.microsoft.com',
         'username': MS_USERNAME,
         'password': MS_PASSWORD,
         'scope': `api://${MS_CLIENT_ID}/WebCalendarScope`
