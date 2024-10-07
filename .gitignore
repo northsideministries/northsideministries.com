@@ -98,3 +98,4 @@ sw.*
 # Other
 TODO.md
 old-dns.txt
+*.test
